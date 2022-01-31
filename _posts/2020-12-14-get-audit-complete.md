@@ -24,8 +24,8 @@ This method allows to get list of complete audits.
 * **`auditObjectGroupId`** - filter by audit object group id.
 * **`assignedTo`** - filter by assigned to user id.
 * **`assignedToGroup`** - filter by assigned to user group id.
-* **`fromDate`** - filter by audit due date.
-* **`tomDate`** - filter by audit due date.
+* **`fromDate`** - filter by audit due date UTC.
+* **`toDate`** - filter by audit due date UTC.
 * **`pageNumber`** - current page number, starts from 1.
 * **`pageSize`** - current page size.
 

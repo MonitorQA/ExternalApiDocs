@@ -7,7 +7,7 @@ type: 'PUT'
 layout: null
 ---
 
-This method allows to create new audit object.
+This method allows to update existing audit object.
 
 ### Request
 

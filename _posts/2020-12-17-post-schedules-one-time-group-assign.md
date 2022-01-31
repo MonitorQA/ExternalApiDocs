@@ -17,7 +17,7 @@ This method allows to create one-time audit for list of user groups.
 * **`name`** is audit name, **required**.
 * **`useRandomAuditor`** is a flag where to use random auditor from group or use evenly distributed auditor from groups.
 * **`assigneesGroupsIds`** is array of user group ids, which users audit is assigned to.
-* **`date`** is audit due date, **required**.
+* **`date`** is audit due date UTC, **required**.
 
 ```X-API-KEY:  abcdef12345```
 ```{

@@ -16,7 +16,7 @@ This method allows to create one-time audit for list of users.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is audit name, **required**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`date`** is audit due date, **required**.
+* **`date`** is audit due date UTC, **required**.
 
 ```X-API-KEY:  abcdef12345```
 ```{
