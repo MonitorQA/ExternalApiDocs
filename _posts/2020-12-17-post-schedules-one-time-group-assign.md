@@ -38,7 +38,7 @@ This method allows to create one-time audit for list of user groups.
 
 ### Response
 
-**If succeeds**, returns an id of created audit.
+**If succeeds**, returns an id of created schedule.
 
 ```Status: 200 OK```
 
