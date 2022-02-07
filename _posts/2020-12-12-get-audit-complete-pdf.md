@@ -19,6 +19,7 @@ This method allows to get pdf report of complete audit.
 * **`locale`** is report locale.
 * **`reportType`** is report type.
 * **`includePhotos`** is flag used to include photos into report.
+* **`ianaTimeZone`** valid name of timezone from [IANA Time Zone Database](https://www.iana.org/time-zones).
 
 
 ### Response
