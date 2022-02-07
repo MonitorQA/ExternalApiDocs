@@ -16,10 +16,8 @@ This method allows to get pdf report of complete audit.
 ```X-API-KEY:  abcdef12345```
 
 ### Optional Query String Parameters
-* **`locale`** is report locale.
-* **`reportType`** is report type.
+* **`reportType`** is report type (0 - Regular, 1 - Summary, 2 - Full)
 * **`includePhotos`** is flag used to include photos into report.
-* **`ianaTimeZone`** valid name of timezone from [IANA Time Zone Database](https://www.iana.org/time-zones).
 
 
 ### Response
