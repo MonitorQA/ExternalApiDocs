@@ -16,7 +16,8 @@ This method allows to create one-time audit for list of users.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is audit name, **required**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`date`** is audit due date UTC, **required**.
+* **`startDate`** is audit start date UTC, optional.
+* **`endDate`** is audit due date UTC, **required**.
 
 ```X-API-KEY:  abcdef12345```
 ```{
@@ -31,7 +32,8 @@ This method allows to create one-time audit for list of users.
   "assigneesIds": [
     "string"
   ],
-  "date": "2021-12-30T13:07:35.093Z"
+  "startDate": "2021-11-30T13:30:57.068Z",
+  "endDate": "2021-12-30T13:30:57.068Z"
 }```
 
 ### Response
