@@ -38,9 +38,14 @@ This method allows to filter given list of user ids by role permission.
   * CanManageSecurity = 22,
   * CanManageGeneralSetup = 23,
 
-* The body must include user ids list.
+* The body must include array of user ids.
 
 
+```X-API-KEY:  abcdef12345```
+
+```[
+    "string"
+]```
 
 ### Response
 
