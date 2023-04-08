@@ -57,7 +57,6 @@ This method allows to get details of complete audit.
   },
   "startDate": "2021-12-30T14:11:23.202Z",
   "endDate": "2021-12-30T14:11:23.202Z",
-  "actionsCount": 0,
   "score": 0,
   "scoreLabel": "string",
   "scoreColor": "string",
