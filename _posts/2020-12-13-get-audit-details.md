@@ -1,23 +1,23 @@
 ---
 category: Audit
-url_path: '/audit/complete/{auditId}'
-title: 'Get details of complete audit'
+url_path: '/audit/{auditId}'
+title: 'Get details of audit'
 type: 'GET'
 
 layout: null
 ---
 
-This method allows to get details of complete audit.
+This method allows to get details of audit.
 
 ### Request
-* **`{auditId}`** is id of complete audit, **required**.
+* **`{auditId}`** is id of audit, **required**.
 * The headers must include a **valid api key**.
 
 ```X-API-KEY:  abcdef12345```
 
 ### Response
 
-**If succeeds**, returns complete audit details.
+**If succeeds**, returns audit details.
 
 ```Status: 200 OK```
 
@@ -54,6 +54,7 @@ This method allows to get details of complete audit.
   "startedAt": "2021-12-30T14:11:23.202Z",
   "isCompleted": true,
   "completeDate": "2021-12-30T14:11:23.202Z",
+  "isExpired": false,
   "isReopened": true,
   "completedBy": {
     "id": "string",
