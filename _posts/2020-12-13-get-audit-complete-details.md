@@ -54,6 +54,7 @@ This method allows to get details of complete audit.
   "startedAt": "2021-12-30T14:11:23.202Z",
   "isCompleted": true,
   "completeDate": "2021-12-30T14:11:23.202Z",
+  "isExpired": false,
   "isReopened": true,
   "completedBy": {
     "id": "string",

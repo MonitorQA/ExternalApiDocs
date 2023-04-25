@@ -1,13 +1,13 @@
 ---
-category: Api Key Test
-url_path: '/hello'
-title: 'Test Api Key authentication'
+category: Company Information
+url_path: '/company'
+title: 'Get company information'
 type: 'GET'
 
 layout: null
 ---
 
-This method allows to test api key authentication
+This method allows to get company information 
 
 ### Request
 
@@ -15,11 +15,12 @@ This method allows to test api key authentication
 
 ### Response
 
-Returns a hello message
+Returns 
 
 ```Status: 200 OK```
 ```{
-  "message": "string"
+  "id": "string",
+  "name": "string"
 }```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
