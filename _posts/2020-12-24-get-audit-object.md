@@ -21,14 +21,7 @@ Returns details of audit object.
 ```Status: 200 OK```
 ```{
   "id": "string",
-  "name": "string",
-  "tags": [
-    {
-      "id": "string",
-      "name": "string",
-      "color": "string"
-    }
-  ],
+  "name": "string",  
   "participantUserGroups": [
     {
       "id": "string",
