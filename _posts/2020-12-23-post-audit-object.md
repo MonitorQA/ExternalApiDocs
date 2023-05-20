@@ -15,8 +15,6 @@ This method allows to create new audit object.
 * The body must include audit object data.
 * **`name`** is audit object name, **required**.
 * **`geoAddress`** is audit object address information.
-* **`participanUserIds`** is array of user ids.
-* **`participantUserGroupIds`** is array of user group ids.
 
 ```X-API-KEY:  abcdef12345```
 
@@ -27,13 +25,7 @@ This method allows to create new audit object.
     "lng": "string",
     "name": "string",
     "address": "string"
-  },
-  "participantUserIds": [
-    "string"
-  ],
-  "participantUserGroupIds": [
-    "string"
-  ]
+  }
 }```
 
 ### Response
