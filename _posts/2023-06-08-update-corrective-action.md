@@ -16,10 +16,10 @@ This method allows to update details of corrective action.
 
 * **assignedUsersIds** - array of user ids 
 * **description** - corrective action decription
-* **name** - corrective action name *required*
-* **dueDateUtc** - corrective action due date *required*
-* **status** - corrective action status *required*
-* **priority** - corrective action priority *required*
+* **name** - corrective action name, **required**
+* **dueDateUtc** - corrective action due date, **required**
+* **status** - corrective action status, **required**
+* **priority** - corrective action priority, **required**
 
 ```{
    "assignedUsersIds": [string],
