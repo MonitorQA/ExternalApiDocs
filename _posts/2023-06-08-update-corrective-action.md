@@ -15,7 +15,7 @@ This method allows to update details of corrective action.
 * The headers must include a **valid api key**.
 
 * **assignedUsersIds** - array of user ids 
-* **description** - corrective action decription *required*
+* **description** - corrective action decription
 * **name** - corrective action name *required*
 * **dueDateUtc** - corrective action due date *required*
 * **status** - corrective action status *required*
