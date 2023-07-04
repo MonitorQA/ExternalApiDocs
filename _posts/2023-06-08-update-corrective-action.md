@@ -14,15 +14,20 @@ This method allows to update details of corrective action.
 * **`{id}`** is the id of corrective action, **required**.
 * The headers must include a **valid api key**.
 
-Null-value fields are ignored on update
+* **assignedUsersIds** - array of user ids 
+* **description** - corrective action decription *required*
+* **name** - corrective action name *required*
+* **dueDateUtc** - corrective action due date *required*
+* **status** - corrective action status *required*
+* **priority** - corrective action priority *required*
 
 ```{
-   "AssignedUsersIds": [string],
-   "Description": string,
-   "Name": string,
-   "DueDateUtc": date,
-   "Status": 0,
-   "Priority": 0
+   "assignedUsersIds": [string],
+   "description": string,
+   "name": string,
+   "dueDateUtc": date,
+   "status": 0,
+   "priority": 0
 }```
 
 ### Response
