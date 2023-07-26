@@ -1,22 +1,30 @@
 ---
 category: Audits
-url_path: '/audit/{id}'
+url_path: '/audit'
 title: 'Delete Audit'
 type: 'DELETE'
 
 layout: null
 ---
 
-This method allows to delete single audit.
+This method allows to delete audits.
 
 ### Request
 
-* **`{id}`** is the id of audit, **required**.
 * The headers must include a **valid api key**.
+* The body must include array of audits ids.
+
+```X-API-KEY:  abcdef12345```
+
+```{
+  "ids": [
+    "string"
+  ]
+}```
 
 ### Response
 
-**If succeeds**, returns empty response
+**If succeeds**, returns an empty response.
 
 ```Status: 200 OK```
 
