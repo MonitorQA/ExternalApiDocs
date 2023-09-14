@@ -1,5 +1,5 @@
 ---
-category: Audit
+category: Audits
 url_path: '/audit/pending'
 title: 'Get list of pending audits'
 type: 'GET'
