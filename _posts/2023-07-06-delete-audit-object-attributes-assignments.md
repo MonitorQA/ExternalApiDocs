@@ -7,7 +7,7 @@ type: 'DELETE'
 layout: null
 ---
 
-This method allows to delete attributes assignments from audit object.
+This method allows to delete attributes assignments from audit object. Invalid attribute ids and options ids are ignored.
 
 ### Request
 
