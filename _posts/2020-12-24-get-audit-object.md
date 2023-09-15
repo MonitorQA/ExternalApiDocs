@@ -37,6 +37,14 @@ Returns details of audit object.
   "auditObjectGroupIds": [
     "string"
   ],
+  "attributes": [
+      {
+         "attributeId": string,
+         "attributeName": string,
+         "optionId": string,
+         "optionName": string
+      }
+  ],    
   "geoAddress": {
     "lat": "string",
     "lng": "string",

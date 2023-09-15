@@ -1,5 +1,5 @@
 ---
-category: Audit
+category: Audits
 url_path: '/audit/{auditId}'
 title: 'Get details of audit'
 type: 'GET'

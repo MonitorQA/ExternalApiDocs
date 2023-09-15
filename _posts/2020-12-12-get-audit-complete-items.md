@@ -1,5 +1,5 @@
 ---
-category: Audit
+category: Audits
 url_path: '/audit/complete/{auditId}/report'
 title: 'Get audit report'
 type: 'GET'
