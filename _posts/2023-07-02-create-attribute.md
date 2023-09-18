@@ -7,7 +7,7 @@ type: 'POST'
 layout: null
 ---
 
-This method allows to create audit object attribute. First option with isDefault: true will be save as default value.
+This method allows to create audit object attribute. First option with isDefault: true will be save as default value. Options array should contain at least one option.
 
 ### Request
 

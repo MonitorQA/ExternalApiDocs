@@ -8,6 +8,7 @@ layout: null
 ---
 
 This method allows to update audit object attribute. First option with isDefault: true will be save as default value. Existing options should have "id" property. Options without "id" will be created. Options not listed in request will be deleted and audit object attribute assignments for these options will be deleted.
+Options array should contain at least one option.
 
 ### Request
 
@@ -20,12 +21,12 @@ This method allows to update audit object attribute. First option with isDefault
 
 ```{
    "options": [
-      {
+      { // update option
          "isDefault": boolean
          "name": string, required
          "id": string         
       },
-      {
+      { // create new option
          "isDefault": boolean
          "name": string, required
       }
