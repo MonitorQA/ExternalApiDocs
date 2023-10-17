@@ -1,7 +1,7 @@
 ---
 category: Audit Object Attributes
 url_path: '/audit/objects/attributes/{id}'
-title: 'Audit Object Attribute Details'
+title: 'Get Audit Object Attribute Details'
 type: 'GET'
 
 layout: null
