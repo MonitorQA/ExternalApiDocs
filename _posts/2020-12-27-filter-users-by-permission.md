@@ -49,11 +49,15 @@ This method allows to filter given list of user ids by role permission.
 
 ### Response
 
-Returns list of user ids from posted list with role permission enabled.
+Returns a collection of company users from posted list with role permission enabled.
 
 ```Status: 200 OK```
 ```[
-  "string"
+  {
+    "id": "string",
+    "name": "string",
+    "email": "string"
+  }
 ]```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
