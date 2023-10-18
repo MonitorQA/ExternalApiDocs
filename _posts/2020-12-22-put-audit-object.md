@@ -16,7 +16,7 @@ This method allows to update existing audit object.
 
 * The body must include audit object data.
 * **`name`** is audit object name, **required**.
-* **`geoAddress`** is audit object address information.
+* **`geoAddress`** is audit object address information. All fields of geoAddress are **required** when geoAdress is not null.
 
 ```X-API-KEY:  abcdef12345```
 
