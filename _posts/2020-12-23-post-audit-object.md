@@ -14,6 +14,7 @@ This method allows to create new audit object.
 * The headers must include a **valid api key**.
 * The body must include audit object data.
 * **`name`** is audit object name, **required**.
+* **`notes`** is audit object notes visible for auditor during audit, **max length is 800 chracters**.
 * **`geoAddress`** is audit object address information. All fields of geoAddress are **required** when geoAdress is not null.
 
 
@@ -21,6 +22,7 @@ This method allows to create new audit object.
 
 ```{
   "name": "string",
+  "notes": "string",
   "geoAddress": {
     "lat": "string",
     "lng": "string",

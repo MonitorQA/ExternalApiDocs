@@ -22,12 +22,14 @@ This method allows to get details of complete audit.
 ```Status: 200 OK```
 
 ```{
-  "id": "string",
+  "id": "string",  
   "companyId": "string",
   "number": "string",
+  "auditorHint": "string",
   "auditObject": {
     "id": "string",
-    "name": "string"
+    "name": "string",
+    "notes": "string"
   },
   "startedBy": {
     "id": "string",
