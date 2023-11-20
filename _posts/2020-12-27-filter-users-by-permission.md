@@ -34,6 +34,7 @@ This method allows to filter given list of user ids by role permission.
   * CanManageScoreSystems = 20,
   * CanManageBilling = 21,
   * CanManageGeneralSetup = 23,
+  * CanAccessNonParticipantAuditObject = 24
 
 * The body must include array of user ids.
 
