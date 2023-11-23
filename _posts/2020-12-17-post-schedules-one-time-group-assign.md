@@ -15,6 +15,7 @@ This method allows to create one-time audit for list of user groups.
 * **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is audit name, **required**.
+* **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`useRandomAuditor`** is a flag where to use random auditor from group or use evenly distributed auditor from groups.
 * **`assigneesGroupsIds`** is array of user group ids, which users audit is assigned to.
 * **`startDate`** is audit start date UTC, optional.
@@ -30,6 +31,7 @@ This method allows to create one-time audit for list of user groups.
     "string"
   ],
   "name": "string",
+  "auditorHint" : "string",
   "useRandomAuditor": true,
   "assigneesGroupsIds": [
     "string"

@@ -21,13 +21,11 @@ This method allows to filter given list of user ids by role permission.
   * CanCreateInstantAudits = 5,
   * CanViewAuditResults = 6,
   * CanManageCorrectiveActions = 7,
-  * CanCreateOrDeleteCorrectiveActions = 8,
   * CanApproveCorrectiveActions = 9,
   * CanAssignCorrectiveActions = 10,
   * CanDoCorrectiveActions = 11,
   * CanViewCorrectiveActions = 12,
   * CanViewAnalytics = 13,
-  * CanManageNotifications = 14,
   * CanManageAuditObjects = 15,
   * CanManageAuditTemplates = 16,
   * CanManageUsers = 17,
@@ -35,8 +33,8 @@ This method allows to filter given list of user ids by role permission.
   * CanManageRoles = 19,
   * CanManageScoreSystems = 20,
   * CanManageBilling = 21,
-  * CanManageSecurity = 22,
   * CanManageGeneralSetup = 23,
+  * CanAccessNonParticipantAuditObject = 24
 
 * The body must include array of user ids.
 

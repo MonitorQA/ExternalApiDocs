@@ -23,11 +23,13 @@ This method allows to get details of audit.
 
 ```{
   "id": "string",
+  "auditorHint": "string",
   "companyId": "string",
   "number": "string",
   "auditObject": {
     "id": "string",
-    "name": "string"
+    "name": "string",
+    "notes": "string"
   },
   "startedBy": {
     "id": "string",
