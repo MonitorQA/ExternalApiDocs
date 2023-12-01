@@ -67,7 +67,8 @@ This method allows to get details of complete audit.
   "score": 0,
   "scoreLabel": "string",
   "scoreColor": "string",
-  "completionTime": 0
+  "completionTime": 0,
+  "reportUrl": "string"
 }```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
