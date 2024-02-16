@@ -26,8 +26,17 @@ This method allows to get list of complete audits.
 * **`assignedToGroup`** - filter by assigned to user group id.
 * **`fromDate`** - filter by audit completion date UTC.
 * **`toDate`** - filter by audit completion date UTC.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
+* **`pageNumber`** - current page number, starts from 1 (default value is 1).
+* **`pageSize`** - current page size (default value is 100).
+* **`orderBy`** - field name to sort audits by (default value is 'name').
+* **`orderByDirection`** - audits sorting direction.
+
+Accepted values for **`orderBy`**:
+* **`number`** - sort by audit number
+* **`auditObjectName`** - sort by audit object name
+* **`score`** - sort by score value
+* **`completeDate`** - sort by audit completion date
+* **`completedBy`** - sort by completed by user name
 
 ### Response
 
