@@ -25,6 +25,14 @@ This method allows to get list of pending audits.
 * **`toDate`** - filter by audit due date UTC.
 * **`pageNumber`** - current page number, starts from 1.
 * **`pageSize`** - current page size.
+* **`orderBy`** - field name to sort audits by (default value is 'name').
+* **`orderByDirection`** - audits sorting direction.
+
+Accepted values for **`orderBy`**:
+* **`name`** - sort by audit name
+* **`auditObjectName`** - sort by audit object name
+* **`endDate`** - sort by audit end date
+* **`assignedTo`** - sort by assigned user name
 
 ### Response
 
