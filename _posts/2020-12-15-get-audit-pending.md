@@ -34,6 +34,10 @@ Accepted values for **`orderBy`**:
 * **`endDate`** - sort by audit end date
 * **`assignedTo`** - sort by assigned user name
 
+Accepted values for **`orderByDirection`**:
+* **`asc`** - ascending
+* **`desc`** - descending
+
 ### Response
 
 **If succeeds**, returns a list of audit details.
