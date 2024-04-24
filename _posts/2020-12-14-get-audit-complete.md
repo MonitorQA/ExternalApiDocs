@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/complete'
 title: 'Get list of complete audits'
 type: 'GET'
-
+order: 8
 layout: null
 ---
 

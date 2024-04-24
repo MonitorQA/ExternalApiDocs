@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/pending'
 title: 'Get list of pending audits'
 type: 'GET'
-
+order: 6
 layout: null
 ---
 

@@ -1,9 +1,9 @@
 ---
-category: Audit Objects
+category: 5. Audit Objects
 url_path: '/audit/objects'
 title: 'Delete audit objects'
 type: 'DELETE'
-
+order: 21
 layout: null
 ---
 

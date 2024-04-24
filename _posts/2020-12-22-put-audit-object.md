@@ -1,9 +1,9 @@
 ---
-category: Audit Objects
+category: 5. Audit Objects
 url_path: '/audit/objects/{id}'
 title: 'Update an audit object'
 type: 'PUT'
-
+order: 20
 layout: null
 ---
 

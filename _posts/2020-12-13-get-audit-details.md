@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/{auditId}'
 title: 'Get details of audit'
 type: 'GET'
-
+order: 7
 layout: null
 ---
 

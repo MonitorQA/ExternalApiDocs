@@ -1,9 +1,9 @@
 ---
-category: Corrective Actions
+category: 9. Corrective Actions
 url_path: '/corrective-actions/{id}'
 title: 'Get corrective action details'
 type: 'GET'
-
+order: 4
 layout: null
 ---
 

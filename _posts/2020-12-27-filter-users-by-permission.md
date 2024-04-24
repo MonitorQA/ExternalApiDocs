@@ -1,9 +1,9 @@
 ---
-category: Users
+category: 7. Users
 url_path: '/users/have-permission/{permissionType}'
 title: 'Filter users by permission'
 type: 'POST'
-
+order: 24
 layout: null
 ---
 

@@ -1,9 +1,9 @@
 ---
-category: Audit Objects
+category: 11. Audit Objects
 url_path: '/audit/objects/{id}/attributes'
 title: 'Assign Attributes to Audit Object'
 type: 'POST'
-
+order: 1
 layout: null
 ---
 

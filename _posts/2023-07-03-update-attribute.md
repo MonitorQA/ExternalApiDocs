@@ -1,9 +1,9 @@
 ---
-category: Audit Object Attributes
+category: 10. Audit Object Attributes
 url_path: '/audit/objects/attributes/{id}'
 title: 'Update Audit Object Attribute'
 type: 'PUT'
-
+order: 4
 layout: null
 ---
 

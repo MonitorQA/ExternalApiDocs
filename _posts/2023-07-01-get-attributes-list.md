@@ -1,9 +1,9 @@
 ---
-category: Audit Object Attributes
+category: 10. Audit Object Attributes
 url_path: '/audit/objects/attributes/all'
 title: 'Get Audit Object Attributes List'
 type: 'GET'
-
+order: 1
 layout: null
 ---
 

@@ -1,9 +1,9 @@
 ---
-category: Company Information
+category: 8. Company Information
 url_path: '/company'
 title: 'Get company information'
 type: 'GET'
-
+order: 25
 layout: null
 ---
 

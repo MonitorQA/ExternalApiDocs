@@ -1,9 +1,9 @@
 ---
-category: User Groups
+category: 6. User Groups
 url_path: '/user-groups'
 title: 'Get list of user groups'
 type: 'GET'
-
+order: 22
 layout: null
 ---
 
