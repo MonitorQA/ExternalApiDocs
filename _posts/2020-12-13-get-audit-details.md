@@ -40,12 +40,6 @@ This method allows to get details of audit.
     "id": "string",
     "name": "string"
   },
-  "auditSchedule": {
-    "id": "string",
-    "name": "string",
-    "repeatPattern": 0,
-    "templateId": "string"
-  },
   "assignees": [
     {
       "id": "string",
