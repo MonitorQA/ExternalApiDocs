@@ -62,12 +62,6 @@ Accepted values for **`orderByDirection`**:
         "id": "string",
         "name": "string"
       },
-      "auditSchedule": {
-        "id": "string",
-        "name": "string",
-        "repeatPattern": 0,
-        "templateId": "string"
-      },
       "endDate": "2021-12-30T13:57:38.999Z",
       "number": "string",
       "startDate": "2021-12-30T13:57:38.999Z",
