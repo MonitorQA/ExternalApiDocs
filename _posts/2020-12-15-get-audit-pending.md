@@ -48,6 +48,7 @@ Accepted values for **`orderByDirection`**:
   "data": [
     {
       "id": "string",
+      "name": "string",
       "assignees": [
         {
           "id": "string",
