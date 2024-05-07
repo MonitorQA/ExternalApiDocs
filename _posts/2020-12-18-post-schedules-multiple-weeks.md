@@ -1,13 +1,13 @@
 ---
 category: 3. Schedules
-url_path: '/schedules/one-time'
-title: 'Create one-time audit'
+url_path: '/schedules/multiple-weeks'
+title: '[SOON] Create multiple weeks schedule'
 type: 'POST'
-order: 13
+order: 16
 layout: null
 ---
 
-This method allows to create one-time audit for list of users.
+This method allows to create multiple weeks schedule for list of users. It will create new audits each *repeatEvery* week at selected *startDay* day of week.
 
 ### Request
 * The headers must include a **valid api key**.
@@ -17,8 +17,10 @@ This method allows to create one-time audit for list of users.
 * **`name`** is audit name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`startDate`** is audit start date UTC, optional.
-* **`endDate`** is audit due date UTC, **required**.
+* **`repeatEvery`** is repeat value - how often create audit in weeks. 
+* **`startDay`** is audit start month day, **required**. **values: 0 - Sun, 1 - Mon, 2 - Tue, 3 - Wed, 4 - Thru, 5 - Fri, 6 - Sat**.
+* **`duration`** is audit duration in days, **required**. **value in range from 1 to *repeatEvery*\*7**
+
 
 ```X-API-KEY:  abcdef12345```
 ```{
@@ -34,8 +36,9 @@ This method allows to create one-time audit for list of users.
   "assigneesIds": [
     "string"
   ],
-  "startDate": "2021-11-30T13:30:57.068Z",
-  "endDate": "2021-12-30T13:30:57.068Z"
+  "repeatEvery": 2,
+  "startDay": 1,
+  "duration": 14
 }```
 
 ### Response

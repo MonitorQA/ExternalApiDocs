@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/one-time/{scheduleId}'
 title: '[DEPRECATED] Update one-time audit schedule'
 type: 'PUT'
-order: 14
+order: 29
 layout: null
 ---
 *WARNING! THIS METHOD WILL BE REMOVED SOON*

@@ -1,13 +1,13 @@
 ---
 category: 3. Schedules
-url_path: '/schedules/one-time'
-title: 'Create one-time audit'
+url_path: '/schedules/daily'
+title: '[SOON] Create daily schedule'
 type: 'POST'
-order: 13
+order: 14
 layout: null
 ---
 
-This method allows to create one-time audit for list of users.
+This method allows to create daily schedule for list of users. It will create audits each *repeatEvery* day.
 
 ### Request
 * The headers must include a **valid api key**.
@@ -17,8 +17,7 @@ This method allows to create one-time audit for list of users.
 * **`name`** is audit name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`startDate`** is audit start date UTC, optional.
-* **`endDate`** is audit due date UTC, **required**.
+* **`repeatEvery`** is repeat value - how often to create audits in days. **required**, **value in range 1 to 10**.
 
 ```X-API-KEY:  abcdef12345```
 ```{
@@ -34,8 +33,7 @@ This method allows to create one-time audit for list of users.
   "assigneesIds": [
     "string"
   ],
-  "startDate": "2021-11-30T13:30:57.068Z",
-  "endDate": "2021-12-30T13:30:57.068Z"
+  "repeatEvery": 3
 }```
 
 ### Response
