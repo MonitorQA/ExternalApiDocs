@@ -1,9 +1,9 @@
 ---
-category: Corrective Actions
+category: 9. Corrective Actions
 url_path: '/corrective-actions/pending'
 title: 'Get pending corrective actions list'
 type: 'GET'
-
+order: 1
 layout: null
 ---
 

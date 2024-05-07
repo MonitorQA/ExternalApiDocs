@@ -1,9 +1,9 @@
 ---
-category: Audit Objects
+category: 5. Audit Objects
 url_path: '/audit/object/{id}'
 title: 'Get an audit object details'
 type: 'GET'
-
+order: 18
 layout: null
 ---
 

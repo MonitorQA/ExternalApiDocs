@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/pending'
 title: 'Get list of pending audits'
 type: 'GET'
-
+order: 6
 layout: null
 ---
 
@@ -48,6 +48,7 @@ Accepted values for **`orderByDirection`**:
   "data": [
     {
       "id": "string",
+      "name": "string",
       "assignees": [
         {
           "id": "string",
@@ -57,12 +58,6 @@ Accepted values for **`orderByDirection`**:
       "auditObject": {
         "id": "string",
         "name": "string"
-      },
-      "auditSchedule": {
-        "id": "string",
-        "name": "string",
-        "repeatPattern": 0,
-        "templateId": "string"
       },
       "endDate": "2021-12-30T13:46:13.413Z",
       "number": "string",

@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/complete'
 title: 'Get list of complete audits'
 type: 'GET'
-
+order: 8
 layout: null
 ---
 
@@ -52,6 +52,7 @@ Accepted values for **`orderByDirection`**:
   "data": [
     {
       "id": "string",
+      "name": "string",
       "assignees": [
         {
           "id": "string",
@@ -61,12 +62,6 @@ Accepted values for **`orderByDirection`**:
       "auditObject": {
         "id": "string",
         "name": "string"
-      },
-      "auditSchedule": {
-        "id": "string",
-        "name": "string",
-        "repeatPattern": 0,
-        "templateId": "string"
       },
       "endDate": "2021-12-30T13:57:38.999Z",
       "number": "string",

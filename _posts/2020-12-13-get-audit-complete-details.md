@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/complete/{auditId}'
 title: 'Get details of complete audit'
 type: 'GET'
-
+order: 9
 layout: null
 ---
 
@@ -39,12 +39,6 @@ This method allows to get details of complete audit.
   "template": {
     "id": "string",
     "name": "string"
-  },
-  "auditSchedule": {
-    "id": "string",
-    "name": "string",
-    "repeatPattern": 0,
-    "templateId": "string"
   },
   "assignees": [
     {

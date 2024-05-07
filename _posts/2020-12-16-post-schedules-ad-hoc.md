@@ -1,9 +1,9 @@
 ---
-category: Schedules
+category: 3. Schedules
 url_path: '/schedules/ad-hoc'
 title: 'Create ad-hoc audit for user'
 type: 'POST'
-
+order: 12
 layout: null
 ---
 

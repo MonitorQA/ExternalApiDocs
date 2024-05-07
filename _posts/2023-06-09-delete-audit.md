@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit'
 title: 'Delete Audit'
 type: 'DELETE'
-
+order: 25
 layout: null
 ---
 

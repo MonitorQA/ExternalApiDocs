@@ -1,18 +1,18 @@
 ---
-category: 5. Audit Objects
-url_path: '/audit/objects'
-title: 'Delete audit objects'
+category: 3. Schedules
+url_path: '/schedules'
+title: '[SOON] Delete schedules'
 type: 'DELETE'
-order: 21
+order: 23
 layout: null
 ---
 
-This method allows to delete a number of audit objects.
+This method allows to delete a number of schedules. **All not started audits for selected schedules will be deleted**
 
 ### Request
 
 * The headers must include a **valid api key**.
-* The body must include array of audit object ids.
+* The body must include array of schedules ids.
 
 ```X-API-KEY:  abcdef12345```
 

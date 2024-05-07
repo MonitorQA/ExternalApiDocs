@@ -1,13 +1,13 @@
 ---
 category: 3. Schedules
-url_path: '/schedules/one-time'
-title: 'Create one-time audit'
+url_path: '/schedules/monthly'
+title: '[SOON] Create monthly schedule'
 type: 'POST'
-order: 13
+order: 17
 layout: null
 ---
 
-This method allows to create one-time audit for list of users.
+This method allows to create monthly schedule for list of users. It will create new audits each *repeatEvery* month at selected *startDay*.
 
 ### Request
 * The headers must include a **valid api key**.
@@ -17,8 +17,10 @@ This method allows to create one-time audit for list of users.
 * **`name`** is audit name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`startDate`** is audit start date UTC, optional.
-* **`endDate`** is audit due date UTC, **required**.
+* **`repeatEvery`** is repeat value - how often create audit in months. 
+* **`startDay`** is audit start month day, **required**. **value in range from 1 to 31**. If there are no date with this number, last day of month will be used.
+* **`duration`** is audit duration in days, **required**. **value in range from 1 to *repeatEvery*\*31**
+
 
 ```X-API-KEY:  abcdef12345```
 ```{
@@ -34,8 +36,9 @@ This method allows to create one-time audit for list of users.
   "assigneesIds": [
     "string"
   ],
-  "startDate": "2021-11-30T13:30:57.068Z",
-  "endDate": "2021-12-30T13:30:57.068Z"
+  "repeatEvery": 1,
+  "startDay": 2,
+  "duration": 18
 }```
 
 ### Response

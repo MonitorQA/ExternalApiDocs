@@ -1,9 +1,9 @@
 ---
-category: Audits
+category: 2. Audits
 url_path: '/audit/{auditId}'
 title: 'Get details of audit'
 type: 'GET'
-
+order: 7
 layout: null
 ---
 
@@ -39,12 +39,6 @@ This method allows to get details of audit.
   "template": {
     "id": "string",
     "name": "string"
-  },
-  "auditSchedule": {
-    "id": "string",
-    "name": "string",
-    "repeatPattern": 0,
-    "templateId": "string"
   },
   "assignees": [
     {

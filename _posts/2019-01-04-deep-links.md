@@ -1,5 +1,5 @@
 ---
-category: General
+category: 1. General
 url_path: '/deep-links'
 title: 'Deep Links'
 order: 4
