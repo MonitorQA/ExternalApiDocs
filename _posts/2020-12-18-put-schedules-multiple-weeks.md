@@ -1,6 +1,6 @@
 ---
 category: 3. Schedules
-url_path: '/schedules/multiple-weeks'
+url_path: '/schedules/multiple-weeks/{scheduleId}'
 title: '[SOON] Update multiple weeks schedule'
 type: 'PUT'
 order: 20
