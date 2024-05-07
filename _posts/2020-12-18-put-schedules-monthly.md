@@ -1,6 +1,6 @@
 ---
 category: 3. Schedules
-url_path: '/schedules/monthly'
+url_path: '/schedules/monthly/{scheduleId}'
 title: '[SOON] Update monthly schedule'
 type: 'PUT'
 order: 21
