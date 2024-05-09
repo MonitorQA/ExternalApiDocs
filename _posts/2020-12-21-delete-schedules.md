@@ -1,13 +1,15 @@
 ---
 category: 3. Schedules
 url_path: '/schedules'
-title: '[SOON] Delete schedules'
+title: 'Delete schedules'
 type: 'DELETE'
 order: 23
 layout: null
 ---
 
-This method allows to delete a number of schedules. **All not started audits for selected schedules will be deleted**
+This method allows to delete a number of schedules.
+
+**All not started audits for selected schedules will be deleted**
 
 ### Request
 

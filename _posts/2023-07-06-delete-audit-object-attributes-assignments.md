@@ -1,5 +1,5 @@
 ---
-category: 12. Audit Objects
+category: 5. Audit Objects
 url_path: '/audit/objects/{id}/attributes'
 title: 'Delete Attributes Assignments from Audit Object'
 type: 'DELETE'
