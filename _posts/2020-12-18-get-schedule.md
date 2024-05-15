@@ -21,6 +21,8 @@ This method allows to get schedule details.
 * **`id`** is schedule id.
 * **`name`** is schedule name.
 * **`active`** is schedule status - inactive schedule doesn't generate audits.
+* **`stopByDate`** is schedule last active date. Schedule will be deactivated after this date and will not generate new audits.
+* **`startFromDate`** is schedule activation date. Schedule will be activated at this date and will generate new audits.
 * **`auditorHint`** is auditor hint visible during audit.
 * **`template`** is information about template.
 * **`assignees`** is information about users assigned to this schedule.
@@ -82,6 +84,8 @@ Weekly audits repeat options:
    "id": string,
    "name": string,
    "active": boolean,
+   "stopByDate": datetime,
+   "startFromDate": datetime,
    "auditorHint": string,
    "template": {
       "id": string,
