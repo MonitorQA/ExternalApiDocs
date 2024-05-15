@@ -13,7 +13,8 @@ This method allows to get list of active schedules.
 * The headers must include a **valid api key**.
 
 ### Optional Query String Parameters
-* **`auditObjectId`** - filter by audit object ids.
+* **`auditObjectId`** - filter by audit object id.
+* **`auditObjectGroupId`** - filter by audit object group id.
 * **`pageNumber`** - current page number, starts from 1.
 * **`pageSize`** - current page size.
 * **`orderBy`** - field name to sort audits by \(default value is 'name'\).
@@ -51,7 +52,15 @@ See [schedule details](#/get-schedule) for details about **`repeatPattern`** and
          },
          "repeat": {
             "repeatEvery": 3
-         }
+         },
+         "auditObjects: [{
+            "id": string,
+            "name": string
+         }],
+         "auditObjectGroups": [{
+            "id": string,
+            "name": string
+         }]
       }
   ],
   "meta": {
