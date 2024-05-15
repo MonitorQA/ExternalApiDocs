@@ -1,11 +1,12 @@
 ---
 category: 3. Schedules
 url_path: '/schedules/ad-hoc'
-title: 'Create ad-hoc audit for user'
+title: '[DEPRECATED] Create ad-hoc audit for user'
 type: 'POST'
 order: 12
 layout: null
 ---
+**THIS METHOD WILL BE REPLACED WITH [Create one-time audit](#/post-audit)**
 
 This method allows to create ad-hoc audit for specified user.
 
