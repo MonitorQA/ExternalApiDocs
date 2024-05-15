@@ -1,7 +1,7 @@
 ---
 category: 3. Schedules
 url_path: '/schedules/ad-hoc'
-title: '[DEPRECATED] Create ad-hoc audit for user'
+title: '[DEPRECATED] Create ad-hoc audit'
 type: 'POST'
 order: 12
 layout: null

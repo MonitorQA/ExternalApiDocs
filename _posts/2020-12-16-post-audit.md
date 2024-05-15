@@ -1,7 +1,7 @@
 ---
 category: 2. Audits
 url_path: '/audit'
-title: '[SOON] Create one-time audit'
+title: 'Create one-time audit'
 type: 'POST'
 order: 1
 layout: null

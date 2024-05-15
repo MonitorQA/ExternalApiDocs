@@ -20,6 +20,7 @@ This method allows to get schedule details.
 
 * **`id`** is schedule id.
 * **`name`** is schedule name.
+* **`active`** is schedule status - inactive schedule doesn't generate audits.
 * **`auditorHint`** is auditor hint visible during audit.
 * **`template`** is information about template.
 * **`assignees`** is information about users assigned to this schedule.
@@ -80,6 +81,7 @@ Weekly audits repeat options:
 ```{
    "id": string,
    "name": string,
+   "active": boolean,
    "auditorHint": string,
    "template": {
       "id": string,
