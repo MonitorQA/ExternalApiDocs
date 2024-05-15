@@ -2,7 +2,7 @@
 category: 3. Schedules
 url_path: '/schedules'
 title: 'Get schedules list'
-type: 'POST'
+type: 'GET'
 order: 1
 layout: null
 ---
@@ -13,7 +13,8 @@ This method allows to get list of active schedules.
 * The headers must include a **valid api key**.
 
 ### Optional Query String Parameters
-* **`auditObjectIds`** - filter by array of audit objects ids.
+* **`auditObjectId`** - filter by audit object id.
+* **`auditObjectGroupId`** - filter by audit object group id.
 * **`pageNumber`** - current page number, starts from 1.
 * **`pageSize`** - current page size.
 * **`orderBy`** - field name to sort audits by \(default value is 'name'\).
@@ -30,16 +31,6 @@ Accepted values for **`orderByDirection`**:
 ### Example
 
 ```X-API-KEY:  abcdef12345```
-
-```{
-  "auditObjectIds": [
-    "string"
-  ],  
-  "pageSize": number,
-  "pageNumber": number,
-  "orderBy": "name" | "auditObject",
-  "orderByDirection: "asc" | "desc"
-}```
 
 ### Response
 
@@ -61,7 +52,15 @@ See [schedule details](#/get-schedule) for details about **`repeatPattern`** and
          },
          "repeat": {
             "repeatEvery": 3
-         }
+         },
+         "auditObjects: [{
+            "id": string,
+            "name": string
+         }],
+         "auditObjectGroups": [{
+            "id": string,
+            "name": string
+         }]
       }
   ],
   "meta": {
