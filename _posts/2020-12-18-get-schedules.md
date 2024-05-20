@@ -46,6 +46,9 @@ See [schedule details](#/get-schedule) for details about **`repeatPattern`** and
          "id": string,
          "name": string,
          "repeatPattern": 1,
+         "active": boolean,
+         "stopByDate": datetime,
+         "startFromDate": datetime,
          "template": {
             "id": string,
             "name": string

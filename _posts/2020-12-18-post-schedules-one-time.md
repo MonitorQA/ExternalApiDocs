@@ -1,13 +1,13 @@
 ---
 category: 3. Schedules
 url_path: '/schedules/one-time'
-title: 'Create one-time audit'
+title: 'Create one-time schedule'
 type: 'POST'
 order: 13
 layout: null
 ---
 
-This method allows to create one-time audit for list of users.
+This method allows to create one-time schedule for list of users.
 
 ### Request
 * The headers must include a **valid api key**.

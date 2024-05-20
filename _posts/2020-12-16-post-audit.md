@@ -1,32 +1,33 @@
 ---
-category: 3. Schedules
-url_path: '/schedules/ad-hoc'
-title: '[DEPRECATED] Create ad-hoc audit'
+category: 2. Audits
+url_path: '/audit'
+title: 'Create one-time audit'
 type: 'POST'
-order: 12
+order: 1
 layout: null
 ---
-**THIS METHOD WILL BE REPLACED WITH [Create one-time audit](#/post-audit)**
 
-This method allows to create ad-hoc audit for specified user.
+This method allows to create one-time audit for single user and single audit object 
 
 ### Request
 * The headers must include a **valid api key**.
-* **`date`** is audit due date UTC, **required**.
-* **`name`** is schedule name, **required**.
+* **`startDate`** is audit start date UTC, optional.
+* **`endDate`** is audit due date UTC, **required**.
+* **`name`** is audit name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`templateId`** is id of audit template, **required**.
 * **`auditObjectId`** is id of audit object, **required**.
-* **`userId`** is id of user, whom audit is assigned to.
+* **`assigneeId`** is id of user, whom audit is assigned to.
 
 ```X-API-KEY:  abcdef12345```
 ```{
-  "name": "string",
-  "auditorHint": "string",
-  "date": "2021-12-30T13:40:46.382Z",
-  "templateId": "string",
-  "auditObjectId": "string",
-  "userId": "string"
+  "startDate": datetime,
+  "endDate": datetime,
+  "name": string,
+  "auditorHint": string,
+  "templateId": string,
+  "auditObjectId": string,
+  "assigneeId": string
 }```
 
 ### Response
