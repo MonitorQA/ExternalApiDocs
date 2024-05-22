@@ -12,7 +12,7 @@ This method allows to create ad-hoc audit for specified user.
 
 ### Request
 * The headers must include a **valid api key**.
-* **`date`** is audit due date UTC, **required**.
+* **`date`** is audit local due date, **required**.
 * **`name`** is schedule name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`templateId`** is id of audit template, **required**.

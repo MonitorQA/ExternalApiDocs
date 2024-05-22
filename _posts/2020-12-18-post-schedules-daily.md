@@ -18,6 +18,9 @@ This method allows to create daily schedule for list of users. It will create au
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
 * **`repeatEvery`** is repeat value - how often to create audits in days. **required**, **value in range 1 to 10**.
+* **`active`** is schedule status, **optional**, **true** by default.
+* **`startFromDate`** local date when schedule should be started,**optional**.
+* **`stopByDate`** local date after which schedule should be stopped,**optional**.
 
 ```X-API-KEY:  abcdef12345```
 ```{

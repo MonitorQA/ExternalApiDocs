@@ -1,7 +1,7 @@
 ---
 category: 3. Schedules
 url_path: '/schedules/{scheduleId}/status'
-title: 'Set schedule status'
+title: '[DEPRECATED] Set schedule status'
 type: 'POST'
 order: 21
 layout: null
@@ -14,8 +14,8 @@ This method allows to set schedule status. All schedules are active when created
 * The headers must include a **valid api key**.
 
 * **`active`** is schedule status, **required**.
-* **`stopByDate`** date after which schedule should be stopped,**optional**, **used when active:true**.
-* **`startFromDate`** date when schedule should be started,**optional**, **used when active:false**.
+* **`stopByDate`** local date after which schedule should be stopped,**optional**, **used when active:true**.
+* **`startFromDate`** local date when schedule should be started,**optional**, **used when active:false**.
 
 **Disable schedule with optional activation date**
 
