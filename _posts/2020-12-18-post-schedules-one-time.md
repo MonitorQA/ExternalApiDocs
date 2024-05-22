@@ -17,8 +17,8 @@ This method allows to create one-time schedule for list of users.
 * **`name`** is schedule name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`startDate`** is audit start date UTC, optional.
-* **`endDate`** is audit due date UTC, **required**.
+* **`startDate`** is audit local start date, optional.
+* **`endDate`** is audit local due date, **required**.
 
 ```X-API-KEY:  abcdef12345```
 ```{

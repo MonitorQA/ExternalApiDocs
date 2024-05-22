@@ -20,7 +20,9 @@ This method allows to create monthly schedule for list of users. It will create 
 * **`repeatEvery`** is repeat value - how often create audit in months. 
 * **`startDay`** is audit start month day, **required**. **value in range from 1 to 31**. If there are no date with this number, last day of month will be used.
 * **`duration`** is audit duration in days, **required**. **value in range from 1 to *repeatEvery*\*31**
-
+* **`active`** is schedule status, **optional**, **true** by default.
+* **`startFromDate`** local date when schedule should be started,**optional**.
+* **`stopByDate`** local date after which schedule should be stopped,**optional**.
 
 ```X-API-KEY:  abcdef12345```
 ```{

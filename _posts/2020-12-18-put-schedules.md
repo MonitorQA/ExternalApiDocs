@@ -18,6 +18,9 @@ This method allows to update schedule.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
 * **`repeatPattern`** is schedule repeat pattern. **required**, **values: 0 - One-time, 1 - Daily, 2 - Multiple Weeks, 3 - Monthly, 4 - Weekly**.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
+* **`active`** is schedule status, **optional**, **true** by default, **ignored for one-time audits**
+* **`startFromDate`** local date when schedule should be started, **optional**, **ignored for one-time audits**.
+* **`stopByDate`** local date after which schedule should be stopped, **optional**, **ignored for one-time audits**
 
 **Repeat patterns**
 

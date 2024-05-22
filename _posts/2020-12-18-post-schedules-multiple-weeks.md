@@ -20,7 +20,9 @@ This method allows to create multiple weeks schedule for list of users. It will 
 * **`repeatEvery`** is repeat value - how often create audit in weeks. 
 * **`startDay`** is audit start month day, **required**. **values: 0 - Sun, 1 - Mon, 2 - Tue, 3 - Wed, 4 - Thru, 5 - Fri, 6 - Sat**.
 * **`duration`** is audit duration in days, **required**. **value in range from 1 to *repeatEvery*\*7**
-
+* **`active`** is schedule status, **optional**, **true** by default.
+* **`startFromDate`** local date when schedule should be started,**optional**.
+* **`stopByDate`** local date after which schedule should be stopped,**optional**.
 
 ```X-API-KEY:  abcdef12345```
 ```{

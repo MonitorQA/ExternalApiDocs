@@ -11,8 +11,8 @@ This method allows to create one-time audit for single user and single audit obj
 
 ### Request
 * The headers must include a **valid api key**.
-* **`startDate`** is audit start date UTC, optional.
-* **`endDate`** is audit due date UTC, **required**.
+* **`startDate`** is audit local start date, optional.
+* **`endDate`** is audit local due date, **required**.
 * **`name`** is audit name, **required**.
 * **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
 * **`templateId`** is id of audit template, **required**.
