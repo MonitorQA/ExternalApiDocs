@@ -17,8 +17,6 @@ This method allows to get audit templates detailed list.
 ### Optional Query String Parameters
 * **`templateType`** - filter by template type.
 * **`search`** - filter by template name.
-* **`orderBy`** - apply ordering to result list.
-* **`orderByDirection`** - control ordering direction in result list.
 * **`pageNumber`** - current page number, starts from 1.
 * **`pageSize`** - current page size.
 
@@ -33,7 +31,6 @@ This method allows to get audit templates detailed list.
     {
       "id": "string",
       "name": "string",
-      "isDraft": true,
       "templateType": 0
     }
   ],
