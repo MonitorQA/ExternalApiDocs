@@ -14,7 +14,7 @@ This method allows to update schedule.
 * **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is schedule name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
+* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
 * **`repeatPattern`** is schedule repeat pattern. **required**, **values: 0 - One-time, 1 - Daily, 2 - Multiple Weeks, 3 - Monthly, 4 - Weekly**.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
