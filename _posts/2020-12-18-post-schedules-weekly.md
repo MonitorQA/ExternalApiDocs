@@ -15,7 +15,7 @@ This method allows to create weekly schedule for list of users. It will create n
 * **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is schedule name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
+* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
 * **`daysOfWeek`** is array of days of week, **required**, **value: 0 - Sun, 1 - Mon, 2 - Tue, 3 - Wed, 4 - Thru, 5 - Fri, 6 - Sat**.
 * **`active`** is schedule status, **optional**, **true** by default.

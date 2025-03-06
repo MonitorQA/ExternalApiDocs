@@ -15,7 +15,7 @@ This method allows to create monthly schedule for list of users. It will create 
 * **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
 * **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
 * **`name`** is schedule name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
+* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
 * **`assigneesIds`** is array of user ids, whom audit is assigned to.
 * **`repeatEvery`** is repeat value - how often create audit in months. 
 * **`startDay`** is audit start month day, **required**. **value in range from 1 to 31**. If there are no date with this number, last day of month will be used.

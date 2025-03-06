@@ -14,7 +14,7 @@ This method allows to create one-time audit for single user and single audit obj
 * **`startDate`** is audit local start date, optional.
 * **`endDate`** is audit local due date, **required**.
 * **`name`** is audit name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 800 charachters**.
+* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
 * **`templateId`** is id of audit template, **required**.
 * **`auditObjectId`** is id of audit object, **required**.
 * **`assigneeId`** is id of user, whom audit is assigned to.
