@@ -1,6 +1,6 @@
 ---
 category: 7. Users
-url_path: '/users'
+url_path: '/users/{id}'
 title: 'Update user'
 type: 'PUT'
 order: 25
@@ -10,7 +10,7 @@ layout: null
 This method allows to update company user
 
 ### Request
-
+* **`{id}`** is the id of company user, **required**.
 * The headers must include a **valid api key**.
 * The body must include user data.
 * **`fullName`** is user name, **required**.
@@ -21,7 +21,7 @@ This method allows to update company user
 ```X-API-KEY:  abcdef12345```
 
 ```{
-  "email": "string",
+  "fullName": "string",
   "roleId": "string",
   "phone": string  
 }```
