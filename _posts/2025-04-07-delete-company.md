@@ -11,7 +11,7 @@ This method allows to permanently delete the company account.
 
 **This action can't be undone!** Deleting your account will:
 
-Cancel all active subscriptions:
+Cancel active subscription:
 
 * No further charges will be applied
 
