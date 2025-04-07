@@ -11,15 +11,11 @@ This method allows to permanently delete the company account.
 
 **This action can't be undone!** Deleting your account will:
 
-Cancel active subscription:
+* Cancel active subscription
+
+* All company users will lose access immediately
 
 * No further charges will be applied
-
-Affect all organization members:
-
-* All users will lose access immediately
-
-* Pending invitations will be canceled
 
 ### Request
 
