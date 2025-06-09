@@ -17,7 +17,7 @@ This method allows to get file by it's unique id.
 ```X-API-KEY:  abcdef12345```
 
 ### Optional Query String Parameters
-* **`withWatermark`** is flag to get file with watermark. Set to `true` to get image file with watermark.
+* **`withWatermark`** is flag to get file with watermark. Set to `true` to get image file with watermark. It will return original file when watermark is disabled in template settings.
 
 ### Response
 
