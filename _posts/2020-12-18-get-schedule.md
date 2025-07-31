@@ -7,12 +7,27 @@ order: 2
 layout: null
 ---
 
-This method allows to get schedule details.
+This method allows you to retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+
+### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scheduleId` | string | Yes | Unique identifier of the schedule |
+
+### Example Request
+
+```http
+GET /schedules/{scheduleId}
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 
@@ -31,13 +46,15 @@ This method allows to get schedule details.
 * **`repeatPattern`** is schedule repeat pattern.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
 
-**Repeat patterns**
+### Repeat Patterns
 
-* **`0`** - One-time audit. Schedule produces one audit with no repeat. Audit dates configured with repeat options.
-* **`1`** - Daily audit. Schedule produces audits repeated daily. Repeat interval in days can be configured with repeat options.
-* **`2`** - Multiple weeks audit. Schedule produces audits repeated per week. Repeat interval in weeks and audit start day of week can be configured with repeat options.
-* **`3`** - Monthly audit. Schedule produces audits repeated per month. Repeat interval in months and audit start day of month can be configured with repeat options.
-* **`4`** - Weekly audit. Schedule produces audits repeated per days of week. Days of week for audits can be configured with repeat options.
+| Pattern | Description |
+|---------|-------------|
+| `0` | One-time audit - produces one audit with no repeat |
+| `1` | Daily audit - repeats daily with configurable interval |
+| `2` | Multiple weeks audit - repeats per week with configurable interval and start day |
+| `3` | Monthly audit - repeats per month with configurable interval and start day |
+| `4` | Weekly audit - repeats on specific days of week |
 
 **Repeat options**
 

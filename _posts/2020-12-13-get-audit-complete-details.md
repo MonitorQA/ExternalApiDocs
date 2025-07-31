@@ -7,13 +7,27 @@ order: 9
 layout: null
 ---
 
-This method allows to get details of complete audit.
+This method allows you to retrieve comprehensive details of a completed audit, including audit metadata, assignees, completion status, and reporting information.
 
-### Request
-* **`{auditId}`** is id of complete audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+
+### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the completed audit |
+
+### Example Request
+
+```http
+GET /audit/complete/{auditId}
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 

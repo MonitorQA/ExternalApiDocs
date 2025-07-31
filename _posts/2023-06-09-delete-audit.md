@@ -7,26 +7,39 @@ order: 25
 layout: null
 ---
 
-This method allows to delete audits.
+Delete multiple audits from your organization. This endpoint allows you to permanently remove audits in bulk by providing an array of audit IDs. Use with caution as this action cannot be undone.
 
-### Request
+## Parameters
 
-* The headers must include a **valid api key**.
-* The body must include array of audits ids.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| ids | array[string] | Yes | Array of audit IDs to be deleted |
 
-```X-API-KEY:  abcdef12345```
+## Request Example
 
-```{
+```http
+DELETE https://api-external.monitorqa.com/audit
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
   "ids": [
-    "string"
+    "audit-123",
+    "audit-456",
+    "audit-789"
   ]
-}```
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful deletion of specified audits.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

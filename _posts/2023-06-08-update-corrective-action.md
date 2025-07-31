@@ -7,48 +7,58 @@ order: 5
 layout: null
 ---
 
-This method allows to update details of corrective action.
+Update the details of an existing corrective action. This endpoint allows you to modify corrective action properties including assignments, due dates, status, and priority levels.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of corrective action, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the corrective action to update |
+| assignedUsersIds | array[string] | No | Array of user IDs to assign the corrective action to |
+| description | string | No | Detailed description of the corrective action |
+| name | string | Yes | Name/title of the corrective action |
+| dueDateUtc | string | Yes | Due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| status | integer | Yes | Status code (0=Open, 1=Approved, 2=Rejected, 3=Submitted, 4=Expired) |
+| priority | integer | Yes | Priority level (0=Low, 1=Medium, 2=High) |
 
-* **assignedUsersIds** - array of user ids 
-* **description** - corrective action decription
-* **name** - corrective action name, **required**
-* **dueDateUtc** - corrective action due date, **required**
-* **status** - corrective action status, **required**
-* **priority** - corrective action priority, **required**
+## Request Example
 
-```{
-   "assignedUsersIds": [string],
-   "description": string,
-   "name": string,
-   "dueDateUtc": date,
-   "status": 0,
-   "priority": 0
-}```
+```http
+PUT https://api-external.monitorqa.com/corrective-actions/{id}
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-### Response
+{
+  "assignedUsersIds": ["user-123", "user-456"],
+  "description": "Replace damaged safety equipment and conduct training",
+  "name": "Safety Equipment Replacement",
+  "dueDateUtc": "2024-02-15T17:00:00.000Z",
+  "status": 3,
+  "priority": 2
+}
+```
 
-Possible corrective action statuses:
+## Response
 
-```   0 - Open,
-  1 - Approved,
-  2 - Rejected,
-  3 - Submitted,
-  4 - Expired```
+### Status Codes
+- `0` - Open
+- `1` - Approved
+- `2` - Rejected
+- `3` - Submitted
+- `4` - Expired
 
-Possible corrective action priorities:
+### Priority Levels
+- `0` - Low
+- `1` - Medium
+- `2` - High
 
-```   0 - Low,
-  1 - Medium,
-  2 - High```
+**Success Response**
 
-**If succeeds**, returns empty response
+```http
+HTTP/1.1 200 OK
+```
 
-```Status: 200 OK```
+Empty response body indicates successful corrective action update.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

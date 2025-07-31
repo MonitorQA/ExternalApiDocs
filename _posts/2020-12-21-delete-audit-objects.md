@@ -7,20 +7,36 @@ order: 21
 layout: null
 ---
 
-This method allows to delete a number of audit objects.
+This method allows you to delete multiple audit objects in a single request.
 
-### Request
+### Request Headers
 
-* The headers must include a **valid api key**.
-* The body must include array of audit object ids.
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
 
-```X-API-KEY:  abcdef12345```
+### Request Body Parameters
 
-```{
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `ids` | array[string] | Yes | Array of audit object IDs to delete |
+
+### Example Request
+
+```http
+DELETE /audit/objects
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
   "ids": [
-    "string"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "987f6543-a21b-43c5-d654-321987654321"
   ]
-}```
+}
+```
 
 ### Response
 

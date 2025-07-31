@@ -7,29 +7,47 @@ order: 4
 layout: null
 ---
 
-This method allows to get details of corrective action.
+This method allows you to retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
 
-### Request
+### Request Headers
 
-* **`{id}`** is the id of corrective action, **required**.
-* The headers must include a **valid api key**.
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
+### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier of the corrective action |
+
+### Example Request
+
+```http
+GET /corrective-actions/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 
-Possible corrective action statuses:
+#### Status Values
 
-```   0 - Open,
-  1 - Approved,
-  2 - Rejected,
-  3 - Submitted,
-  4 - Expired```
+| Value | Status | Description |
+|-------|--------|-------------|
+| `0` | Open | Corrective action is open and pending work |
+| `1` | Approved | Corrective action has been approved |
+| `2` | Rejected | Corrective action has been rejected |
+| `3` | Submitted | Corrective action has been submitted for review |
+| `4` | Expired | Corrective action has expired without completion |
 
-Possible corrective action priorities:
+#### Priority Values
 
-```   0 - Low,
-  1 - Medium,
-  2 - High```
+| Value | Priority | Description |
+|-------|----------|-------------|
+| `0` | Low | Low priority corrective action |
+| `1` | Medium | Medium priority corrective action |
+| `2` | High | High priority corrective action |
 
 **If succeeds**, returns corrective action details.
 

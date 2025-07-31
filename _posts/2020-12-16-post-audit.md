@@ -7,28 +7,44 @@ order: 1
 layout: null
 ---
 
-This method allows to create one-time audit for single user and single audit object 
+This method allows you to create a one-time audit for a specific user and audit object. This is useful for creating immediate audit tasks that need to be completed by a particular person.
 
-### Request
-* The headers must include a **valid api key**.
-* **`startDate`** is audit local start date, optional.
-* **`endDate`** is audit local due date, **required**.
-* **`name`** is audit name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
-* **`templateId`** is id of audit template, **required**.
-* **`auditObjectId`** is id of audit object, **required**.
-* **`assigneeId`** is id of user, whom audit is assigned to.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
-```{
-  "startDate": datetime,
-  "endDate": datetime,
-  "name": string,
-  "auditorHint": string,
-  "templateId": string,
-  "auditObjectId": string,
-  "assigneeId": string
-}```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `startDate` | datetime | No | Local start date for the audit. If not provided, audit can be started immediately |
+| `endDate` | datetime | Yes | Local due date when the audit must be completed |
+| `name` | string | Yes | Name of the audit for identification purposes |
+| `auditorHint` | string | No | Helpful hint or instructions visible to the auditor during audit execution (max 2000 characters) |
+| `templateId` | string | Yes | Unique identifier of the audit template to use |
+| `auditObjectId` | string | Yes | Unique identifier of the audit object to be audited |
+| `assigneeId` | string | No | Unique identifier of the user who will perform the audit |
+
+### Example Request
+
+```http
+POST /audit
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+  "startDate": "2024-01-15T08:00:00.000Z",
+  "endDate": "2024-01-15T18:00:00.000Z",
+  "name": "Weekly Safety Inspection",
+  "auditorHint": "Focus on emergency exits and fire safety equipment",
+  "templateId": "123e4567-e89b-12d3-a456-426614174000",
+  "auditObjectId": "789e0123-e89b-12d3-a456-426614174000",
+  "assigneeId": "456e7890-e89b-12d3-a456-426614174000"
+}
+```
 
 ### Response
 

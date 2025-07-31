@@ -7,40 +7,59 @@ order: 8
 layout: null
 ---
 
-This method allows to get list of complete audits.
+This method allows you to retrieve a paginated list of completed audits with advanced filtering and sorting options.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Optional Query String Parameters
-* **`scoreMin`** - filter by minimum score.
-* **`scoreMax`** - filter by maximum score.
-* **`completedBy`** - filter by user group id which user completed audit.
-* **`completedByGroup`** - filter by completed by user id.
-* **`templateId`** - filter by audit template id.
-* **`auditObjectId`** - filter by audit object id.
-* **`auditObjectGroupId`** - filter by audit object group id.
-* **`assignedTo`** - filter by assigned to user id.
-* **`assignedToGroup`** - filter by assigned to user group id.
-* **`fromDate`** - filter by audit completion date UTC.
-* **`toDate`** - filter by audit completion date UTC.
-* **`pageNumber`** - current page number, starts from 1 (default value is 1).
-* **`pageSize`** - current page size (default value is 100).
-* **`orderBy`** - field name to sort audits by (default value is 'name').
-* **`orderByDirection`** - audits sorting direction.
+### Query Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scoreMin` | number | No | Filter by minimum score |
+| `scoreMax` | number | No | Filter by maximum score |
+| `completedBy` | string | No | Filter by user ID who completed audit |
+| `completedByGroup` | string | No | Filter by user group ID |
+| `templateId` | string | No | Filter by audit template ID |
+| `auditObjectId` | string | No | Filter by audit object ID |
+| `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `assignedTo` | string | No | Filter by assigned user ID |
+| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `fromDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `toDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `pageNumber` | number | No | Current page number, starts from 1 (default: 1) |
+| `pageSize` | number | No | Page size (default: 100) |
+| `orderBy` | string | No | Field to sort by (default: 'name') |
+| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
-Accepted values for **`orderBy`**:
-* **`number`** - sort by audit number
-* **`auditObjectName`** - sort by audit object name
-* **`score`** - sort by score value
-* **`completeDate`** - sort by audit completion date
-* **`completedBy`** - sort by completed by user name
+### Sorting Options
 
-Accepted values for **`orderByDirection`**:
-* **`asc`** - ascending
-* **`desc`** - descending
+**orderBy** values:
+
+| Value | Description |
+|-------|-------------|
+| `number` | Sort by audit number |
+| `auditObjectName` | Sort by audit object name |
+| `score` | Sort by score value |
+| `completeDate` | Sort by audit completion date |
+| `completedBy` | Sort by completed by user name |
+
+**orderByDirection** values:
+
+| Value | Description |
+|-------|-------------|
+| `asc` | Ascending order |
+| `desc` | Descending order |
+
+### Example Request
+
+```http
+GET /audit/complete?scoreMin=80&pageSize=50&orderBy=completeDate&orderByDirection=desc
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 

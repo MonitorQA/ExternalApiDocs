@@ -7,32 +7,62 @@ order: 1
 layout: null
 ---
 
-This method allows to get list of audit object attributes.
+Retrieve a complete list of all audit object attributes available in your organization. This endpoint provides comprehensive attribute data including all available options for each attribute.
 
-### Request
+## Request Example
 
-* The headers must include a **valid api key**.
+```http
+GET https://api-external.monitorqa.com/audit/objects/attributes/all
+X-API-KEY: abcdef12345
+```
 
-```X-API-KEY:  abcdef12345```
+## Response
 
-### Response
+**Success Response**
 
-**If succeeds**, returns a list of audit object attributes
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```Status: 200 OK```
-
-```[
-   {
-      "options": [
-         {
-            "isDefault": boolean,
-            "name": string,
-            "id": string
-         }
-      ],
-      "name": string,
-      "id": string
-   }
-]```
+[
+  {
+    "options": [
+      {
+        "isDefault": true,
+        "name": "Manufacturing",
+        "id": "option-mfg-001"
+      },
+      {
+        "isDefault": false,
+        "name": "Warehouse",
+        "id": "option-wh-001"
+      }
+    ],
+    "name": "Department",
+    "id": "attr-dept-001"
+  },
+  {
+    "options": [
+      {
+        "isDefault": false,
+        "name": "High",
+        "id": "option-high-001"
+      },
+      {
+        "isDefault": true,
+        "name": "Medium",
+        "id": "option-med-001"
+      },
+      {
+        "isDefault": false,
+        "name": "Low",
+        "id": "option-low-001"
+      }
+    ],
+    "name": "Risk Level",
+    "id": "attr-risk-001"
+  }
+]
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

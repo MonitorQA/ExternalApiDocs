@@ -7,26 +7,38 @@ order: 5
 layout: null
 ---
 
-This method allows to delete audit object attributes. It will also delete audit object attributes assignments.
+Delete multiple audit object attributes permanently. This endpoint removes attributes and all associated audit object assignments. Use with caution as this action cannot be undone.
 
+## Parameters
 
-### Request
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| ids | array[string] | Yes | Array of audit object attribute IDs to be deleted |
 
-* The headers must include a **valid api key**.
-* The body must include array of audit object attributes ids.
+## Request Example
 
-```X-API-KEY:  abcdef12345```
+```http
+DELETE https://api-external.monitorqa.com/audit/objects/attributes
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-```{
+{
   "ids": [
-    "string"
+    "attr-dept-001",
+    "attr-priority-001",
+    "attr-location-001"
   ]
-}```
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful deletion of specified attributes and their assignments.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

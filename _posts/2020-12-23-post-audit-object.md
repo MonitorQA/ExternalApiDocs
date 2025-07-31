@@ -7,29 +7,47 @@ order: 19
 layout: null
 ---
 
-This method allows to create new audit object.
+This method allows you to create a new audit object with specified properties including name, notes, and geographic location.
 
-### Request
+### Request Headers
 
-* The headers must include a **valid api key**.
-* The body must include audit object data.
-* **`name`** is audit object name, **required**.
-* **`notes`** is audit object notes visible for auditor during audit, **max length is 800 chracters**.
-* **`geoAddress`** is audit object address information. All fields of geoAddress are **required** when geoAdress is not null.
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
 
+### Request Body Parameters
 
-```X-API-KEY:  abcdef12345```
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `name` | string | Yes | Audit object name |
+| `notes` | string | No | Notes visible to auditor during audit (max 800 characters) |
+| `geoAddress` | object | No | Geographic address information (all fields required when provided) |
+| `geoAddress.lat` | string | No | Latitude coordinate |
+| `geoAddress.lng` | string | No | Longitude coordinate |
+| `geoAddress.name` | string | No | Location name |
+| `geoAddress.address` | string | No | Street address |
 
-```{
-  "name": "string",
-  "notes": "string",
+### Example Request
+
+```http
+POST /audit/objects
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+
+  "name": "Warehouse Section A",
+  "notes": "Storage area for temperature-sensitive materials",
   "geoAddress": {
-    "lat": "string",
-    "lng": "string",
-    "name": "string",
-    "address": "string"
+    "lat": "40.7128",
+    "lng": "-74.0060",
+    "name": "Warehouse Building",
+    "address": "456 Industrial Blvd, New York, NY 10002"
   }
-}```
+}
+```
 
 ### Response
 

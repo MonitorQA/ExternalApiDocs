@@ -7,34 +7,54 @@ order: 3
 layout: null
 ---
 
-This method allows to create audit object attribute. First option with isDefault: true will be save as default value. Options array should contain at least one option.
+Create a new audit object attribute with multiple options. This endpoint allows you to define custom attributes that can be assigned to audit objects for better categorization and filtering. At least one option must be provided, and the first option marked as default will be the default value.
 
-### Request
+## Parameters
 
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| name | string | Yes | The name of the attribute |
+| options | array[object] | Yes | Array of available options (minimum 1 required) |
+| options[].name | string | Yes | The name of the option |
+| options[].isDefault | boolean | No | Whether this option is the default selection |
 
-```X-API-KEY:  abcdef12345```
+## Request Example
 
-* The body must contain audit object attribute
+```http
+POST https://api-external.monitorqa.com/audit/objects/attributes
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-```{
-   "options": [
-      {
-         "isDefault": boolean,
-         "name": string, required
-      }
-   ],
-   "name": string, required
-}```
+{
+  "name": "Equipment Type",
+  "options": [
+    {
+      "isDefault": true,
+      "name": "Heavy Machinery"
+    },
+    {
+      "isDefault": false,
+      "name": "Safety Equipment"
+    },
+    {
+      "isDefault": false,
+      "name": "Measuring Instruments"
+    }
+  ]
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an id of created attribute
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
-   "id": string
-}```
+{
+  "id": "attr-equipment-type-001"
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -7,22 +7,37 @@ order: 22
 layout: null
 ---
 
-This method allows to get list of company user groups
+Retrieve a list of all user groups within your company. This endpoint provides the basic identification information for user groups, which can be used for audit assignments and access management.
 
-### Request
+## Request Example
 
-* The headers must include a **valid api key**.
+```http
+GET https://api-external.monitorqa.com/user-groups
+X-API-KEY: abcdef12345
+```
 
-### Response
+## Response
 
-Returns a collection of company user groups.
+**Success Response**
 
-```Status: 200 OK```
-```[
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
   {
-    "id": "string",
-    "name": "string"
+    "id": "group-123",
+    "name": "Safety Inspectors"
+  },
+  {
+    "id": "group-456",
+    "name": "Quality Assurance Team"
+  },
+  {
+    "id": "group-789",
+    "name": "Maintenance Supervisors"
   }
-]```
+]
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

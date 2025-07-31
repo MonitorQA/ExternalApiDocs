@@ -7,29 +7,51 @@ order: 1
 layout: null
 ---
 
-This method allows to assign attributes to audit object. Is is not possible to assign same option twice. Option should be available for specified attribute or it won't be assigned.
+Assign multiple attributes to a specific audit object. This endpoint allows you to categorize and tag audit objects with custom attributes for better organization and filtering. Duplicate assignments are ignored, and invalid options will not be assigned.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of audit object, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the audit object |
+| attributes | array[object] | Yes | Array of attribute-option pairs to assign |
+| attributes[].attributeId | string | Yes | The ID of the attribute |
+| attributes[].optionId | string | Yes | The ID of the specific option within the attribute |
 
-```X-API-KEY:  abcdef12345```
+## Request Example
 
-```{
- "attributes": [
-     {
-        "attributeId": string,
-        "optionId": string
-     }
- ]
-}```
+```http
+POST https://api-external.monitorqa.com/audit/objects/{id}/attributes
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-### Response
+{
+  "attributes": [
+    {
+      "attributeId": "attr-dept-001",
+      "optionId": "option-manufacturing"
+    },
+    {
+      "attributeId": "attr-priority-001",
+      "optionId": "option-high"
+    },
+    {
+      "attributeId": "attr-equipment-001",
+      "optionId": "option-heavy-machinery"
+    }
+  ]
+}
+```
 
-**If succeeds**, returns an empty response.
+## Response
 
-```Status: 200 OK```
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful assignment of attributes to the audit object.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

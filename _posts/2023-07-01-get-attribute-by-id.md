@@ -7,31 +7,50 @@ order: 2
 layout: null
 ---
 
-This method allows to get details of audit object attribute.
+Retrieve detailed information about a specific audit object attribute, including all its available options and settings. This endpoint provides comprehensive attribute configuration data.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of audit object attribute, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the audit object attribute |
 
-```X-API-KEY:  abcdef12345```
+## Request Example
 
-### Response
+```http
+GET https://api-external.monitorqa.com/audit/objects/attributes/{id}
+X-API-KEY: abcdef12345
+```
 
-**If succeeds**, returns details of audit object attribute
+## Response
 
-```Status: 200 OK```
+**Success Response**
 
-```{
-      "options": [
-         {
-            "isDefault": boolean,
-            "name": string,
-            "id": string
-         }
-      ],
-      "name": string,
-      "id": string
-   }```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "options": [
+    {
+      "isDefault": true,
+      "name": "High Priority",
+      "id": "option-123"
+    },
+    {
+      "isDefault": false,
+      "name": "Medium Priority",
+      "id": "option-456"
+    },
+    {
+      "isDefault": false,
+      "name": "Low Priority",
+      "id": "option-789"
+    }
+  ],
+  "name": "Priority Level",
+  "id": "attr-priority-001"
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

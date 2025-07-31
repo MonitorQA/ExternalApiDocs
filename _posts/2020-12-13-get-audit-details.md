@@ -7,13 +7,27 @@ order: 7
 layout: null
 ---
 
-This method allows to get details of audit.
+This method allows you to retrieve detailed information about a specific audit, including its status, assignees, completion details, and scoring information.
 
-### Request
-* **`{auditId}`** is id of audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+
+### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the audit |
+
+### Example Request
+
+```http
+GET /audit/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 

@@ -7,33 +7,42 @@ order: 20
 layout: null
 ---
 
-This method allows to reopen completed audit.
+Reopen a completed audit to allow additional work or corrections. This endpoint enables you to restore a completed audit to an active state with new dates and optionally reassign it to different users.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of completed audit, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the completed audit to reopen |
+| startDate | string | Yes | New start date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| endDate | string | Yes | New due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| assigneesIds | array[string] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
 
-* The body must include start and end dates. Assignees list is optional. Audit assignees will not changed if assignees list is null. Empty list will remove all assignees from audit.
+## Request Example
 
-* **`startDate`** is audit local start date, **required**.
-* **`endDate`** is audit local due date, **required**.
-* **`assigneesIds`** is array of user ids, whom audit is assigned to.
+```http
+POST https://api-external.monitorqa.com/audit/reopen/{id}
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-```X-API-KEY:  abcdef12345```
-
-```{
+{
   "assigneesIds": [
-    "string"
+    "user-123",
+    "user-456"
   ],
-  "startDate": "2021-11-30T13:30:57.068Z",
-  "endDate": "2021-12-30T13:30:57.068Z"
-}```
+  "startDate": "2024-02-01T08:00:00.000Z",
+  "endDate": "2024-02-15T17:00:00.000Z"
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful reopening of the audit.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

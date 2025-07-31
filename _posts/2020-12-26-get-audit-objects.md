@@ -7,22 +7,37 @@ order: 17
 layout: null
 ---
 
-This method allows to retrieve list of all audit objects belong to company.
+Retrieve a list of all audit objects belonging to your company. This endpoint provides a simple collection of audit objects with their basic identification information, ideal for populating selection lists.
 
-### Request
+## Request Example
 
-* The headers must include a **valid api key**.
+```http
+GET https://api-external.monitorqa.com/audit/objects
+X-API-KEY: abcdef12345
+```
 
-### Response
+## Response
 
-Returns a collection of audit objects.
+**Success Response**
 
-```Status: 200 OK```
-```[
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+[
   {
-    "id": "string",
-    "name": "string"
+    "id": "object-123",
+    "name": "Manufacturing Line A"
+  },
+  {
+    "id": "object-456",
+    "name": "Warehouse Section B"
+  },
+  {
+    "id": "object-789",
+    "name": "Quality Control Lab"
   }
-]```
+]
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

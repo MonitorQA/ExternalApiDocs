@@ -7,36 +7,55 @@ order: 6
 layout: null
 ---
 
-This method allows to get list of pending audits.
+This method allows you to retrieve a paginated list of pending audits with filtering and sorting options.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Optional Query String Parameters
-* **`inProgress`** - filter by in progress state.
-* **`templateId`** - filter by audit template id.
-* **`auditObjectId`** - filter by audit object id.
-* **`auditObjectGroupId`** - filter by audit object group id.
-* **`assignedTo`** - filter by assigned to user id.
-* **`assignedToGroup`** - filter by assigned to user group id.
-* **`fromDate`** - filter by audit due date UTC.
-* **`toDate`** - filter by audit due date UTC.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
-* **`orderBy`** - field name to sort audits by (default value is 'name').
-* **`orderByDirection`** - audits sorting direction.
+### Query Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `inProgress` | boolean | No | Filter by in progress state |
+| `templateId` | string | No | Filter by audit template ID |
+| `auditObjectId` | string | No | Filter by audit object ID |
+| `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `assignedTo` | string | No | Filter by assigned user ID |
+| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `fromDate` | string | No | Filter by audit due date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `toDate` | string | No | Filter by audit due date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `pageNumber` | number | No | Current page number, starts from 1 |
+| `pageSize` | number | No | Page size |
+| `orderBy` | string | No | Field to sort by (default: 'name') |
+| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
-Accepted values for **`orderBy`**:
-* **`name`** - sort by audit name
-* **`auditObjectName`** - sort by audit object name
-* **`endDate`** - sort by audit end date
-* **`assignedTo`** - sort by assigned user name
+### Sorting Options
 
-Accepted values for **`orderByDirection`**:
-* **`asc`** - ascending
-* **`desc`** - descending
+**orderBy** values:
+
+| Value | Description |
+|-------|-------------|
+| `name` | Sort by audit name |
+| `auditObjectName` | Sort by audit object name |
+| `endDate` | Sort by audit end date |
+| `assignedTo` | Sort by assigned user name |
+
+**orderByDirection** values:
+
+| Value | Description |
+|-------|-------------|
+| `asc` | Ascending order |
+| `desc` | Descending order |
+
+### Example Request
+
+```http
+GET /audit/pending?inProgress=true&pageSize=50&orderBy=endDate&orderByDirection=asc
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 

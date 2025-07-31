@@ -7,91 +7,93 @@ order: 3
 layout: null
 ---
 
-This method allows to get list of expired corrective actions.
+Retrieve a paginated list of expired corrective actions within your organization. This endpoint provides access to corrective actions that have passed their due dates without completion, helping track overdue items.
 
+## Query Parameters
 
-### Request
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| auditId | string | No | Filter by specific audit ID |
+| templateId | string | No | Filter by audit template ID |
+| auditObjectId | string | No | Filter by audit object ID |
+| assignedToId | string | No | Filter by assigned user ID |
+| assignedToGroupId | string | No | Filter by assigned user group ID |
+| fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| pageNumber | integer | No | Page number for pagination (starts from 1) |
+| pageSize | integer | No | Number of items per page |
 
-```X-API-KEY:  abcdef12345```
+## Request Example
 
-### Optional Query String Parameters
-* **`auditId`** - filter by audit id.
-* **`templateId`** - filter by audit template id.
-* **`auditObjectId`** - filter by audit object id.
-* **`assignedToId`** - filter by assigned to user id.
-* **`assignedToGroupId`** - filter by assigned to user group id.
-* **`fromDate`** - filter by corrective action due date UTC.
-* **`toDate`** - filter by corrective action due date UTC.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
+```http
+GET https://api-external.monitorqa.com/corrective-actions/expired?pageNumber=1&pageSize=10
+X-API-KEY: abcdef12345
+```
 
-### Response
+## Response
 
-Possible corrective action statuses:
+### Status Codes
+- `0` - Open
+- `1` - Approved
+- `2` - Rejected
+- `3` - Submitted
+- `4` - Expired
 
-```   0 - Open,
-  1 - Approved,
-  2 - Rejected,
-  3 - Submitted,
-  4 - Expired```
+### Priority Levels
+- `0` - Low
+- `1` - Medium
+- `2` - High
 
-Possible corrective action priorities:
+**Success Response**
 
-```   0 - Low,
-  1 - Medium,
-  2 - High```
-  
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-**If succeeds**, returns a list of expired corrective actions.
-
-
-```Status: 200 OK```
-
-```{
-   "data": [
-      {
-         "id": string,
-         "name": string,
-         "number": string,
-         "assignedUsers": [
-            {
-               "id": string,
-               "name": string
-            }
-         ],
-         "audit": {
-            "id": string,
-            "name": string,
-            "ianaTimeZone": string,
-            "number": string
-         },
-         "createdBy": {
-            "id": string,
-            "name": string
-         },
-         "auditObject": {
-               "id": string,
-               "name": string
-            },
-         "status": 4,
-         "priority": 1,
-         "createdAtUtc": date,
-         "dueDateUtc": date,
-         "expiredBy": {
-            "id": string,
-            "name": string
-         },
-         "expiredAtUtc": date
-      }
-      ...
-   ],
-   "meta": {
-      "pageNumber": number,
-      "pageSize": number,
-      "totalCount": number
-   }
-}```
+{
+  "data": [
+    {
+      "id": "ca-789",
+      "name": "Update Safety Signage",
+      "number": "CA-2024-003",
+      "assignedUsers": [
+        {
+          "id": "user-123",
+          "name": "Bob Maintenance"
+        }
+      ],
+      "audit": {
+        "id": "audit-456",
+        "name": "Facility Safety Audit",
+        "ianaTimeZone": "America/New_York",
+        "number": "AUD-2024-003"
+      },
+      "createdBy": {
+        "id": "user-inspector",
+        "name": "Alice Inspector"
+      },
+      "auditObject": {
+        "id": "object-building",
+        "name": "Building B Entrance"
+      },
+      "status": 4,
+      "priority": 1,
+      "createdAtUtc": "2024-01-05T08:00:00.000Z",
+      "dueDateUtc": "2024-01-20T17:00:00.000Z",
+      "expiredBy": {
+        "id": "system",
+        "name": "System Auto-Expire"
+      },
+      "expiredAtUtc": "2024-01-21T00:00:00.000Z"
+    }
+  ],
+  "meta": {
+    "pageNumber": 1,
+    "pageSize": 10,
+    "totalCount": 5
+  }
+}
+```
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

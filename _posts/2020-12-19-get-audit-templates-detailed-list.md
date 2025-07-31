@@ -7,38 +7,51 @@ order: 16
 layout: null
 ---
 
-This method allows to get audit templates detailed list.
+Retrieve a detailed, paginated list of audit templates available in your MonitorQA system. This endpoint provides comprehensive template information with filtering and search capabilities.
 
-### Request
-* The headers must include a **valid api key**.
+## Query Parameters
 
-```X-API-KEY:  abcdef12345```
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| templateType | integer | No | Filter templates by type |
+| search | string | No | Filter templates by name (partial match) |
+| pageNumber | integer | No | Page number for pagination (starts from 1) |
+| pageSize | integer | No | Number of items per page |
 
-### Optional Query String Parameters
-* **`templateType`** - filter by template type.
-* **`search`** - filter by template name.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
+## Request Example
 
-### Response
+```http
+GET https://api-external.monitorqa.com/audit/templates/detailed?search=safety&pageNumber=1&pageSize=10
+X-API-KEY: abcdef12345
+```
 
-**If succeeds**, returns a detailed list of audit templates.
+## Response
 
-```Status: 200 OK```
+**Success Response**
 
-```{
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
   "data": [
     {
-      "id": "string",
-      "name": "string",
+      "id": "template-123",
+      "name": "Safety Inspection Template",
       "templateType": 0
+    },
+    {
+      "id": "template-456",
+      "name": "Equipment Safety Check",
+      "templateType": 1
     }
   ],
   "meta": {
-    "pageNumber": 0,
-    "pageSize": 0,
-    "totalCount": 0
+    "pageNumber": 1,
+    "pageSize": 10,
+    "totalCount": 25
   }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

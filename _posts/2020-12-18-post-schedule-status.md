@@ -7,40 +7,53 @@ order: 21
 layout: null
 ---
 
-This method allows to set schedule status. All schedules are active when created.
-**This method can't be used with one-time schedules.**
+**[DEPRECATED]** This endpoint allows you to modify the status of existing schedules in the MonitorQA system. Use this to activate, deactivate, or set future activation/deactivation dates for schedules. Note that this method cannot be used with one-time schedules.
 
-### Request
-* The headers must include a **valid api key**.
+## Parameters
 
-* **`active`** is schedule status, **required**.
-* **`stopByDate`** local date after which schedule should be stopped,**optional**, **used when active:true**.
-* **`startFromDate`** local date when schedule should be started,**optional**, **used when active:false**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| scheduleId | string | Yes | The unique identifier of the schedule to modify |
+| active | boolean | Yes | Set to `true` to activate or `false` to deactivate the schedule |
+| stopByDate | string | No | UTC date after which the schedule should be stopped (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| startFromDate | string | No | UTC date when the schedule should be started (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 
-**Disable schedule with optional activation date**
+## Request Examples
 
-All schedules are active by default. Schedule can be deactivated by passing **`active: false`**. Optional activation date can be passed at **`startByDate`** property. Schedule will be activated at selected date and audits will be created.
+### Disable schedule with optional future activation
 
-```X-API-KEY:  abcdef12345```
-```{
+```http
+POST https://api-external.monitorqa.com/schedules/{scheduleId}/status
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
   "active": false,
-  "startFromDate": datetime
-}```
+  "startFromDate": "2024-12-31T09:00:00.000Z"
+}
+```
 
-**Enable disabled schedule with optional deactivation date**
+### Enable schedule with optional future deactivation
 
-Deactivated schedule can be activated by passing **`active: true`**. Optional deactivation date can be passed at **`StopByDate`**. Schedule will be stopped next day after selected date.
+```http
+POST https://api-external.monitorqa.com/schedules/{scheduleId}/status
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-```X-API-KEY:  abcdef12345```
-```{
+{
   "active": true,
-  "stopByDate": datetime
-}```
+  "stopByDate": "2025-06-30T23:59:59.000Z"
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful status update.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

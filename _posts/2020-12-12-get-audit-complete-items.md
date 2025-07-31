@@ -7,13 +7,27 @@ order: 10
 layout: null
 ---
 
-This method allows to get report of complete audit.
+This method allows you to retrieve the detailed report of a completed audit, including all audit items, their statuses, and associated corrective actions.
 
-### Request
-* **`{auditId}`** is id of complete audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
+
+### Path Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the completed audit |
+
+### Example Request
+
+```http
+GET /audit/complete/{auditId}/report
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
 ### Response
 
@@ -74,22 +88,33 @@ This method allows to get report of complete audit.
    ]
 }```
 
-**itemType** possible values:
-  * Root = 0,
-  * Section = 1,
-  * Item = 2,
-  * ConditionalItem = 3,
-  * Condition = 4,
+### Response Fields
 
-**actions.priority** possible values:
-  * Low = 0,
-  * Medium = 1,
-  * High = 2
+**itemType** values:
 
-**actions.status** possible values:
-  * Open = 0,
-  * Approved = 1,
-  * Rejected = 2, 
-  * Submitted = 3,
+| Value | Description |
+|-------|-------------|
+| `0` | Root |
+| `1` | Section |
+| `2` | Item |
+| `3` | ConditionalItem |
+| `4` | Condition |
+
+**actions.priority** values:
+
+| Value | Description |
+|-------|-------------|
+| `0` | Low |
+| `1` | Medium |
+| `2` | High |
+
+**actions.status** values:
+
+| Value | Description |
+|-------|-------------|
+| `0` | Open |
+| `1` | Approved |
+| `2` | Rejected |
+| `3` | Submitted |
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
