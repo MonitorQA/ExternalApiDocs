@@ -18,16 +18,17 @@ Update an existing user's information within your company account. This endpoint
 | roleId | string | No | The ID of the role to assign to the user (if not specified, role remains unchanged) |
 | phone | string | No | The user's phone number (max 50 characters) |
 
-## Request Example
+### Example Request
 
 ```http
-PUT https://api-external.monitorqa.com/users/{id}
+PUT /users/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "fullName": "John David Smith",
-  "roleId": "role-manager-123",
+  "roleId": "456e7890-e89b-12d3-a456-426614174000",
   "phone": "+1-555-0123"
 }
 ```

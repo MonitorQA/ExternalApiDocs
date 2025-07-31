@@ -18,10 +18,11 @@ Retrieve a detailed, paginated list of audit templates available in your Monitor
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/audit/templates/detailed?search=safety&pageNumber=1&pageSize=10
+GET /audit/templates/detailed?search=safety&pageNumber=1&pageSize=10
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -36,12 +37,12 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "template-123",
+      "id": "567890ab-cdef-1234-5678-90abcdef1234",
       "name": "Safety Inspection Template",
       "templateType": 0
     },
     {
-      "id": "template-456",
+      "id": "678901bc-defa-2345-6789-01bcdef12345",
       "name": "Equipment Safety Check",
       "templateType": 1
     }

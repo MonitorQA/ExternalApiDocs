@@ -15,10 +15,11 @@ Retrieve detailed information about a specific audit object attribute, including
 |-----------|------|----------|-------------|
 | id | string | Yes | The unique identifier of the audit object attribute |
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/audit/objects/attributes/{id}
+GET /audit/objects/attributes/890123de-fghi-4567-890a-bcdef1234567
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -35,21 +36,21 @@ Content-Type: application/json
     {
       "isDefault": true,
       "name": "High Priority",
-      "id": "option-123"
+      "id": "678901bc-defa-2345-6789-01bcdef12345"
     },
     {
       "isDefault": false,
       "name": "Medium Priority",
-      "id": "option-456"
+      "id": "789012cd-efab-3456-789a-12cdef123456"
     },
     {
       "isDefault": false,
       "name": "Low Priority",
-      "id": "option-789"
+      "id": "901234ef-ghij-5678-90ab-cdef12345678"
     }
   ],
   "name": "Priority Level",
-  "id": "attr-priority-001"
+  "id": "890123de-fghi-4567-890a-bcdef1234567"
 }
 ```
 

@@ -16,10 +16,11 @@ Retrieve a paginated history of executed webhooks, including their status, respo
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/webhooks/status?pageNumber=1&pageSize=20
+GET /webhooks/status?pageNumber=1&pageSize=20
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 

@@ -15,10 +15,11 @@ Delete a specific corrective action from your organization. Use this endpoint to
 |-----------|------|----------|-------------|
 | id | string | Yes | The unique identifier of the corrective action to delete |
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/corrective-actions/{id}
+DELETE /corrective-actions/{id}
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 

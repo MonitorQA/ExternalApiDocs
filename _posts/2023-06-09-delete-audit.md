@@ -15,18 +15,19 @@ Delete multiple audits from your organization. This endpoint allows you to perma
 |-----------|------|----------|-------------|
 | ids | array[string] | Yes | Array of audit IDs to be deleted |
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/audit
+DELETE /audit
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "ids": [
-    "audit-123",
-    "audit-456",
-    "audit-789"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ]
 }
 ```

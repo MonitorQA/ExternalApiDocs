@@ -22,23 +22,24 @@ Create a one-time schedule that generates a single audit for specified users and
 | startDate | string | No | UTC date when the audit should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | endDate | string | Yes | UTC date when the audit is due (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 
-## Request Example
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/schedules/one-time
+POST /schedules/one-time
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
-  "templateId": "template-123",
+  "templateId": "123e4567-e89b-12d3-a456-426614174000",
   "auditObjectIds": [
-    "object-456",
-    "object-789"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
   "name": "Special Safety Inspection",
   "auditorHint": "Focus on recent incident area and emergency procedures",
   "assigneesIds": [
-    "user-abc"
+    "abc12345-e89b-12d3-a456-426614174000"
   ],
   "startDate": "2024-02-01T08:00:00.000Z",
   "endDate": "2024-02-15T17:00:00.000Z"
@@ -54,7 +55,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "schedule-onetime-xyz"
+  "id": "234567op-qrst-567g-hijk-678901234568"
 }
 ```
 

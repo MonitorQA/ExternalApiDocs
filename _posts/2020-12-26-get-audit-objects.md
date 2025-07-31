@@ -9,10 +9,11 @@ layout: null
 
 Retrieve a list of all audit objects belonging to your company. This endpoint provides a simple collection of audit objects with their basic identification information, ideal for populating selection lists.
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/audit/objects
+GET /audit/objects
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -26,15 +27,15 @@ Content-Type: application/json
 
 [
   {
-    "id": "object-123",
+    "id": "789abcde-f123-4567-8901-234567890123",
     "name": "Manufacturing Line A"
   },
   {
-    "id": "object-456",
+    "id": "234567890-abcd-efgh-ijkl-mnopqrstuvwx",
     "name": "Warehouse Section B"
   },
   {
-    "id": "object-789",
+    "id": "345678901-bcde-fghi-jklm-nopqrstuvwxy",
     "name": "Quality Control Lab"
   }
 ]

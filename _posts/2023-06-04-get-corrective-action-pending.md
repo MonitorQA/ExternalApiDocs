@@ -23,10 +23,11 @@ Retrieve a paginated list of pending corrective actions within your organization
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/corrective-actions/pending?pageNumber=1&pageSize=10&assignedToId=user-123
+GET /corrective-actions/pending?pageNumber=1&pageSize=10&assignedToId=123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -53,25 +54,25 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "ca-123",
+      "id": "567890kl-mnop-123c-defg-234567890123",
       "assignedUsers": [
         {
-          "id": "user-456",
+          "id": "987fcdeb-51d2-43e8-b456-426614174001",
           "name": "John Smith"
         }
       ],
       "audit": {
-        "id": "audit-789",
+        "id": "789012mn-opqr-345e-fghi-456789012345",
         "name": "Safety Inspection",
         "ianaTimeZone": "America/New_York",
         "number": "AUD-2024-001"
       },
       "createdBy": {
-        "id": "user-manager",
+        "id": "456e7890-e89b-12d3-a456-426614174002",
         "name": "Jane Manager"
       },
       "auditObject": {
-        "id": "object-facility",
+        "id": "234567890-abcd-efgh-ijkl-mnopqrstuvwx",
         "name": "Main Production Floor"
       },
       "status": 0,

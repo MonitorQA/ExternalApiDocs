@@ -18,10 +18,11 @@ Create a new audit object attribute with multiple options. This endpoint allows 
 | options[].name | string | Yes | The name of the option |
 | options[].isDefault | boolean | No | Whether this option is the default selection |
 
-## Request Example
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/audit/objects/attributes
+POST /audit/objects/attributes
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
@@ -53,7 +54,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "attr-equipment-type-001"
+  "id": "345678ij-klmn-901a-bcde-f12345678903"
 }
 ```
 

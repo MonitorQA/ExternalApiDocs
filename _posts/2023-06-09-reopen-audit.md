@@ -18,17 +18,18 @@ Reopen a completed audit to allow additional work or corrections. This endpoint 
 | endDate | string | Yes | New due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | assigneesIds | array[string] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
 
-## Request Example
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/audit/reopen/{id}
+POST /audit/reopen/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "assigneesIds": [
-    "user-123",
-    "user-456"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
   "startDate": "2024-02-01T08:00:00.000Z",
   "endDate": "2024-02-15T17:00:00.000Z"

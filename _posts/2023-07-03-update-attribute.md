@@ -20,10 +20,11 @@ Update an existing audit object attribute and its options. This endpoint allows 
 | options[].isDefault | boolean | No | Whether this option is the default selection |
 | options[].id | string | No | The ID of existing option to update (omit for new options) |
 
-## Request Example
+### Example Request
 
 ```http
-PUT https://api-external.monitorqa.com/audit/objects/attributes/{id}
+PUT /audit/objects/attributes/{id}
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
@@ -33,12 +34,12 @@ Content-Type: application/json
     {
       "isDefault": true,
       "name": "Heavy Machinery",
-      "id": "option-123"
+      "id": "678901bc-defa-2345-6789-01bcdef12345"
     },
     {
       "isDefault": false,
       "name": "Safety Equipment",
-      "id": "option-456"
+      "id": "789012cd-efab-3456-789a-12cdef123456"
     },
     {
       "isDefault": false,

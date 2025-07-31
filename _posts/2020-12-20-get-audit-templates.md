@@ -9,10 +9,11 @@ layout: null
 
 Retrieve a simple list of all audit templates with their ID and name pairs. This endpoint provides a lightweight response ideal for populating dropdown menus and template selection interfaces.
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/audit/templates
+GET /audit/templates
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -26,15 +27,15 @@ Content-Type: application/json
 
 [
   {
-    "id": "template-123",
+    "id": "567890ab-cdef-1234-5678-90abcdef1234",
     "name": "Safety Inspection Template"
   },
   {
-    "id": "template-456",
+    "id": "678901bc-defa-2345-6789-01bcdef12345",
     "name": "Equipment Maintenance Check"
   },
   {
-    "id": "template-789",
+    "id": "789012cd-efab-3456-789a-12cdef123456",
     "name": "Compliance Audit Form"
   }
 ]

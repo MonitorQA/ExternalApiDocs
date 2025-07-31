@@ -67,23 +67,24 @@ Update an existing schedule's configuration, including audit objects, assignment
 }
 ```
 
-## Request Example
+### Example Request
 
 ```http
-PUT https://api-external.monitorqa.com/schedules/{scheduleId}
+PUT /schedules/456e7890-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "auditObjectIds": [
-    "object-456",
-    "object-789"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
   "name": "Updated Daily Safety Check",
   "auditorHint": "Updated instructions: Focus on new safety protocols",
   "assigneesIds": [
-    "user-abc",
-    "user-def"
+    "abc12345-e89b-12d3-a456-426614174000",
+    "def67890-e89b-12d3-a456-426614174000"
   ],
   "repeatPattern": 1,
   "repeat": {

@@ -18,22 +18,23 @@ Remove specific attribute assignments from an audit object. This endpoint allows
 | attributes[].attributeId | string | Yes | The ID of the attribute |
 | attributes[].optionId | string | Yes | The ID of the specific option within the attribute |
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/audit/objects/{id}/attributes
+DELETE /audit/objects/{id}/attributes
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "attributes": [
     {
-      "attributeId": "attr-dept-001",
-      "optionId": "option-manufacturing"
+      "attributeId": "890123de-fghi-4567-890a-bcdef1234567",
+      "optionId": "678901bc-defa-2345-6789-01bcdef12345"
     },
     {
-      "attributeId": "attr-priority-001",
-      "optionId": "option-high"
+      "attributeId": "901234ef-ghij-5678-90ab-cdef12345678",
+      "optionId": "789012cd-efab-3456-789a-12cdef123456"
     }
   ]
 }

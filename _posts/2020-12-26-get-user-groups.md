@@ -9,10 +9,11 @@ layout: null
 
 Retrieve a list of all user groups within your company. This endpoint provides the basic identification information for user groups, which can be used for audit assignments and access management.
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/user-groups
+GET /user-groups
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -26,15 +27,15 @@ Content-Type: application/json
 
 [
   {
-    "id": "group-123",
+    "id": "123456gh-ijkl-789a-bcde-f12345678901",
     "name": "Safety Inspectors"
   },
   {
-    "id": "group-456",
+    "id": "234567hi-jklm-890a-bcde-f12345678902",
     "name": "Quality Assurance Team"
   },
   {
-    "id": "group-789",
+    "id": "345678ij-klmn-901a-bcde-f12345678903",
     "name": "Maintenance Supervisors"
   }
 ]

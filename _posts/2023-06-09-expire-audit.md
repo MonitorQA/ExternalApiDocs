@@ -15,18 +15,19 @@ Manually expire incomplete audits in your organization. This endpoint allows you
 |-----------|------|----------|-------------|
 | ids | array[string] | Yes | Array of audit IDs to be expired |
 
-## Request Example
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/audit/expire
+POST /audit/expire
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "ids": [
-    "audit-123",
-    "audit-456",
-    "audit-789"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ]
 }
 ```

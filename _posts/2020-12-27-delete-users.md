@@ -15,18 +15,19 @@ Delete multiple users from your company account. This endpoint allows you to rem
 |-----------|------|----------|-------------|
 | ids | array[string] | Yes | Array of user IDs to be deleted |
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/users
+DELETE /users
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "ids": [
-    "user-123",
-    "user-456",
-    "user-789"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ]
 }
 ```

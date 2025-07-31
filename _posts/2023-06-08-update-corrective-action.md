@@ -21,15 +21,16 @@ Update the details of an existing corrective action. This endpoint allows you to
 | status | integer | Yes | Status code (0=Open, 1=Approved, 2=Rejected, 3=Submitted, 4=Expired) |
 | priority | integer | Yes | Priority level (0=Low, 1=Medium, 2=High) |
 
-## Request Example
+### Example Request
 
 ```http
-PUT https://api-external.monitorqa.com/corrective-actions/{id}
+PUT /corrective-actions/{id}
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
-  "assignedUsersIds": ["user-123", "user-456"],
+  "assignedUsersIds": ["123e4567-e89b-12d3-a456-426614174000", "987fcdeb-51d2-43e8-b456-426614174001"],
   "description": "Replace damaged safety equipment and conduct training",
   "name": "Safety Equipment Replacement",
   "dueDateUtc": "2024-02-15T17:00:00.000Z",

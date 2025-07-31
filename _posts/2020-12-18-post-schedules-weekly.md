@@ -24,24 +24,25 @@ Create a weekly recurring schedule that generates audits on specified days of th
 | startFromDate | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | stopByDate | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 
-## Request Example
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/schedules/weekly
+POST /schedules/weekly
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
-  "templateId": "template-123",
+  "templateId": "123e4567-e89b-12d3-a456-426614174000",
   "auditObjectIds": [
-    "object-456",
-    "object-789"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
   "name": "Weekly Operations Check",
   "auditorHint": "Review daily operations and maintenance logs",
   "assigneesIds": [
-    "user-abc",
-    "user-def"
+    "abc12345-e89b-12d3-a456-426614174000",
+    "def67890-e89b-12d3-a456-426614174000"
   ],
   "daysOfWeek": [1, 3, 5],
   "active": true,
@@ -59,7 +60,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "schedule-weekly-xyz"
+  "id": "345678op-qrst-567g-hijk-678901234569"
 }
 ```
 

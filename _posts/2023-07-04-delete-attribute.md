@@ -15,18 +15,19 @@ Delete multiple audit object attributes permanently. This endpoint removes attri
 |-----------|------|----------|-------------|
 | ids | array[string] | Yes | Array of audit object attribute IDs to be deleted |
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/audit/objects/attributes
+DELETE /audit/objects/attributes
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "ids": [
-    "attr-dept-001",
-    "attr-priority-001",
-    "attr-location-001"
+    "890123de-fghi-4567-890a-bcdef1234567",
+    "901234ef-ghij-5678-90ab-cdef12345678",
+    "012345fg-hijk-6789-01bc-def123456789"
   ]
 }
 ```

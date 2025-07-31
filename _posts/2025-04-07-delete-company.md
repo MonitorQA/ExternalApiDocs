@@ -21,10 +21,11 @@ Deleting your company account will:
 - **Delete all corrective actions and related records**
 - **Stop all future billing charges**
 
-## Request Example
+### Example Request
 
 ```http
-DELETE https://api-external.monitorqa.com/company
+DELETE /company
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 

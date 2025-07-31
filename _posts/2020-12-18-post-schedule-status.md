@@ -18,31 +18,17 @@ layout: null
 | stopByDate | string | No | UTC date after which the schedule should be stopped (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | startFromDate | string | No | UTC date when the schedule should be started (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 
-## Request Examples
-
-### Disable schedule with optional future activation
+### Example Request
 
 ```http
-POST https://api-external.monitorqa.com/schedules/{scheduleId}/status
+POST /schedules/456e7890-e89b-12d3-a456-426614174000/status
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
 
 {
   "active": false,
   "startFromDate": "2024-12-31T09:00:00.000Z"
-}
-```
-
-### Enable schedule with optional future deactivation
-
-```http
-POST https://api-external.monitorqa.com/schedules/{scheduleId}/status
-X-API-KEY: abcdef12345
-Content-Type: application/json
-
-{
-  "active": true,
-  "stopByDate": "2025-06-30T23:59:59.000Z"
 }
 ```
 

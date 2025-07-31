@@ -15,10 +15,11 @@ Retrieve detailed information about a specific audit object, including its parti
 |-----------|------|----------|-------------|
 | id | string | Yes | The unique identifier of the audit object |
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/audit/object/{id}
+GET /audit/object/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -31,29 +32,29 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "object-123",
+  "id": "789abcde-f123-4567-8901-234567890123",
   "name": "Manufacturing Line A",
   "notes": "Primary production line for automotive parts",
   "participantUserGroups": [
     {
-      "id": "group-456",
+      "id": "123456gh-ijkl-789a-bcde-f12345678901",
       "name": "Production Supervisors"
     }
   ],
   "participantUsers": [
     {
-      "id": "user-789",
+      "id": "123e4567-e89b-12d3-a456-426614174000",
       "name": "John Smith"
     }
   ],
   "auditObjectGroupIds": [
-    "group-manufacturing"
+    "234567hi-jklm-890a-bcde-f12345678902"
   ],
   "attributes": [
     {
-      "attributeId": "attr-001",
+      "attributeId": "890123de-fghi-4567-890a-bcdef1234567",
       "attributeName": "Department",
-      "optionId": "opt-production",
+      "optionId": "678901bc-defa-2345-6789-01bcdef12345",
       "optionName": "Production"
     }
   ],

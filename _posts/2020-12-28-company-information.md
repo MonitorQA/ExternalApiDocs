@@ -9,10 +9,11 @@ layout: null
 
 Retrieve basic information about your company account. This endpoint provides essential company details including the unique company identifier and display name.
 
-## Request Example
+### Example Request
 
 ```http
-GET https://api-external.monitorqa.com/company
+GET /company
+Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
@@ -25,7 +26,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "company-123",
+  "id": "456789jk-lmno-012b-cdef-123456789012",
   "name": "Acme Manufacturing Corp"
 }
 ```
