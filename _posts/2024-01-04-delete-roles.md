@@ -3,7 +3,7 @@ category: 12. Roles
 url_path: '/roles'
 title: 'Delete Roles'
 type: 'DELETE'
-order: 4
+order: 5
 layout: null
 ---
 

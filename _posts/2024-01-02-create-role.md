@@ -3,7 +3,7 @@ category: 12. Roles
 url_path: '/roles'
 title: 'Create Role'
 type: 'POST'
-order: 2
+order: 3
 layout: null
 ---
 
@@ -16,11 +16,43 @@ Create a new role within your company. This endpoint allows you to define custom
 | roleType | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
 | name | string | Yes | The name of the role |
 | description | string | No | A description of the role |
-| permissions | array | Yes | Array of permission objects |
+| adminPermissions | array | Conditional | Array of admin permission objects. **Required when roleType = 0, must be null for other role types** |
+| auditorPermissions | array | Conditional | Array of auditor permission objects. **Required when roleType = 1, must be null for other role types** |
+| auditeePermissions | array | Conditional | Array of auditee permission objects. **Required when roleType = 2, must be null for other role types** |
+| observerPermissions | array | Conditional | Array of observer permission objects. **Required when roleType = 3, must be null for other role types** |
 | permissions[].isEnabled | boolean | Yes | Whether the permission is enabled |
-| permissions[].rolePermissionType | int | Yes | The permission type ID (see Permission Types below) |
+| permissions[].permissionType | int | Yes | The permission type ID from the role-specific enum (see Permission Types below) |
 
-### Example Request
+### Example Request - Admin Role
+
+```http
+POST /roles
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+  "roleType": 0,
+  "name": "System Administrator",
+  "description": "Full system administrator with all permissions",
+  "adminPermissions": [
+    {
+      "isEnabled": true,
+      "permissionType": 0
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 5
+    },
+    {
+      "isEnabled": false,
+      "permissionType": 19
+    }
+  ]
+}
+```
+
+### Example Request - Auditor Role
 
 ```http
 POST /roles
@@ -32,55 +64,109 @@ Content-Type: application/json
   "roleType": 1,
   "name": "Senior Quality Auditor",
   "description": "Senior auditor with expanded permissions for quality management",
-  "permissions": [
+  "auditorPermissions": [
     {
       "isEnabled": true,
-      "rolePermissionType": 1
+      "permissionType": 0
     },
     {
       "isEnabled": true,
-      "rolePermissionType": 6
+      "permissionType": 3
     },
     {
       "isEnabled": true,
-      "rolePermissionType": 28
+      "permissionType": 11
     }
   ]
 }
 ```
 
-### Permission Types
-- `1` - CanDoAudits
-- `2` - CanAssignAudits
-- `3` - CanManageAudits
-- `4` - CanScheduleAudits
-- `5` - CanCreateInstantAudits
-- `6` - CanViewAuditsResults
-- `7` - CanManageCorrectiveActions
-- `9` - CanApproveCorrectiveActions
-- `10` - CanAssignCorrectiveActions
-- `11` - CanDoCorrectiveActions
-- `12` - CanViewCorrectiveActions
-- `15` - CanManageAuditObjects
-- `16` - CanManageAuditTemplates
-- `17` - CanManageUsers
-- `18` - CanManageTags
-- `19` - CanManageRoles
-- `20` - CanManageScoreSystems
-- `21` - CanManageBilling
-- `23` - CanManageGeneralSetup
-- `24` - CanAccessNonParticipantAuditObject
-- `25` - CanDeleteIssues
-- `26` - CanEditIssues
-- `27` - CanChangeIssuesStatus
-- `28` - CanViewIssues
-- `29` - CanManageIssueTypes
-- `30` - CanViewSummaryReports
-- `31` - CanViewAuditPerformanceReports
-- `32` - CanViewAuditorPerformanceReports
-- `33` - CanViewAuditObjectPerformanceReports
-- `34` - CanViewItemAnalysisReports
-- `35` - CanAccessCustomDataExports
+### Example Request - Auditee Role
+
+```http
+POST /roles
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+  "roleType": 2,
+  "name": "Department Auditee",
+  "description": "Department representative for audit responses and corrective actions",
+  "auditeePermissions": [
+    {
+      "isEnabled": true,
+      "permissionType": 0
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 1
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 2
+    },
+    {
+      "isEnabled": false,
+      "permissionType": 3
+    }
+  ]
+}
+```
+
+### Example Request - Observer Role
+
+```http
+POST /roles
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+  "roleType": 3,
+  "name": "Quality Observer",
+  "description": "Read-only access to audit results and reports",
+  "observerPermissions": [
+    {
+      "isEnabled": true,
+      "permissionType": 0
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 1
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 3
+    },
+    {
+      "isEnabled": true,
+      "permissionType": 4
+    }
+  ]
+}
+```
+
+### Available Permissions by Role Type
+
+**Note:** Each role type uses its own permission enum with sequential numbering starting from 0. Only the appropriate permission array should be populated based on the roleType.
+
+For detailed descriptions of each permission type, see the [Role Permissions Reference](#/roles/permissions).
+
+#### Permission Array Usage by Role Type
+
+| Role Type | Role ID | Permission Array | Available Permissions |
+|-----------|---------|------------------|----------------------|
+| Admin | `0` | `adminPermissions` | 31 permissions (IDs 0-30) - Full system access |
+| Auditor | `1` | `auditorPermissions` | 17 permissions (IDs 0-16) - Audit execution and management |
+| Auditee | `2` | `auditeePermissions` | 4 permissions (IDs 0-3) - Response to audits and corrective actions |
+| Observer | `3` | `observerPermissions` | 9 permissions (IDs 0-8) - Read-only access to reports and results |
+
+**Quick Reference:**
+- **Admin permissions (0-30)**: Complete system control including user management, billing, and all operational permissions
+- **Auditor permissions (0-16)**: Audit execution, issue management, corrective action oversight, and performance reporting
+- **Auditee permissions (0-3)**: View audit results, execute corrective actions, limited object access
+- **Observer permissions (0-8)**: Read-only access to audits, issues, corrective actions, and all reports
 
 ## Response
 
@@ -96,3 +182,24 @@ Content-Type: application/json
 ```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
+
+## Validation Rules
+
+The following validation rules are enforced when creating roles:
+
+1. **Role Name**: Required and cannot be empty
+2. **Role Type**: Must be a valid enum value (0-3)
+3. **Permission Array Validation**:
+   - Exactly one permission array must be provided based on the role type
+   - Other permission arrays must be null or omitted
+   - The provided permission array must contain at least one permission
+4. **Permission Type Validation**:
+   - Permission types must be valid for the specified role type
+   - Permission types must use the correct enum values (0-based sequential numbering)
+5. **Role Type Mapping**:
+   - Admin (0) → use `adminPermissions` only
+   - Auditor (1) → use `auditorPermissions` only  
+   - Auditee (2) → use `auditeePermissions` only
+   - Observer (3) → use `observerPermissions` only
+
+**Note**: Requests that violate these rules will return a 400 Bad Request with detailed validation error messages.
