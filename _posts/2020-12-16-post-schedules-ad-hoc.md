@@ -46,13 +46,15 @@ Content-Type: application/json
 }
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns an id of created audit.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
   "id": "string"
 }```
 

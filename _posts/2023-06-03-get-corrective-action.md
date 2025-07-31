@@ -29,7 +29,7 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
 #### Status Values
 
@@ -49,11 +49,13 @@ X-API-KEY: abcdef12345
 | `1` | Medium | Medium priority corrective action |
 | `2` | High | High priority corrective action |
 
-**If succeeds**, returns corrective action details.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
    "answer": {
       "name": string,
       "points": number,

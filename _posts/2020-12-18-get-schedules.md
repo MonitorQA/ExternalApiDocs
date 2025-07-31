@@ -34,15 +34,17 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns a list of schedules.
+**Success Response**
+
 See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```Status: 200 OK```
-
-```{
+{
   "data": [
      {
          "id": string,

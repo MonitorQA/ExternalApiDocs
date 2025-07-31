@@ -16,6 +16,7 @@ This method allows you to retrieve a paginated list of pending audits with filte
 | `X-API-KEY` | string | Yes | Your API authentication key |
 
 ### Query Parameters
+
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `inProgress` | boolean | No | Filter by in progress state |
@@ -57,13 +58,15 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns a list of audit details.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
   "data": [
     {
       "id": "string",

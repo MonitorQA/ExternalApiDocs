@@ -35,11 +35,16 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns file content.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: [varies by file type]
+
+[File content - binary or text based on file type]
+```
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

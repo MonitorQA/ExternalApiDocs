@@ -49,13 +49,17 @@ Content-Type: application/json
 }
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns an id of created audit object.
+**Success Response**
 
-```Status: 200 OK```
-```{
-    "id": "string"   
-}```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": "string"   
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -55,10 +55,12 @@ Content-Type: application/json
 }
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

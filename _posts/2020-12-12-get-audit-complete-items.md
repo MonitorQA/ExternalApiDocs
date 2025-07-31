@@ -29,13 +29,15 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns complete audit items report.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
    "id": "1acad6ca-cab8-48a7-07f2-08da929c74ab",
    "items": [
       {

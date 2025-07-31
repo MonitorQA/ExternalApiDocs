@@ -36,12 +36,16 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**Success Response:**
-- **Status Code:** `200 OK`
-- **Content-Type:** `application/pdf`
-- **Body:** Binary PDF file content
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+
+[Binary PDF file content]
+```
 
 **Report Types:**
 - **Regular (0):** Standard audit report with basic information

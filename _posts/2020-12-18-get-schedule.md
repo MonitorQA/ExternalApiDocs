@@ -29,9 +29,9 @@ Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
 
-### Response
+## Response
 
-**If succeeds**, returns details of schedule.
+**Success Response**
 
 * **`id`** is schedule id.
 * **`name`** is schedule name.
@@ -95,9 +95,11 @@ Weekly audits repeat options:
 
 **Example**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
    "id": string,
    "name": string,
    "active": boolean,
