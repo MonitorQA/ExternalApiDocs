@@ -10,7 +10,17 @@ layout: default
 {% for post in site.posts %}
   {% if post.category == null %}
   <article class='{{ post.type }}'>
-    <a name='{{ post.url }}' href='#{{ post.url }}'><h2>{% if post.type %}<code><b>{{ post.type }}</b> {{ post.url_path }}</code> {% endif %}{{ post.title }}</h2></a>
+    <a name='{{ post.url }}' href='#{{ post.url }}'>
+      <h2>
+        <span class="endpoint-title">{{ post.title }}</span>
+        {% if post.type %}
+        <div class="endpoint-info">
+          <span class="endpoint-method">{{ post.type }}</span>
+          <span class="endpoint-url">{{ post.url_path }}</span>
+        </div>
+        {% endif %}
+      </h2>
+    </a>
     <section class='body'>
       {{ post.content }}
     </section>
@@ -22,7 +32,17 @@ layout: default
     {%assign sortedPosts = category[1]|sort:"order"%}
     {% for post in sortedPosts%}
     <article class='{{ post.type }}'>
-      <a name='{{ post.url }}' href='#{{ post.url }}'><h2>{% if post.type %}<code><b>{{ post.type }}</b> {{ post.url_path }}</code> {% endif %}{{ post.title }}</h2></a>
+      <a name='{{ post.url }}' href='#{{ post.url }}'>
+      <h2>
+        <span class="endpoint-title">{{ post.title }}</span>
+        {% if post.type %}
+        <div class="endpoint-info">
+          <span class="endpoint-method">{{ post.type }}</span>
+          <span class="endpoint-url">{{ post.url_path }}</span>
+        </div>
+        {% endif %}
+      </h2>
+    </a>
       <section class='body'>
         {{ post.content }}
       </section>
