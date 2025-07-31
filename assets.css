@@ -396,6 +396,102 @@ table {
     border-spacing: 0;
 }
 
+/* Enhanced Table Styles for API Documentation */
+#content table {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #e2e7ea;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+#content table th {
+    background: #f8f9fa;
+    color: #191919;
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #e2e7ea;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#content table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eef1f2;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+#content table tr:last-child td {
+    border-bottom: none;
+}
+
+#content table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Table cell content styling */
+#content table td:first-child {
+    font-family: 'Monaco', monospace, sans-serif;
+    font-size: 13px;
+    color: #119bdf;
+    font-weight: 500;
+}
+
+#content table td:nth-child(2) {
+    color: #657e8b;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#content table td:nth-child(3) {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#content table td:nth-child(3):contains("Yes"),
+#content table td:nth-child(3):contains("Required") {
+    color: #e02a10;
+}
+
+#content table td:nth-child(3):contains("No"),
+#content table td:nth-child(3):contains("Optional") {
+    color: #657e8b;
+}
+
+#content table td:nth-child(4) {
+    color: #546974;
+    line-height: 1.6;
+}
+
+/* Code elements within table cells */
+#content table td code {
+    background: #eef1f2;
+    border: 1px solid #e2e7ea;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-family: 'Monaco', monospace, sans-serif;
+    font-size: 12px;
+    color: #546974;
+}
+
+/* Responsive table behavior */
+@media (max-width: 768px) {
+    #content table {
+        font-size: 12px;
+    }
+    
+    #content table th,
+    #content table td {
+        padding: 8px 10px;
+    }
+}
+
 
 
 /* GENERAL */
@@ -637,8 +733,325 @@ code {
   padding: 0 1px;
 }
 
+/* Override for inline code in pre blocks */
+#content pre code {
+  border: none !important;
+  background: transparent !important;
+  color: #f8f8f2 !important;
+  padding: 20px !important;
+}
+
 #content .body p > code {
   display: block;
   padding: 15px;
   white-space: pre;
+}
+
+/* Enhanced Request Example Code Blocks */
+#content pre {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow-x: auto;
+    position: relative;
+}
+
+#content pre code {
+    background: transparent !important;
+    border: none !important;
+    color: #f8f8f2 !important;
+    display: block;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 20px !important;
+    white-space: pre;
+}
+
+/* Simplified and reliable font coloring for code examples */
+#content pre code {
+    color: #e6e6e6 !important;
+    font-weight: 400;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light theme for response/status blocks */
+#content pre.response {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+}
+
+#content pre.response code {
+    color: #2d3748 !important;
+    background: transparent !important;
+}
+
+/* Specific styling for inline status codes */
+#content code:not(pre code) {
+    background: #f1f3f4 !important;
+    color: #202124 !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Monaco', monospace !important;
+    font-size: 12px !important;
+}
+
+/* Ensure readability on dark backgrounds */
+#content pre {
+    background: #1a1a1a !important;
+    border: 1px solid #404040 !important;
+}
+
+/* Better contrast for JSON and HTTP content */
+#content pre code {
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced Response Section Styling */
+
+/* Response headers and structure */
+#content h3:contains("Response") + p,
+#content h3:contains("Response") + div,
+#content h3:contains("Response") ~ p:first-of-type {
+    background: #f8f9fa;
+    border-left: 4px solid #28a745;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    font-weight: 500;
+    color: #1e2d23;
+}
+
+/* Success response indicators */
+#content p:contains("If succeeds"),
+#content p:contains("Success Response"),
+#content strong:contains("If succeeds") {
+    color: #1e7e34;
+    font-weight: 600;
+}
+
+/* Error response indicators */
+#content p:contains("error"),
+#content p:contains("Error"),
+#content p:contains("fail") {
+    color: #721c24;
+    font-weight: 600;
+}
+
+/* Status code blocks - unified styling */
+#content code:contains("Status:"),
+#content code:contains("HTTP/1.1") {
+    background: #d4edda !important;
+    color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin: 8px 0 !important;
+}
+
+/* Error status codes */
+#content code:contains("400"),
+#content code:contains("401"),
+#content code:contains("403"),
+#content code:contains("404"),
+#content code:contains("500") {
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    border: 1px solid #f5c6cb !important;
+}
+
+/* Copy button for code blocks */
+#content pre::before {
+    content: "REQUEST";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: #333;
+    color: #ccc;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+/* Specific labels for different code block types */
+#content h3:contains("Response") ~ pre::before,
+#content h4:contains("Response") ~ pre::before,
+#content p:contains("Response") ~ pre::before {
+    content: "RESPONSE";
+    background: #28a745;
+    color: #fff;
+}
+
+#content pre[class*="language-json"]::before {
+    content: "JSON";
+    background: #007bff;
+}
+
+#content pre[class*="language-http"]::before {
+    content: "HTTP";
+    background: #6f42c1;
+}
+
+/* Unified Response Code Block Styling */
+#content pre.response,
+#content h3:contains("Response") ~ pre,
+#content h4:contains("Response") ~ pre {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-left: 4px solid #28a745 !important;
+}
+
+#content pre.response code,
+#content h3:contains("Response") ~ pre code,
+#content h4:contains("Response") ~ pre code {
+    color: #2d3748 !important;
+    background: transparent !important;
+    font-weight: 400;
+}
+
+#content pre.response::before,
+#content h3:contains("Response") ~ pre::before,
+#content h4:contains("Response") ~ pre::before {
+    content: "RESPONSE";
+    background: #28a745 !important;
+    color: #fff !important;
+}
+
+/* JSON Response blocks */
+#content h3:contains("Response") ~ pre:has(code:contains("{")),
+#content h4:contains("Response") ~ pre:has(code:contains("{")) {
+    background: #f8f9fa !important;
+    border-left: 4px solid #007bff !important;
+}
+
+#content h3:contains("Response") ~ pre:has(code:contains("{"))::before,
+#content h4:contains("Response") ~ pre:has(code:contains("{"))::before {
+    content: "JSON RESPONSE";
+    background: #007bff !important;
+}
+
+/* Status code styling */
+#content .status-code {
+    background: #28a745;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Monaco', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+#content .status-code.error {
+    background: #dc3545;
+}
+
+/* API Key styling in examples */
+#content code .api-key {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1px 3px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+/* Improved mobile responsiveness for code blocks */
+@media (max-width: 768px) {
+    #content pre {
+        margin: 15px -10px;
+        border-radius: 0;
+    }
+    
+    #content pre code {
+        padding: 15px;
+        font-size: 12px;
+    }
+    
+    #content pre::before {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+}
+
+/* Section Organization and Consistency */
+
+/* Request/Response section headers */
+#content h3:contains("Request"),
+#content h3:contains("Response"),
+#content h4:contains("Request"),
+#content h4:contains("Response") {
+    color: #495057;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+#content h3:contains("Request"),
+#content h4:contains("Request") {
+    border-bottom-color: #6f42c1;
+}
+
+#content h3:contains("Response"),
+#content h4:contains("Response") {
+    border-bottom-color: #28a745;
+}
+
+/* Example headers */
+#content h3:contains("Example"),
+#content h4:contains("Example") {
+    color: #495057;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+/* Consistent spacing for documentation sections */
+#content h3 + table,
+#content h4 + table {
+    margin-top: 16px;
+}
+
+#content h3 + pre,
+#content h4 + pre {
+    margin-top: 16px;
+}
+
+#content p + pre {
+    margin-top: 12px;
+}
+
+/* Better visual hierarchy for nested sections */
+#content h4 {
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+/* Status and priority tables in responses */
+#content table:has(th:contains("Status")),
+#content table:has(th:contains("Priority")),
+#content table:has(th:contains("Value")) {
+    margin: 16px 0;
+    border-left: 4px solid #17a2b8;
+}
+
+#content table:has(th:contains("Status")) th,
+#content table:has(th:contains("Priority")) th,
+#content table:has(th:contains("Value")) th {
+    background: #e7f3ff;
+    color: #0c5460;
 }
