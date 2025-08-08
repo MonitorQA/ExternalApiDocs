@@ -27,7 +27,7 @@ The MonitorQA API uses standard HTTP status codes to indicate the success or fai
 | `401 Unauthorized` | Authentication required or invalid | Missing or invalid `X-API-KEY` header |
 | `403 Forbidden` | Access denied | Valid authentication but insufficient permissions for the resource |
 | `404 Not Found` | Resource not found | Invalid endpoint URL or resource ID doesn't exist |
-| `409 Conflict` | Resource conflict | Attempting to create a resource that already exists |
+| `409 Conflict` | Resource conflict | Used for business logic errors |
 | `422 Unprocessable Entity` | Validation errors | Request format is correct but contains invalid data |
 
 #### Server Error Codes

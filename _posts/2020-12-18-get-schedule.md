@@ -61,15 +61,17 @@ X-API-KEY: abcdef12345
 One-time audit repeat options:
 
 ```{
-  "startDate": datetime,
-  "endDate": datetime
-}```
+  "startDate": "2025-07-31T15:30:00.000Z",
+  "endDate": "2025-08-31T15:30:00.000Z"
+}
+```
 
 Daily audit repeat options:
 
 ```{
   "repeatEvery": number, //value in range 1..10
-}```
+}
+```
 
 Multiple weeks audit repeat options:
 
@@ -77,7 +79,8 @@ Multiple weeks audit repeat options:
   "repeatEvery": number, //value in range 1..10
   "startDay": DayOfWeek, //0 - Sun ... 6 - Sat
   "duration": number //value in range 1..repeatEvery*7
-}```
+}
+```
 
 Monthly audit repeat options:
 
@@ -85,13 +88,15 @@ Monthly audit repeat options:
   "repeatEvery": number, //value in range 1..10
   "startDay": number, //value in range 1..31
   "duration": number  //value in range 1..repeatEvery*31
-}```
+}
+```
 
 Weekly audits repeat options:
 
 ```{
   "daysOfWeek": DayOfWeek[] //0 - Sun ... 6 - Sat
-}```
+}
+```
 
 **Example**
 
@@ -103,8 +108,8 @@ Content-Type: application/json
    "id": string,
    "name": string,
    "active": boolean,
-   "stopByDate": datetime,
-   "startFromDate": datetime,
+   "stopByDate": "2025-12-31T23:59:59.000Z",
+   "startFromDate": "2025-01-01T00:00:00.000Z",
    "auditorHint": string,
    "template": {
       "id": string,
@@ -134,6 +139,7 @@ Content-Type: application/json
       "duration": number,
       "repeatEvery": number
    }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

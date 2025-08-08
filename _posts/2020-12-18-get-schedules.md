@@ -51,8 +51,8 @@ Content-Type: application/json
          "name": string,
          "repeatPattern": 1,
          "active": boolean,
-         "stopByDate": datetime,
-         "startFromDate": datetime,
+         "stopByDate": "2025-12-31T23:59:59.000Z",
+         "startFromDate": "2025-01-01T00:00:00.000Z",
          "template": {
             "id": string,
             "name": string
@@ -75,6 +75,7 @@ Content-Type: application/json
     "pageSize": 10,
     "totalCount": 1
   }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

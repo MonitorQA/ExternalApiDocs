@@ -57,80 +57,81 @@ Content-Type: application/json
 
 {
    "answer": {
-      "name": string,
-      "points": number,
-      "text": string,
-      "number": number,
-      "isFailed": boolean
+      "name": "Fire extinguisher inspection",
+      "points": 5,
+      "text": "Fire extinguisher is missing from designated location",
+      "number": 3,
+      "isFailed": true
    },
-   "approvedAtUtc": date,
+   "approvedAtUtc": "2023-11-15T14:30:22.123Z",
    "approvedBy": {
-        "id": string, 
-        "name": string
+        "id": "a8f3d2c1-b4e5-4f6g-9h8i-1j2k3l4m5n6o", 
+        "name": "Sarah Johnson"
       },
    "assignedUsers": [
       {
-         "id": string,
-         "name": string
+         "id": "b9e4c3d2-c5f6-5g7h-0i9j-2k3l4m5n6o7p",
+         "name": "Mike Rodriguez"
       }
    ],
    "audit": {
-      "id": string,
-      "name": string,
-      "ianaTimeZone": string
+      "id": "c0f5d4e3-d6g7-6h8i-1j0k-3l4m5n6o7p8q",
+      "name": "Monthly Safety Inspection - Building A",
+      "ianaTimeZone": "America/New_York"
    },
-   "auditItemId": string,
+   "auditItemId": "d1g6e5f4-e7h8-7i9j-2k1l-4m5n6o7p8q9r",
    "auditObject": {
-      "id": string,
-      "name": string
+      "id": "e2h7f6g5-f8i9-8j0k-3l2m-5n6o7p8q9r0s",
+      "name": "Building A - First Floor"
    },
-   "createdAtUtc": "2022-10-31T11:05:37.6888585",
+   "createdAtUtc": "2023-10-31T11:05:37.688Z",
    "createdBy": {
-      "id": string,
-      "name": string
+      "id": "f3i8g7h6-g9j0-9k1l-4m3n-6o7p8q9r0s1t",
+      "name": "John Smith"
    },
-   "description": string,
-   "dueDateUtc": "2022-11-01T06:59:59",
-   "expiredAtUtc": date,
+   "description": "Replace missing fire extinguisher in hallway near conference room 101",
+   "dueDateUtc": "2023-11-01T06:59:59.000Z",
+   "expiredAtUtc": "2023-11-03T06:59:59.000Z",
    "expiredBy": {
-      "id": string,
-      "name": string
+      "id": "g4j9h8i7-h0k1-0l2m-5n4o-7p8q9r0s1t2u",
+      "name": "Lisa Chen"
    },
-   "id": string,
+   "id": "h5k0i9j8-i1l2-1m3n-6o5p-8q9r0s1t2u3v",
    "information": {
-      "text": string,
+      "text": "Fire extinguisher has been ordered and will be installed by facilities team",
       "photosIds": [
-         string
+         "i6l1j0k9-j2m3-2n4o-7p6q-9r0s1t2u3v4w"
       ],
       "files": [
          {
-            "id": string,
-            "name": string,
-            "contentType": string,
-            "updatedAt": "2023-07-03T11:31:01.8187649Z"
+            "id": "j7m2k1l0-k3n4-3o5p-8q7r-0s1t2u3v4w5x",
+            "name": "fire_extinguisher_order_receipt.pdf",
+            "contentType": "application/pdf",
+            "updatedAt": "2023-11-02T09:15:33.456Z"
          }
       ]
    },
-   "name": string,
-   "number": string,
-   "priority": 0,
-   "question": string,
+   "name": "Fire Extinguisher Replacement",
+   "number": "CA-2023-001",
+   "priority": 2,
+   "question": "Is the fire extinguisher present and accessible?",
    "status": 3,
    "tags": [
       {
-         "id": string,
-         "name": string
+         "id": "k8n3l2m1-l4o5-4p6q-9r8s-1t2u3v4w5x6y",
+         "name": "Fire Safety"
       }
    ],
    "files": [
       {
-         "id": string,
-         "name": string,
-         "contentType": string,
-         "updatedAt": "2022-10-31T11:05:37.6887695Z"
+         "id": "l9o4m3n2-m5p6-5q7r-0s9t-2u3v4w5x6y7z",
+         "name": "corrective_action_photos.jpg",
+         "contentType": "image/jpeg",
+         "updatedAt": "2023-10-31T11:05:37.688Z"
       }
    ]
-}```
+}
+```
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

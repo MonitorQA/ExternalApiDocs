@@ -18,10 +18,10 @@ Retrieve a paginated list of pending corrective actions within your organization
 | auditObjectId | string | No | Filter by audit object ID |
 | assignedToId | string | No | Filter by assigned user ID |
 | assignedToGroupId | string | No | Filter by assigned user group ID |
-| fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
+
+**Note:** This method will return an empty data list if the requested page does not exist.
 
 ### Example Request
 
@@ -85,11 +85,9 @@ Content-Type: application/json
   ],
   "meta": {
     "pageNumber": 1,
-    "pageSize": 10,
-    "totalCount": 25
+    "pageSize": 10
   }
 }
 ```
-
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

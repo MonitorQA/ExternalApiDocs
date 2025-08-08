@@ -55,7 +55,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "string"
-}```
+  "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890"
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

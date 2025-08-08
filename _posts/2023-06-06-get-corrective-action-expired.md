@@ -23,6 +23,8 @@ Retrieve a paginated list of expired corrective actions within your organization
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 
+**Note:** This method will return an empty data list if the requested page does not exist.
+
 ### Example Request
 
 ```http
@@ -90,11 +92,9 @@ Content-Type: application/json
   ],
   "meta": {
     "pageNumber": 1,
-    "pageSize": 10,
-    "totalCount": 5
+    "pageSize": 10
   }
 }
 ```
-
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -42,32 +42,32 @@ Content-Type: application/json
    "items": [
       {
          "id": "4ff6fbf7-8e6d-46be-356c-08da929d03c7",
-         "text": string,
-         "note": string,
-         "notApplicable": boolean,
-         "isCritical": boolean,
-         "isPassed": boolean?,
+         "text": "Fire extinguisher present and accessible",
+         "note": "Located near main entrance - needs pressure check",
+         "notApplicable": false,
+         "isCritical": true,
+         "isPassed": false,
          "childrenIds": [],
          "actions": [
             {
-               "id": string,
-               "name": string,
-               "number": string,
-               "description": "dd",
+               "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",
+               "name": "Schedule fire extinguisher maintenance",
+               "number": "CA-2023-0892",
+               "description": "Contact certified technician for monthly pressure check",
                "assignees": [
                     {
-                        "id": string,
-                        "name": string
+                        "id": "b2c3d4e5-f6a7-890b-cdef-012345678901",
+                        "name": "David Martinez"
                     }
                 ],
                "comments": [],
                "createdBy": {
                   "id": "3c71b2a5-4c00-4bb0-9f08-785a2d8f7128",
-                  "name": string
+                  "name": "Jennifer Thompson"
                },
-               "createdAt": "2022-09-12T03:10:30.1333781",
-               "dueDate": "2022-09-27T23:59:59.9999999",
-               "priority": 0,
+               "createdAt": "2023-09-12T03:10:30.133Z",
+               "dueDate": "2023-09-27T23:59:59.999Z",
+               "priority": 2,
                "status": 0,
                "photos": [],
                "tags": []
@@ -88,7 +88,8 @@ Content-Type: application/json
          }
       }
    ]
-}```
+}
+```
 
 ### Response Fields
 
