@@ -7,25 +7,38 @@ order: 15
 layout: null
 ---
 
-This method allows to get audit templates list with id and name pairs.
+Retrieve a simple list of all audit templates with their ID and name pairs. This endpoint provides a lightweight response ideal for populating dropdown menus and template selection interfaces.
 
-### Request
+### Example Request
 
-* The headers must include a **valid api key**.
+```http
+GET /audit/templates
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
-```X-API-KEY:  abcdef12345```
+## Response
 
-### Response
+**Success Response**
 
-**If succeeds**, returns a list of audit templates id and name pairs.
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```Status: 200 OK```
-
-```[
+[
   {
-    "id": "string",
-    "name": "string"
+    "id": "567890ab-cdef-1234-5678-90abcdef1234",
+    "name": "Safety Inspection Template"
+  },
+  {
+    "id": "678901bc-defa-2345-6789-01bcdef12345",
+    "name": "Equipment Maintenance Check"
+  },
+  {
+    "id": "789012cd-efab-3456-789a-12cdef123456",
+    "name": "Compliance Audit Form"
   }
-]```
+]
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

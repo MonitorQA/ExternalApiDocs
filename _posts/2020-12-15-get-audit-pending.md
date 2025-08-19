@@ -7,76 +7,128 @@ order: 6
 layout: null
 ---
 
-This method allows to get list of pending audits.
+This method allows you to retrieve a paginated list of pending audits with filtering and sorting options.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Optional Query String Parameters
-* **`inProgress`** - filter by in progress state.
-* **`templateId`** - filter by audit template id.
-* **`auditObjectId`** - filter by audit object id.
-* **`auditObjectGroupId`** - filter by audit object group id.
-* **`assignedTo`** - filter by assigned to user id.
-* **`assignedToGroup`** - filter by assigned to user group id.
-* **`fromDate`** - filter by audit due date UTC.
-* **`toDate`** - filter by audit due date UTC.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
-* **`orderBy`** - field name to sort audits by (default value is 'name').
-* **`orderByDirection`** - audits sorting direction.
+### Query Parameters
 
-Accepted values for **`orderBy`**:
-* **`name`** - sort by audit name
-* **`auditObjectName`** - sort by audit object name
-* **`endDate`** - sort by audit end date
-* **`assignedTo`** - sort by assigned user name
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `inProgress` | boolean | No | Filter by in progress state |
+| `templateId` | string | No | Filter by audit template ID |
+| `auditObjectId` | string | No | Filter by audit object ID |
+| `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `assignedTo` | string | No | Filter by assigned user ID |
+| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `pageNumber` | number | No | Current page number, starts from 1 |
+| `pageSize` | number | No | Page size |
+| `orderBy` | string | No | Field to sort by (default: 'name') |
+| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
-Accepted values for **`orderByDirection`**:
-* **`asc`** - ascending
-* **`desc`** - descending
+**Note:** This method will return an empty data list if the requested page does not exist.
 
-### Response
+### Sorting Options
 
-**If succeeds**, returns a list of audit details.
+**orderBy** values:
 
-```Status: 200 OK```
+| Value | Description |
+|-------|-------------|
+| `name` | Sort by audit name |
+| `auditObjectName` | Sort by audit object name |
+| `endDate` | Sort by audit end date |
+| `assignedTo` | Sort by assigned user name |
 
-```{
+**orderByDirection** values:
+
+| Value | Description |
+|-------|-------------|
+| `asc` | Ascending order |
+| `desc` | Descending order |
+
+### Example Request
+
+```http
+GET /audit/pending?inProgress=true&pageSize=50&orderBy=endDate&orderByDirection=asc
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
   "data": [
     {
-      "id": "string",
-      "name": "string",
+      "id": "a1b2c3d4-e5f6-4789-abc1-234567890def",
+      "name": "Weekly Kitchen Safety Inspection",
       "assignees": [
         {
-          "id": "string",
-          "name": "string"
+          "id": "b2c3d4e5-f6a7-5890-bcd2-345678901efa",
+          "name": "Emily Davis"
         }
       ],
       "auditObject": {
-        "id": "string",
-        "name": "string"
+        "id": "c3d4e5f6-a7b8-6901-cde3-456789012fab",
+        "name": "Main Kitchen - Building B"
       },
-      "endDate": "2021-12-30T13:46:13.413Z",
-      "number": "string",
-      "startDate": "2021-12-30T13:46:13.413Z",
+      "endDate": "2023-12-15T17:00:00.000Z",
+      "number": "AUD-2023-1247",
+      "startDate": "2023-12-15T09:00:00.000Z",
       "template": {
-        "id": "string",
-        "name": "string"
+        "id": "d4e5f6a7-b8c9-7012-def4-567890123gbc",
+        "name": "Kitchen Safety Inspection Template"
+      },
+      "isReopened": false,
+      "isStarted": true,
+      "completedActionsCount": 8,
+      "pendingActionsCount": 3
+    },
+    {
+      "id": "e5f6a7b8-c9d0-8123-efg5-678901234hcd",
+      "name": "Monthly Equipment Maintenance Check",
+      "assignees": [
+        {
+          "id": "f6a7b8c9-d0e1-9234-fgh6-789012345ide",
+          "name": "Robert Wilson"
+        },
+        {
+          "id": "a7b8c9d0-e1f2-0345-ghi7-890123456jef",
+          "name": "Maria Garcia"
+        }
+      ],
+      "auditObject": {
+        "id": "b8c9d0e1-f2a3-1456-hij8-901234567kfg",
+        "name": "Manufacturing Floor - Zone A"
+      },
+      "endDate": "2023-12-20T16:30:00.000Z",
+      "number": "AUD-2023-1248",
+      "startDate": "2023-12-18T08:00:00.000Z",
+      "template": {
+        "id": "c9d0e1f2-a3b4-2567-ijk9-012345678lgh",
+        "name": "Equipment Maintenance Audit"
       },
       "isReopened": true,
       "isStarted": true,
-      "completedActionsCount": 0,
-      "pendingActionsCount": 0
+      "completedActionsCount": 15,
+      "pendingActionsCount": 7
     }
   ],
   "meta": {
-    "pageNumber": 0,
-    "pageSize": 0,
-    "totalCount": 0
+    "pageNumber": 1,
+    "pageSize": 50,
+    "totalCount": 2
   }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

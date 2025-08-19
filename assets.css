@@ -396,6 +396,102 @@ table {
     border-spacing: 0;
 }
 
+/* Enhanced Table Styles for API Documentation */
+#content table {
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid #e2e7ea;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+#content table th {
+    background: #f8f9fa;
+    color: #191919;
+    font-weight: 600;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #e2e7ea;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#content table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eef1f2;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+#content table tr:last-child td {
+    border-bottom: none;
+}
+
+#content table tr:hover {
+    background: #f8f9fa;
+}
+
+/* Table cell content styling */
+#content table td:first-child {
+    font-family: 'Monaco', monospace, sans-serif;
+    font-size: 13px;
+    color: #119bdf;
+    font-weight: 500;
+}
+
+#content table td:nth-child(2) {
+    color: #657e8b;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+#content table td:nth-child(3) {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#content table td:nth-child(3):contains("Yes"),
+#content table td:nth-child(3):contains("Required") {
+    color: #e02a10;
+}
+
+#content table td:nth-child(3):contains("No"),
+#content table td:nth-child(3):contains("Optional") {
+    color: #657e8b;
+}
+
+#content table td:nth-child(4) {
+    color: #546974;
+    line-height: 1.6;
+}
+
+/* Code elements within table cells */
+#content table td code {
+    background: #eef1f2;
+    border: 1px solid #e2e7ea;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-family: 'Monaco', monospace, sans-serif;
+    font-size: 12px;
+    color: #546974;
+}
+
+/* Responsive table behavior */
+@media (max-width: 768px) {
+    #content table {
+        font-size: 12px;
+    }
+    
+    #content table th,
+    #content table td {
+        padding: 8px 10px;
+    }
+}
+
 
 
 /* GENERAL */
@@ -405,22 +501,25 @@ body {
 }
 
 body {
-  background: #fff;
+  background: #f8fafc;
+  scroll-behavior: smooth;
 }
 
 body,
 input,
 textarea {
-  color: #191919;
-  font: 14px/140% 'Open Sans', Arial, sans-serif;
+  color: #32373c;
+  font: 15px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: #119bdf;
+  color: #54c0e8;
   text-decoration: none;
 }
 a:hover {
-  color: #29aeef;
+  color: #357b49;
   text-decoration: underline;
 }
 
@@ -440,28 +539,45 @@ code {
 
 /* SIDEBAR */
 #sidebar {
-  background: #191919;
-  color: #fff;
-  float: left;  
-  height: 100%;
-  overflow: auto;
-  position: absolute;
+  background: rgb(11, 67, 104);
+  color: #ffffff;
+  position: fixed;
   top: 0;
-  width: 240px;
+  left: 0;
+  height: 100vh;
+  width: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
 }
 
 #sidebar h1 {
-  background: #111;
-  font-size: 14px;
+  background: rgb(11, 67, 104);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
   margin: 0;
-  padding: 20px;
-  text-transform: uppercase;
+  padding: 24px 24px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 #sidebar h2 {
-  color: #888;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  font-weight: 600;
   margin: 0;
+  padding: 20px 24px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #sidebar ul {
@@ -471,50 +587,223 @@ code {
 }
 
 #sidebar ul#links {
-  padding: 20px;
+  padding: 24px;
 }
 
 #sidebar ul ul {
-  padding-left: 20px;
+  padding-left: 0;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #sidebar ul li a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
   display: block;
-  padding: 0 0 15px;
+  padding: 12px 20px;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  margin: 2px 0;
+  position: relative;
+  font-weight: 500;
 }
+
+#sidebar ul li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+}
+
 #sidebar ul li a:active,
 #sidebar ul li a.active {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#sidebar ul ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar ul ul li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#sidebar ul ul li a:active,
+#sidebar ul ul li a.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* HTTP Method indicators in navigation */
+#sidebar ul ul li.GET a::before {
+  content: "GET";
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 16px;
+}
+
+#sidebar ul ul li.POST a::before {
+  content: "POST";
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 16px;
+}
+
+#sidebar ul ul li.PUT a::before {
+  content: "PUT";
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 16px;
+}
+
+#sidebar ul ul li.DELETE a::before {
+  content: "DEL";
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-right: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 16px;
+}
+
+/* Smooth scrollbar for sidebar */
+#sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #sidebar input {
-  background: #111;
-  border: 0;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
-  color: #ddd;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
   margin-bottom: 20px;
-  padding: 5px 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
+
+#sidebar input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 #sidebar input:active,
 #sidebar input:focus {
-  border-color: #ccc;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
   outline: none;
 }
 
-/* References */
+/* Main Content Area */
 #content {
-  padding: 20px;
-  padding-left: 260px;
-  max-width: 700px;
+  margin-left: 320px;
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 0 0 60px 0;
+  position: relative;
+  width: calc(100% - 320px);
+  box-sizing: border-box;
+}
+
+#content > * {
+  padding-left: 40px;
+  padding-right: 40px;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+#content > *:first-child {
+  margin-top: 32px;
+}
+
+#content > h2 {
+  background: rgb(11, 67, 104);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  padding: 24px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 #content .control {
@@ -525,42 +814,105 @@ code {
 
 #content article {
   clear: both;
-  margin: 15px 0;
+  margin: 20px 0;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+#content article:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 0 2px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
 }
 
 #content article > a {
-  background: #333;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   cursor: pointer;
   display: block;
-  padding: 15px;
+  padding: 20px 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-bottom: 1px solid #e5e7eb;
+  border-left: 4px solid transparent;
 }
+
 #content article > a:hover {
-  background: #222;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
   text-decoration: none;
+  border-left: 4px solid #64748b;
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#content article.active > a {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 2px solid #e2e8f0;
+  border-left: 4px solid rgb(49, 187, 231);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+#content article.active > a:hover {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transform: none;
+  border-left: 4px solid rgb(49, 187, 231);
 }
 
 #content a h2 {
-  color: #fff;
+  color: #1e293b;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 700;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
 }
 
-#content a h2 code {
-  float: right;
+#content a h2 .endpoint-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.025em;
+}
+
+#content a h2 .endpoint-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   font-size: 14px;
 }
 
-#content a h2 code b {
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #fff;
-  font-weight: normal;
-  padding: 3px 6px;
+#content a h2 .endpoint-method {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#content a h2 .endpoint-url {
+  color: #475569;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(148, 163, 184, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 /* Default */
@@ -578,67 +930,557 @@ code {
 }
 
 /* GET */
-#content article.GET a h2 code {
-  color: #119bdf;
+#content article.GET a h2 .endpoint-method {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#content article.GET a h2 code b {
-  background: #119bdf;
+#content article.GET > a {
+  border-left-color: #06b6d4;
+}
+
+#content article.GET.active > a {
+  border-left-color: #0891b2;
 }
 
 /* POST */
-#content article.POST a h2 code {
-  color: #52ce0e;
+#content article.POST a h2 .endpoint-method {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#content article.POST a h2 code b {
-  background: #52ce0e;
+#content article.POST > a {
+  border-left-color: #22c55e;
+}
+
+#content article.POST.active > a {
+  border-left-color: #16a34a;
 }
 
 /* PUT */
-#content article.PUT a h2 code {
-  color: #e08f10;
+#content article.PUT a h2 .endpoint-method {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#content article.PUT a h2 code b {
-  background: #e08f10;
+#content article.PUT > a {
+  border-left-color: #f59e0b;
+}
+
+#content article.PUT.active > a {
+  border-left-color: #d97706;
 }
 
 /* DELETE */
-#content article.DELETE a h2 code {
-  color: #e02a10;
+#content article.DELETE a h2 .endpoint-method {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-#content article.DELETE a h2 code b {
-  background: #e02a10;
+#content article.DELETE > a {
+  border-left-color: #ef4444;
+}
+
+#content article.DELETE.active > a {
+  border-left-color: #dc2626;
+}
+
+#content article.DELETE a h2 .endpoint-method::after {
+  content: "DEL";
+}
+
+#content article.DELETE a h2 .endpoint-method {
+  font-size: 0;
+}
+
+#content article.DELETE a h2 .endpoint-method::after {
+  font-size: 9px;
 }
 
 /* Reference's body */
 #content h3 {
+  color: #64748b;
 }
 
 #content .body {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border-top: 1px solid #eef1f2;
   box-sizing: border-box;
+  background: #ffffff;
   display: block;
-  padding: 15px 15px 0;
+  padding: 32px;
   width: 100%;
+  line-height: 1.6;
+  color: #32373c;
+}
+
+#content .body h3 {
+  color: #64748b;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+#content .body h4 {
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 24px 0 12px;
+}
+
+#content .body p {
+  margin-bottom: 20px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+#content .body ul,
+#content .body ol {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+#content .body li {
+  margin-bottom: 8px;
+  color: #6b7280;
 }
 
 #content .body code {
-  border: 1px solid #e2e7ea;
-  background: #eef1f2;
-  border-radius: 2px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  color: #546974;
-  padding: 0 1px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  color: #1e293b;
+  padding: 4px 8px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Override for inline code in pre blocks */
+#content pre code {
+  border: none !important;
+  background: transparent !important;
+  color: #f8f8f2 !important;
+  padding: 20px !important;
 }
 
 #content .body p > code {
   display: block;
   padding: 15px;
   white-space: pre;
+}
+
+/* Enhanced Request Example Code Blocks */
+#content pre {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    margin: 20px 0;
+    overflow-x: auto;
+    position: relative;
+}
+
+#content pre code {
+    background: transparent !important;
+    border: none !important;
+    color: #f8f8f2 !important;
+    display: block;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 20px !important;
+    white-space: pre;
+}
+
+/* Simplified and reliable font coloring for code examples */
+#content pre code {
+    color: #e6e6e6 !important;
+    font-weight: 400;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light theme for response/status blocks */
+#content pre.response {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+}
+
+#content pre.response code {
+    color: #2d3748 !important;
+    background: transparent !important;
+}
+
+/* Specific styling for inline status codes */
+#content code:not(pre code) {
+    background: #f1f3f4 !important;
+    color: #202124 !important;
+    padding: 2px 4px !important;
+    border-radius: 3px !important;
+    font-family: 'Monaco', monospace !important;
+    font-size: 12px !important;
+}
+
+/* Ensure readability on dark backgrounds */
+#content pre {
+    background: #1a1a1a !important;
+    border: 1px solid #404040 !important;
+}
+
+/* Better contrast for JSON and HTTP content */
+#content pre code {
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced Response Section Styling */
+
+/* Response headers and structure */
+#content h3:contains("Response") + p,
+#content h3:contains("Response") + div,
+#content h3:contains("Response") ~ p:first-of-type {
+    background: #f8f9fa;
+    border-left: 4px solid #28a745;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+    font-weight: 500;
+    color: #1e2d23;
+}
+
+/* Success response indicators */
+#content p:contains("If succeeds"),
+#content p:contains("Success Response"),
+#content strong:contains("If succeeds") {
+    color: #1e7e34;
+    font-weight: 600;
+}
+
+/* Error response indicators */
+#content p:contains("error"),
+#content p:contains("Error"),
+#content p:contains("fail") {
+    color: #721c24;
+    font-weight: 600;
+}
+
+/* Status code blocks - unified styling */
+#content code:contains("Status:"),
+#content code:contains("HTTP/1.1") {
+    background: #d4edda !important;
+    color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    margin: 8px 0 !important;
+}
+
+/* Error status codes */
+#content code:contains("400"),
+#content code:contains("401"),
+#content code:contains("403"),
+#content code:contains("404"),
+#content code:contains("500") {
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    border: 1px solid #f5c6cb !important;
+}
+
+/* Enhanced Request Example Styling */
+#content h3:contains("Example Request") + pre,
+#content h4:contains("Example Request") + pre,
+#content h3:contains("Request Example") + pre,
+#content h4:contains("Request Example") + pre {
+    background: #1a1a1a !important;
+    border: 1px solid #404040 !important;
+    border-left: 4px solid #6f42c1 !important;
+}
+
+#content h3:contains("Example Request") + pre code,
+#content h4:contains("Example Request") + pre code,
+#content h3:contains("Request Example") + pre code,
+#content h4:contains("Request Example") + pre code {
+    color: #e6e6e6 !important;
+    background: transparent !important;
+}
+
+/* Copy button for code blocks */
+#content pre::before {
+    content: "REQUEST";
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: #333;
+    color: #ccc;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+/* Specific labels for request examples */
+#content h3:contains("Example Request") + pre::before,
+#content h4:contains("Example Request") + pre::before,
+#content h3:contains("Request Example") + pre::before,
+#content h4:contains("Request Example") + pre::before {
+    content: "HTTP REQUEST";
+    background: #6f42c1 !important;
+    color: #fff !important;
+}
+
+/* Specific labels for different code block types */
+#content h3:contains("Response") ~ pre::before,
+#content h4:contains("Response") ~ pre::before,
+#content p:contains("Response") ~ pre::before {
+    content: "RESPONSE";
+    background: #28a745;
+    color: #fff;
+}
+
+#content pre[class*="language-json"]::before {
+    content: "JSON";
+    background: #007bff;
+}
+
+#content pre[class*="language-http"]::before {
+    content: "HTTP";
+    background: #6f42c1;
+}
+
+/* Unified Response Code Block Styling */
+#content pre.response,
+#content h3:contains("Response") ~ pre,
+#content h4:contains("Response") ~ pre {
+    background: #f8f9fa !important;
+    border: 1px solid #e9ecef !important;
+    border-left: 4px solid #28a745 !important;
+}
+
+#content pre.response code,
+#content h3:contains("Response") ~ pre code,
+#content h4:contains("Response") ~ pre code {
+    color: #2d3748 !important;
+    background: transparent !important;
+    font-weight: 400;
+}
+
+#content pre.response::before,
+#content h3:contains("Response") ~ pre::before,
+#content h4:contains("Response") ~ pre::before {
+    content: "RESPONSE";
+    background: #28a745 !important;
+    color: #fff !important;
+}
+
+/* JSON Response blocks */
+#content h3:contains("Response") ~ pre:has(code:contains("{")),
+#content h4:contains("Response") ~ pre:has(code:contains("{")) {
+    background: #f8f9fa !important;
+    border-left: 4px solid #007bff !important;
+}
+
+#content h3:contains("Response") ~ pre:has(code:contains("{"))::before,
+#content h4:contains("Response") ~ pre:has(code:contains("{"))::before {
+    content: "JSON RESPONSE";
+    background: #007bff !important;
+}
+
+/* Status code styling */
+#content .status-code {
+    background: #28a745;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Monaco', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+#content .status-code.error {
+    background: #dc3545;
+}
+
+/* API Key styling in examples */
+#content code .api-key {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1px 3px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #sidebar {
+        width: 300px;
+    }
+    
+    #content {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+    }
+    
+    #content > * {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    #sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    #content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    #content > * {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    #content > h2 {
+        padding: 20px;
+        font-size: 24px;
+    }
+    
+    #content article {
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+    
+    #content article > a {
+        padding: 15px 20px;
+    }
+    
+    #content a h2 {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    #content .body {
+        padding: 20px;
+    }
+    
+    #content pre {
+        margin: 15px -10px;
+        border-radius: 0;
+    }
+    
+    #content pre code {
+        padding: 15px;
+        font-size: 12px;
+    }
+    
+    #content pre::before {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+}
+
+/* Section Organization and Consistency */
+
+/* Request/Response section headers */
+#content h3:contains("Request"),
+#content h3:contains("Response"),
+#content h4:contains("Request"),
+#content h4:contains("Response") {
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+#content h3:contains("Request"),
+#content h4:contains("Request") {
+    border-bottom-color: #a78bfa;
+}
+
+#content h3:contains("Response"),
+#content h4:contains("Response") {
+    border-bottom-color: #34d399;
+}
+
+/* Example headers */
+#content h3:contains("Example"),
+#content h4:contains("Example") {
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+/* Request example headers specifically */
+#content h3:contains("Example Request"),
+#content h4:contains("Example Request"),
+#content h3:contains("Request Example"),
+#content h4:contains("Request Example") {
+    color: #a78bfa;
+    border-bottom: 2px solid #a78bfa;
+    padding-bottom: 8px;
+}
+
+/* Consistent spacing for documentation sections */
+#content h3 + table,
+#content h4 + table {
+    margin-top: 16px;
+}
+
+#content h3 + pre,
+#content h4 + pre {
+    margin-top: 16px;
+}
+
+#content p + pre {
+    margin-top: 12px;
+}
+
+/* Better visual hierarchy for nested sections */
+#content h4 {
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+/* Status and priority tables in responses */
+#content table:has(th:contains("Status")),
+#content table:has(th:contains("Priority")),
+#content table:has(th:contains("Value")) {
+    margin: 16px 0;
+    border-left: 4px solid #17a2b8;
+}
+
+#content table:has(th:contains("Status")) th,
+#content table:has(th:contains("Priority")) th,
+#content table:has(th:contains("Value")) th {
+    background: #e7f3ff;
+    color: #0c5460;
 }

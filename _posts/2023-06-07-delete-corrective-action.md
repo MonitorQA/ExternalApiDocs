@@ -7,19 +7,31 @@ order: 6
 layout: null
 ---
 
-This method allows to delete corrective action.
+Delete a specific corrective action from your organization. Use this endpoint to permanently remove corrective actions that are no longer needed. This action cannot be undone.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of corrective action, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the corrective action to delete |
 
+### Example Request
 
-### Response
+```http
+DELETE /corrective-actions/{id}
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
-**If succeeds**, returns empty response.
+## Response
 
-```Status: 200 OK```
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful deletion of the corrective action.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

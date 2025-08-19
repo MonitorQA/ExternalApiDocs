@@ -7,23 +7,44 @@ order: 1
 layout: null
 ---
 
-This method allows to get file by it's unique id.
+This method allows you to retrieve a file by its unique identifier. Files can include images, documents, and other attachments uploaded during audits or corrective actions.
 
-### Request
+### Request Headers
 
-* **`{id}`** is the id of file, **required**.
-* The headers must include a **valid api key**.
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-```X-API-KEY:  abcdef12345```
+### Path Parameters
 
-### Optional Query String Parameters
-* **`withWatermark`** is flag to get file with watermark. Set to `true` to get image file with watermark. It will return original file when watermark is disabled in template settings.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | string | Yes | Unique identifier of the file |
 
-### Response
+### Query Parameters
 
-**If succeeds**, returns file content.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `withWatermark` | boolean | No | Whether to apply watermark to image files (default: `false`). Returns original file if watermarking is disabled in template settings |
 
-```Status: 200 OK```
+### Example Request
+
+```http
+GET /files/123e4567-e89b-12d3-a456-426614174000?withWatermark=true
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: [varies by file type]
+
+[File content - binary or text based on file type]
+```
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

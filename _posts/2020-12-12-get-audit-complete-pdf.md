@@ -7,23 +7,49 @@ order: 11
 layout: null
 ---
 
-This method allows to get pdf report of complete audit.
+This method allows you to download a PDF report of a completed audit. The report contains all audit items, responses, and optional photos in a formatted document.
 
-### Request
-* **`{auditId}`** is id of complete audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Optional Query String Parameters
-* **`reportType`** is report type (0 - Regular, 1 - Summary, 2 - Full)
-* **`includePhotos`** is flag used to include photos into report.
+### Path Parameters
 
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the completed audit |
 
-### Response
+### Query Parameters
 
-**If succeeds**, returns pdf file with complete audit report.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `reportType` | integer | No | Report format type: `0` = Regular, `1` = Summary, `2` = Full (default: `0`) |
+| `includePhotos` | boolean | No | Whether to include photos in the report (default: `false`) |
 
-```Status: 200 OK```
+### Example Request
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+```http
+GET /audit/complete/123e4567-e89b-12d3-a456-426614174000/report-pdf?reportType=2&includePhotos=true
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/pdf
+
+[Binary PDF file content]
+```
+
+**Report Types:**
+- **Regular (0):** Standard audit report with basic information
+- **Summary (1):** Condensed report highlighting key findings
+- **Full (2):** Comprehensive report with all details and context
+
+For error responses, see the [response status codes documentation](#/response-status-codes).

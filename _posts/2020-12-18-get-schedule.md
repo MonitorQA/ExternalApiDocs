@@ -7,16 +7,31 @@ order: 2
 layout: null
 ---
 
-This method allows to get schedule details.
+This method allows you to retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Response
+### Path Parameters
 
-**If succeeds**, returns details of schedule.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `scheduleId` | string | Yes | Unique identifier of the schedule |
+
+### Example Request
+
+```http
+GET /schedules/{scheduleId}
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
 
 * **`id`** is schedule id.
 * **`name`** is schedule name.
@@ -31,28 +46,32 @@ This method allows to get schedule details.
 * **`repeatPattern`** is schedule repeat pattern.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
 
-**Repeat patterns**
+### Repeat Patterns
 
-* **`0`** - One-time audit. Schedule produces one audit with no repeat. Audit dates configured with repeat options.
-* **`1`** - Daily audit. Schedule produces audits repeated daily. Repeat interval in days can be configured with repeat options.
-* **`2`** - Multiple weeks audit. Schedule produces audits repeated per week. Repeat interval in weeks and audit start day of week can be configured with repeat options.
-* **`3`** - Monthly audit. Schedule produces audits repeated per month. Repeat interval in months and audit start day of month can be configured with repeat options.
-* **`4`** - Weekly audit. Schedule produces audits repeated per days of week. Days of week for audits can be configured with repeat options.
+| Pattern | Description |
+|---------|-------------|
+| `0` | One-time audit - produces one audit with no repeat |
+| `1` | Daily audit - repeats daily with configurable interval |
+| `2` | Multiple weeks audit - repeats per week with configurable interval and start day |
+| `3` | Monthly audit - repeats per month with configurable interval and start day |
+| `4` | Weekly audit - repeats on specific days of week |
 
 **Repeat options**
 
 One-time audit repeat options:
 
 ```{
-  "startDate": datetime,
-  "endDate": datetime
-}```
+  "startDate": "2025-07-31T15:30:00.000Z",
+  "endDate": "2025-08-31T15:30:00.000Z"
+}
+```
 
 Daily audit repeat options:
 
 ```{
   "repeatEvery": number, //value in range 1..10
-}```
+}
+```
 
 Multiple weeks audit repeat options:
 
@@ -60,7 +79,8 @@ Multiple weeks audit repeat options:
   "repeatEvery": number, //value in range 1..10
   "startDay": DayOfWeek, //0 - Sun ... 6 - Sat
   "duration": number //value in range 1..repeatEvery*7
-}```
+}
+```
 
 Monthly audit repeat options:
 
@@ -68,24 +88,28 @@ Monthly audit repeat options:
   "repeatEvery": number, //value in range 1..10
   "startDay": number, //value in range 1..31
   "duration": number  //value in range 1..repeatEvery*31
-}```
+}
+```
 
 Weekly audits repeat options:
 
 ```{
   "daysOfWeek": DayOfWeek[] //0 - Sun ... 6 - Sat
-}```
+}
+```
 
 **Example**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
+{
    "id": string,
    "name": string,
    "active": boolean,
-   "stopByDate": datetime,
-   "startFromDate": datetime,
+   "stopByDate": "2025-12-31T23:59:59.000Z",
+   "startFromDate": "2025-01-01T00:00:00.000Z",
    "auditorHint": string,
    "template": {
       "id": string,
@@ -115,6 +139,7 @@ Weekly audits repeat options:
       "duration": number,
       "repeatEvery": number
    }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

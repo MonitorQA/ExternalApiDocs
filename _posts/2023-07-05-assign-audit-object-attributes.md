@@ -7,29 +7,52 @@ order: 1
 layout: null
 ---
 
-This method allows to assign attributes to audit object. Is is not possible to assign same option twice. Option should be available for specified attribute or it won't be assigned.
+Assign multiple attributes to a specific audit object. This endpoint allows you to categorize and tag audit objects with custom attributes for better organization and filtering. Duplicate assignments are ignored, and invalid options will not be assigned.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of audit object, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the audit object |
+| attributes | array[object] | Yes | Array of attribute-option pairs to assign |
+| attributes[].attributeId | string | Yes | The ID of the attribute |
+| attributes[].optionId | string | Yes | The ID of the specific option within the attribute |
 
-```X-API-KEY:  abcdef12345```
+### Example Request
 
-```{
- "attributes": [
-     {
-        "attributeId": string,
-        "optionId": string
-     }
- ]
-}```
+```http
+POST /audit/objects/{id}/attributes
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-### Response
+{
+  "attributes": [
+    {
+      "attributeId": "890123de-fghi-4567-890a-bcdef1234567",
+      "optionId": "678901bc-defa-2345-6789-01bcdef12345"
+    },
+    {
+      "attributeId": "901234ef-ghij-5678-90ab-cdef12345678",
+      "optionId": "789012cd-efab-3456-789a-12cdef123456"
+    },
+    {
+      "attributeId": "012345fg-hijk-6789-01bc-def123456789",
+      "optionId": "123456gh-ijkl-789a-bcde-f12345678901"
+    }
+  ]
+}
+```
 
-**If succeeds**, returns an empty response.
+## Response
 
-```Status: 200 OK```
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful assignment of attributes to the audit object.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

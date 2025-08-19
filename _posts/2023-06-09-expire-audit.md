@@ -7,26 +7,40 @@ order: 24
 layout: null
 ---
 
-This method allows to expire not completed audits.
+Manually expire incomplete audits in your organization. This endpoint allows you to mark multiple audits as expired, effectively closing them without completion. This is useful for audits that are no longer relevant or cannot be completed.
 
-### Request
+## Parameters
 
-* The headers must include a **valid api key**.
-* The body must include array of audits ids.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| ids | array[string] | Yes | Array of audit IDs to be expired |
 
-```X-API-KEY:  abcdef12345```
+### Example Request
 
-```{
+```http
+POST /audit/expire
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
   "ids": [
-    "string"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ]
-}```
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful expiration of specified audits.
 
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -7,62 +7,83 @@ order: 9
 layout: null
 ---
 
-This method allows to get details of complete audit.
+This method allows you to retrieve comprehensive details of a completed audit, including audit metadata, assignees, completion status, and reporting information.
 
-### Request
-* **`{auditId}`** is id of complete audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Response
+### Path Parameters
 
-**If succeeds**, returns complete audit details.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the completed audit |
 
-```Status: 200 OK```
+### Example Request
 
-```{
-  "id": "string",  
-  "companyId": "string",
-  "number": "string",
-  "auditorHint": "string",
+```http
+GET /audit/complete/{auditId}
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",  
+  "companyId": "b2c3d4e5-f6a7-890b-cdef-012345678901",
+  "number": "AUD-2023-0475",
+  "auditorHint": "Pay special attention to cold storage temperature logs and cleaning schedules",
   "auditObject": {
-    "id": "string",
-    "name": "string",
-    "notes": "string"
+    "id": "c3d4e5f6-a7b8-901c-defa-123456789012",
+    "name": "Warehouse Cold Storage Unit B",
+    "notes": "Temperature-controlled environment for perishable goods"
   },
   "startedBy": {
-    "id": "string",
-    "name": "string"
+    "id": "d4e5f6a7-b8c9-012d-efab-234567890123",
+    "name": "Michael Johnson"
   },
-  "templateId": "string",
+  "templateId": "e5f6a7b8-c9d0-123e-fabc-345678901234",
   "template": {
-    "id": "string",
-    "name": "string"
+    "id": "e5f6a7b8-c9d0-123e-fabc-345678901234",
+    "name": "Cold Storage Compliance Audit"
   },
   "assignees": [
     {
-      "id": "string",
-      "name": "string"
+      "id": "f6a7b8c9-d0e1-234f-abcd-456789012345",
+      "name": "Rachel Kim"
+    },
+    {
+      "id": "a7b8c9d0-e1f2-345a-bcde-567890123456",
+      "name": "Carlos Rodriguez"
     }
   ],
   "isStarted": true,
-  "startedAt": "2021-12-30T14:11:23.202Z",
+  "startedAt": "2023-10-25T07:30:00.000Z",
   "isCompleted": true,
-  "completeDate": "2021-12-30T14:11:23.202Z",
+  "completeDate": "2023-10-25T11:45:33.875Z",
   "isExpired": false,
-  "isReopened": true,
+  "isReopened": false,
   "completedBy": {
-    "id": "string",
-    "name": "string"
+    "id": "f6a7b8c9-d0e1-234f-abcd-456789012345",
+    "name": "Rachel Kim"
   },
-  "startDate": "2021-12-30T14:11:23.202Z",
-  "endDate": "2021-12-30T14:11:23.202Z",
-  "score": 0,
-  "scoreLabel": "string",
-  "scoreColor": "string",
-  "completionTime": 0,
-  "reportUrl": "string"
-}```
+  "startDate": "2023-10-25T07:00:00.000Z",
+  "endDate": "2023-10-25T15:00:00.000Z",
+  "score": 91,
+  "scoreLabel": "Excellent",
+  "scoreColor": "#198754",
+  "completionTime": 255,
+  "reportUrl": "https://api-external.monitorqa.com/reports/audit/a1b2c3d4-e5f6-789a-bcde-f01234567890"
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

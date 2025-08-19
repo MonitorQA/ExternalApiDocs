@@ -7,51 +7,64 @@ order: 18
 layout: null
 ---
 
-This method allows to get audit object details.
+Retrieve detailed information about a specific audit object, including its participants, attributes, and location data. This endpoint provides comprehensive audit object details needed for audit planning and execution.
 
-### Request
+## Parameters
 
-* **`{id}`** is the id of audit object, **required**.
-* The headers must include a **valid api key**.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| id | string | Yes | The unique identifier of the audit object |
 
-### Response
+### Example Request
 
-Returns details of audit object.
+```http
+GET /audit/object/123e4567-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
-```Status: 200 OK```
-```{
-  "id": "string",
-  "name": "string",
-  "notes": "string",
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": "789abcde-f123-4567-8901-234567890123",
+  "name": "Manufacturing Line A",
+  "notes": "Primary production line for automotive parts",
   "participantUserGroups": [
     {
-      "id": "string",
-      "name": "string"
+      "id": "123456gh-ijkl-789a-bcde-f12345678901",
+      "name": "Production Supervisors"
     }
   ],
   "participantUsers": [
     {
-      "id": "string",
-      "name": "string"
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "name": "John Smith"
     }
   ],
   "auditObjectGroupIds": [
-    "string"
+    "234567hi-jklm-890a-bcde-f12345678902"
   ],
   "attributes": [
-      {
-         "attributeId": string,
-         "attributeName": string,
-         "optionId": string,
-         "optionName": string
-      }
-  ],    
+    {
+      "attributeId": "890123de-fghi-4567-890a-bcdef1234567",
+      "attributeName": "Department",
+      "optionId": "678901bc-defa-2345-6789-01bcdef12345",
+      "optionName": "Production"
+    }
+  ],
   "geoAddress": {
-    "lat": "string",
-    "lng": "string",
-    "name": "string",
-    "address": "string"
+    "lat": "40.7128",
+    "lng": "-74.0060",
+    "name": "Factory Floor A",
+    "address": "123 Industrial Ave, Manufacturing City, MC 12345"
   }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

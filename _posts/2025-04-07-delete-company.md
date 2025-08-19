@@ -7,24 +7,36 @@ order: 26
 layout: null
 ---
 
-This method allows to permanently delete the company account.
+**⚠️ DANGER ZONE ⚠️**
 
-**This action can't be undone!** Deleting your account will:
+Permanently delete your entire company account from the MonitorQA system. This is an irreversible action that will completely remove all data associated with your organization.
 
-* Cancel active subscription
+## ⚠️ WARNING: This action cannot be undone!
 
-* All company users will lose access immediately
+Deleting your company account will:
+- **Cancel your active subscription immediately**
+- **Remove all company users and revoke their access**
+- **Delete all audits, schedules, and historical data**
+- **Remove all audit objects, templates, and configurations**
+- **Delete all corrective actions and related records**
+- **Stop all future billing charges**
 
-* No further charges will be applied
+### Example Request
 
-### Request
+```http
+DELETE /company
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
-* The headers must include a **valid api key**.
+## Response
 
-### Response
+**Success Response**
 
-Returns empty response
+```http
+HTTP/1.1 200 OK
+```
 
-```Status: 200 OK```
+Empty response body indicates successful account deletion. Your API key will be immediately invalidated after this operation.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

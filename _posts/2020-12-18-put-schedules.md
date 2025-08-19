@@ -7,93 +7,103 @@ order: 18
 layout: null
 ---
 
-This method allows to update schedule.
+Update an existing schedule's configuration, including audit objects, assignments, and recurrence patterns. This endpoint allows you to modify all aspects of a schedule except its template.
 
-### Request
-* The headers must include a **valid api key**.
-* **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
-* **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
-* **`name`** is schedule name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
-* **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`repeatPattern`** is schedule repeat pattern. **required**, **values: 0 - One-time, 1 - Daily, 2 - Multiple Weeks, 3 - Monthly, 4 - Weekly**.
-* **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
-* **`active`** is schedule status, **optional**, **true** by default, **ignored for one-time schedules**
-* **`startFromDate`** local date when schedule should be started, **optional**, **ignored for one-time schedules**.
-* **`stopByDate`** local date after which schedule should be stopped, **optional**, **ignored for one-time schedules**
+## Parameters
 
-**Repeat patterns**
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| scheduleId | string | Yes | The unique identifier of the schedule to update |
+| auditObjectIds | array[string] | Conditional | Array of audit object IDs (required if auditObjectGroupIds not provided) |
+| auditObjectGroupIds | array[string] | Conditional | Array of audit object group IDs (required if auditObjectIds not provided) |
+| name | string | Yes | Display name for the schedule |
+| auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
+| assigneesIds | array[string] | No | Array of user IDs to assign the generated audits to |
+| repeatPattern | integer | Yes | Schedule repeat pattern (0=One-time, 1=Daily, 2=Multiple Weeks, 3=Monthly, 4=Weekly) |
+| repeat | object | Yes | Repeat configuration options (varies by repeatPattern) |
+| active | boolean | No | Schedule status (defaults to `true`, ignored for one-time schedules) |
+| startFromDate | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
+| stopByDate | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
 
-* **`0`** - One-time audit. Schedule produces one audit with no repeat. Audit dates configured with repeat options.
-* **`1`** - Daily audit. Schedule produces audits repeated daily. Repeat interval in days can be configured with repeat options.
-* **`2`** - Multiple weeks audit. Schedule produces audits repeated per week. Repeat interval in weeks and audit start day of week can be configured with repeat options.
-* **`3`** - Monthly audit. Schedule produces audits repeated per month. Repeat interval in months and audit start day of month can be configured with repeat options.
-* **`4`** - Weekly audit. Schedule produces audits repeated per days of week. Days of week for audits can be configured with repeat options.
+## Repeat Pattern Options
 
-**Repeat options**
+### One-time (repeatPattern: 0)
+```json
+{
+  "startDate": "2024-02-01T08:00:00.000Z",
+  "endDate": "2024-02-15T17:00:00.000Z"
+}
+```
 
-One-time audit repeat options:
+### Daily (repeatPattern: 1)
+```json
+{
+  "repeatEvery": 3
+}
+```
 
-```{
-  "startDate": datetime,
-  "endDate": datetime
-}```
+### Multiple Weeks (repeatPattern: 2)
+```json
+{
+  "repeatEvery": 2,
+  "startDay": 1,
+  "duration": 5
+}
+```
 
-Daily audit repeat options:
+### Monthly (repeatPattern: 3)
+```json
+{
+  "repeatEvery": 1,
+  "startDay": 15,
+  "duration": 7
+}
+```
 
-```{
-  "repeatEvery": number, //value in range 1..10
-}```
+### Weekly (repeatPattern: 4)
+```json
+{
+  "daysOfWeek": [1, 3, 5]
+}
+```
 
-Multiple weeks audit repeat options:
+### Example Request
 
-```{
-  "repeatEvery": number, //value in range 1..10
-  "startDay": DayOfWeek, //0 - Sun ... 6 - Sat
-  "duration": number //value in range 1..repeatEvery*7
-}```
+```http
+PUT /schedules/456e7890-e89b-12d3-a456-426614174000
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
 
-Monthly audit repeat options:
-
-```{
-  "repeatEvery": number, //value in range 1..10
-  "startDay": number, //value in range 1..31
-  "duration": number  //value in range 1..repeatEvery*31
-}```
-
-Weekly audits repeat options:
-
-```{
-  "daysOfWeek": DayOfWeek[] //0 - Sun ... 6 - Sat
-}```
-
-
-### Example
-
-```X-API-KEY:  abcdef12345```
-
-```{
+{
   "auditObjectIds": [
-    "string"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
-  "auditObjectGroupIds": [
-    "string"
-  ],
-  "name": "string",
-  "auditorHint": "string",
+  "name": "Updated Daily Safety Check",
+  "auditorHint": "Updated instructions: Focus on new safety protocols",
   "assigneesIds": [
-    "string"
+    "abc12345-e89b-12d3-a456-426614174000",
+    "def67890-e89b-12d3-a456-426614174000"
   ],
   "repeatPattern": 1,
   "repeat": {
-    "repeatEvery": 5
-  }
-}```
+    "repeatEvery": 2
+  },
+  "active": true,
+  "startFromDate": "2024-02-01T08:00:00.000Z",
+  "stopByDate": "2024-12-31T23:59:59.000Z"
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful schedule update.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

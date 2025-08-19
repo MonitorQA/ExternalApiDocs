@@ -7,51 +7,67 @@ order: 10
 layout: null
 ---
 
-This method allows to get report of complete audit.
+This method allows you to retrieve the detailed report of a completed audit, including all audit items, their statuses, and associated corrective actions.
 
-### Request
-* **`{auditId}`** is id of complete audit, **required**.
-* The headers must include a **valid api key**.
+### Request Headers
 
-```X-API-KEY:  abcdef12345```
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-### Response
+### Path Parameters
 
-**If succeeds**, returns complete audit items report.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditId` | string | Yes | Unique identifier of the completed audit |
 
-```Status: 200 OK```
+### Example Request
 
-```{
+```http
+GET /audit/complete/{auditId}/report
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
+
+## Response
+
+**Success Response**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
    "id": "1acad6ca-cab8-48a7-07f2-08da929c74ab",
    "items": [
       {
          "id": "4ff6fbf7-8e6d-46be-356c-08da929d03c7",
-         "text": string,
-         "note": string,
-         "notApplicable": boolean,
-         "isCritical": boolean,
-         "isPassed": boolean?,
+         "text": "Fire extinguisher present and accessible",
+         "note": "Located near main entrance - needs pressure check",
+         "notApplicable": false,
+         "isCritical": true,
+         "isPassed": false,
          "childrenIds": [],
          "actions": [
             {
-               "id": string,
-               "name": string,
-               "number": string,
-               "description": "dd",
+               "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",
+               "name": "Schedule fire extinguisher maintenance",
+               "number": "CA-2023-0892",
+               "description": "Contact certified technician for monthly pressure check",
                "assignees": [
                     {
-                        "id": string,
-                        "name": string
+                        "id": "b2c3d4e5-f6a7-890b-cdef-012345678901",
+                        "name": "David Martinez"
                     }
                 ],
                "comments": [],
                "createdBy": {
                   "id": "3c71b2a5-4c00-4bb0-9f08-785a2d8f7128",
-                  "name": string
+                  "name": "Jennifer Thompson"
                },
-               "createdAt": "2022-09-12T03:10:30.1333781",
-               "dueDate": "2022-09-27T23:59:59.9999999",
-               "priority": 0,
+               "createdAt": "2023-09-12T03:10:30.133Z",
+               "dueDate": "2023-09-27T23:59:59.999Z",
+               "priority": 2,
                "status": 0,
                "photos": [],
                "tags": []
@@ -72,24 +88,36 @@ This method allows to get report of complete audit.
          }
       }
    ]
-}```
+}
+```
 
-**itemType** possible values:
-  * Root = 0,
-  * Section = 1,
-  * Item = 2,
-  * ConditionalItem = 3,
-  * Condition = 4,
+### Response Fields
 
-**actions.priority** possible values:
-  * Low = 0,
-  * Medium = 1,
-  * High = 2
+**itemType** values:
 
-**actions.status** possible values:
-  * Open = 0,
-  * Approved = 1,
-  * Rejected = 2, 
-  * Submitted = 3,
+| Value | Description |
+|-------|-------------|
+| `0` | Root |
+| `1` | Section |
+| `2` | Item |
+| `3` | ConditionalItem |
+| `4` | Condition |
+
+**actions.priority** values:
+
+| Value | Description |
+|-------|-------------|
+| `0` | Low |
+| `1` | Medium |
+| `2` | High |
+
+**actions.status** values:
+
+| Value | Description |
+|-------|-------------|
+| `0` | Open |
+| `1` | Approved |
+| `2` | Rejected |
+| `3` | Submitted |
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -7,48 +7,52 @@ order: 1
 layout: null
 ---
 
-This method allows to get list of active schedules.
+This method allows you to retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities.
 
-### Request
-* The headers must include a **valid api key**.
+### Request Headers
 
-### Optional Query String Parameters
-* **`auditObjectId`** - filter by audit object id.
-* **`auditObjectGroupId`** - filter by audit object group id.
-* **`pageNumber`** - current page number, starts from 1.
-* **`pageSize`** - current page size.
-* **`orderBy`** - field name to sort audits by \(default value is 'name'\).
-* **`orderByDirection`** - audits sorting direction.
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | Your API authentication key |
 
-Accepted values for **`orderBy`**:
-* **`name`** - sort by audit name
-* **`auditObject`** - sort by audit object name
+### Query Parameters
 
-Accepted values for **`orderByDirection`**:
-* **`asc`** - ascending
-* **`desc`** - descending
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditObjectId` | string | No | Filter schedules by specific audit object ID |
+| `auditObjectGroupId` | string | No | Filter schedules by audit object group ID |
+| `pageNumber` | integer | No | Page number for pagination, starting from 1 (default: 1) |
+| `pageSize` | integer | No | Number of items per page (default: 10) |
+| `orderBy` | string | No | Field to sort by: `name`, `auditObject` (default: `name`) |
+| `orderByDirection` | string | No | Sort direction: `asc`, `desc` (default: `asc`) |
 
-### Example
+### Example Request
 
-```X-API-KEY:  abcdef12345```
+```http
+GET /schedules?pageNumber=1&pageSize=20&orderBy=name&orderByDirection=asc
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+```
 
-### Response
+## Response
 
-**If succeeds**, returns a list of schedules.
+**Success Response**
+
 See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options
 
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```Status: 200 OK```
-
-```{
+{
   "data": [
      {
          "id": string,
          "name": string,
          "repeatPattern": 1,
          "active": boolean,
-         "stopByDate": datetime,
-         "startFromDate": datetime,
+         "stopByDate": "2025-12-31T23:59:59.000Z",
+         "startFromDate": "2025-01-01T00:00:00.000Z",
          "template": {
             "id": string,
             "name": string
@@ -71,6 +75,7 @@ See [schedule details](#/get-schedule) for details about **`repeatPattern`** and
     "pageSize": 10,
     "totalCount": 1
   }
-}```
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

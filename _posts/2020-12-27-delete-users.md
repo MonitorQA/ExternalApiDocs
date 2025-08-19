@@ -7,25 +7,39 @@ order: 26
 layout: null
 ---
 
-This method allows to delete company users
+Delete multiple users from your company account. This endpoint allows you to remove users in bulk by providing an array of user IDs. Use caution as this action cannot be undone.
 
-### Request
+## Parameters
 
-* The headers must include a **valid api key**.
-* The body must include array of users ids.
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| ids | array[string] | Yes | Array of user IDs to be deleted |
 
-```X-API-KEY:  abcdef12345```
+### Example Request
 
-```{
+```http
+DELETE /users
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
   "ids": [
-    "string"
+    "123e4567-e89b-12d3-a456-426614174000",
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ]
-}```
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an empty response.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+```
+
+Empty response body indicates successful deletion of specified users.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

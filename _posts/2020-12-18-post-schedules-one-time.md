@@ -7,45 +7,56 @@ order: 13
 layout: null
 ---
 
-This method allows to create one-time schedule for list of users.
+Create a one-time schedule that generates a single audit for specified users and objects. This endpoint is ideal for ad-hoc audits or special inspections that don't require recurring schedules.
 
-### Request
-* The headers must include a **valid api key**.
-* **`templateId`** is id of audit template, **required**.
-* **`auditObjectIds`** is array of audit object ids, **required if auditObjectGroupIds is not present**.
-* **`auditObjectGroupIds`** is array of audit object group ids, **required if auditObjectIds is not present**.
-* **`name`** is schedule name, **required**.
-* **`auditorHint`** is auditor hint visible during audit, **max length is 2000 charachters**.
-* **`assigneesIds`** is array of user ids, whom audit is assigned to.
-* **`startDate`** is audit local start date, optional.
-* **`endDate`** is audit local due date, **required**.
+## Parameters
 
-```X-API-KEY:  abcdef12345```
-```{
-  "templateId": "string",
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| templateId | string | Yes | The unique identifier of the audit template to use |
+| auditObjectIds | array[string] | Conditional | Array of audit object IDs (required if auditObjectGroupIds not provided) |
+| auditObjectGroupIds | array[string] | Conditional | Array of audit object group IDs (required if auditObjectIds not provided) |
+| name | string | Yes | Display name for the schedule |
+| auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
+| assigneesIds | array[string] | No | Array of user IDs to assign the generated audit to |
+| startDate | string | No | UTC date when the audit should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| endDate | string | Yes | UTC date when the audit is due (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+
+### Example Request
+
+```http
+POST /schedules/one-time
+Host: api-external.monitorqa.com
+X-API-KEY: abcdef12345
+Content-Type: application/json
+
+{
+  "templateId": "123e4567-e89b-12d3-a456-426614174000",
   "auditObjectIds": [
-    "string"
+    "456e7890-e89b-12d3-a456-426614174000",
+    "789e0123-e89b-12d3-a456-426614174000"
   ],
-  "auditObjectGroupIds": [
-    "string"
-  ],
-  "name": "string",
-  "auditorHint": "string",
+  "name": "Special Safety Inspection",
+  "auditorHint": "Focus on recent incident area and emergency procedures",
   "assigneesIds": [
-    "string"
+    "abc12345-e89b-12d3-a456-426614174000"
   ],
-  "startDate": "2021-11-30T13:30:57.068Z",
-  "endDate": "2021-12-30T13:30:57.068Z"
-}```
+  "startDate": "2024-02-01T08:00:00.000Z",
+  "endDate": "2024-02-15T17:00:00.000Z"
+}
+```
 
-### Response
+## Response
 
-**If succeeds**, returns an id of created schedule.
+**Success Response**
 
-```Status: 200 OK```
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-```{
-  "id": "string"
-}```
+{
+  "id": "234567op-qrst-567g-hijk-678901234568"
+}
+```
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
