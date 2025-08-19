@@ -137,7 +137,8 @@ Content-Type: application/json
   ],
   "meta": {
     "pageNumber": 1,
-    "pageSize": 50
+    "pageSize": 50,
+    "totalCount": 2
   }
 }
 ```
