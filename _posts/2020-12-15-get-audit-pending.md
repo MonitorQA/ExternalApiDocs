@@ -27,33 +27,13 @@ This method allows you to retrieve a paginated list of pending audits with filte
 | `assignedToGroup` | string | No | Filter by assigned user group ID |
 | `pageNumber` | number | No | Current page number, starts from 1 |
 | `pageSize` | number | No | Page size |
-| `orderBy` | string | No | Field to sort by (default: 'name') |
-| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
-
-### Sorting Options
-
-**orderBy** values:
-
-| Value | Description |
-|-------|-------------|
-| `name` | Sort by audit name |
-| `auditObjectName` | Sort by audit object name |
-| `endDate` | Sort by audit end date |
-| `assignedTo` | Sort by assigned user name |
-
-**orderByDirection** values:
-
-| Value | Description |
-|-------|-------------|
-| `asc` | Ascending order |
-| `desc` | Descending order |
 
 ### Example Request
 
 ```http
-GET /audit/pending?inProgress=true&pageSize=50&orderBy=endDate&orderByDirection=asc
+GET /audit/pending?inProgress=true&pageSize=50
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```

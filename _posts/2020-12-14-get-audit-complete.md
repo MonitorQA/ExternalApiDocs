@@ -32,34 +32,13 @@ This method allows you to retrieve a paginated list of completed audits with adv
 | `toDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | `pageNumber` | number | No | Current page number, starts from 1 (default: 1) |
 | `pageSize` | number | No | Page size (default: 100) |
-| `orderBy` | string | No | Field to sort by (default: 'name') |
-| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
-
-### Sorting Options
-
-**orderBy** values:
-
-| Value | Description |
-|-------|-------------|
-| `number` | Sort by audit number |
-| `auditObjectName` | Sort by audit object name |
-| `score` | Sort by score value |
-| `completeDate` | Sort by audit completion date |
-| `completedBy` | Sort by completed by user name |
-
-**orderByDirection** values:
-
-| Value | Description |
-|-------|-------------|
-| `asc` | Ascending order |
-| `desc` | Descending order |
 
 ### Example Request
 
 ```http
-GET /audit/complete?scoreMin=80&pageSize=50&orderBy=completeDate&orderByDirection=desc
+GET /audit/complete?scoreMin=80&pageSize=50
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```

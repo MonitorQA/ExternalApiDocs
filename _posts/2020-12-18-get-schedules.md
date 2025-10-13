@@ -23,13 +23,11 @@ This method allows you to retrieve a paginated list of active audit schedules wi
 | `auditObjectGroupId` | string | No | Filter schedules by audit object group ID |
 | `pageNumber` | integer | No | Page number for pagination, starting from 1 (default: 1) |
 | `pageSize` | integer | No | Number of items per page (default: 10) |
-| `orderBy` | string | No | Field to sort by: `name`, `auditObject` (default: `name`) |
-| `orderByDirection` | string | No | Sort direction: `asc`, `desc` (default: `asc`) |
 
 ### Example Request
 
 ```http
-GET /schedules?pageNumber=1&pageSize=20&orderBy=name&orderByDirection=asc
+GET /schedules?pageNumber=1&pageSize=20
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
