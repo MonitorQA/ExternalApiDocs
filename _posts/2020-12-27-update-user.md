@@ -3,7 +3,7 @@ category: 7. Users
 url_path: '/users/{id}'
 title: 'Update user'
 type: 'PUT'
-order: 25
+order: 3
 layout: null
 ---
 

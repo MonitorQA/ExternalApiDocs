@@ -3,7 +3,7 @@ category: 2. Audits
 url_path: '/audit/pending'
 title: 'Get list of pending audits'
 type: 'GET'
-order: 6
+order: 2
 layout: null
 ---
 
@@ -23,6 +23,7 @@ This method allows you to retrieve a paginated list of pending audits with filte
 | `templateId` | string | No | Filter by audit template ID |
 | `auditObjectId` | string | No | Filter by audit object ID |
 | `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `auditScheduleId` | uuid | No | Filter by audit schedule ID |
 | `assignedTo` | string | No | Filter by assigned user ID |
 | `assignedToGroup` | string | No | Filter by assigned user group ID |
 | `pageNumber` | number | No | Current page number, starts from 1 |
@@ -33,7 +34,7 @@ This method allows you to retrieve a paginated list of pending audits with filte
 ### Example Request
 
 ```http
-GET /audit/pending?inProgress=true&pageSize=50
+GET /audit/pending?inProgress=true&auditScheduleId=d4e5f6a7-b8c9-7012-def4-567890123gbc&pageSize=50
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```

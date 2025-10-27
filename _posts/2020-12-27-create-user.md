@@ -3,7 +3,7 @@ category: 7. Users
 url_path: '/users'
 title: 'Create user'
 type: 'POST'
-order: 24
+order: 2
 layout: null
 ---
 

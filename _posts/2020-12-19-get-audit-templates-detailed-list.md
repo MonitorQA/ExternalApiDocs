@@ -3,7 +3,7 @@ category: 4. Audit Templates
 url_path: '/audit/templates/detailed'
 title: 'Get audit templates detailed list'
 type: 'GET'
-order: 16
+order: 2
 layout: null
 ---
 

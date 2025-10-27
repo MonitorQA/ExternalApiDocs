@@ -3,7 +3,7 @@ category: 2. Audits
 url_path: '/audit/complete/{auditId}/report-pdf'
 title: 'Get audit pdf report'
 type: 'GET'
-order: 11
+order: 7
 layout: null
 ---
 

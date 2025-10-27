@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/daily'
 title: 'Create daily schedule'
 type: 'POST'
-order: 14
+order: 3
 layout: null
 ---
 

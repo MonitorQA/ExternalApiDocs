@@ -3,7 +3,7 @@ category: 8. Company Information
 url_path: '/company'
 title: 'Delete company'
 type: 'DELETE'
-order: 26
+order: 2
 layout: null
 ---
 

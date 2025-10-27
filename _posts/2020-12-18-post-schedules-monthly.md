@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/monthly'
 title: 'Create monthly schedule'
 type: 'POST'
-order: 17
+order: 6
 layout: null
 ---
 

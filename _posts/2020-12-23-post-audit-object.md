@@ -3,7 +3,7 @@ category: 5. Audit Objects
 url_path: '/audit/objects'
 title: 'Create a new audit object'
 type: 'POST'
-order: 19
+order: 3
 layout: null
 ---
 

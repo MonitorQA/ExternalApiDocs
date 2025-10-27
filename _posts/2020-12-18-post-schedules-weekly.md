@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/weekly'
 title: 'Create weekly schedule'
 type: 'POST'
-order: 15
+order: 4
 layout: null
 ---
 

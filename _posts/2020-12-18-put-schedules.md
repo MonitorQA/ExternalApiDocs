@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/{scheduleId}'
 title: 'Update schedule'
 type: 'PUT'
-order: 18
+order: 7
 layout: null
 ---
 

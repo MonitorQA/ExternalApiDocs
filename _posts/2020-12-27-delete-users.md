@@ -3,7 +3,7 @@ category: 7. Users
 url_path: '/users'
 title: 'Delete users'
 type: 'DELETE'
-order: 26
+order: 4
 layout: null
 ---
 
