@@ -70,6 +70,7 @@ Content-Type: application/json
   "startedAt": "2023-11-15T09:30:00.000Z",
   "isCompleted": true,
   "completeDate": "2023-11-15T14:45:22.150Z",
+  "isFailed": false,
   "isExpired": false,
   "isReopened": false,
   "completedBy": {

@@ -47,7 +47,12 @@ Content-Type: application/json
          "notApplicable": false,
          "isCritical": true,
          "isPassed": false,
+         "isFailed": false,
          "childrenIds": [],
+         "metafields": [{
+            "name": "Metafield name",
+            "text": "Metafield user input"
+         }],
          "actions": [
             {
                "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",
@@ -76,7 +81,13 @@ Content-Type: application/json
          "photos": [],
          "itemsCount": null,
          "points": null,
-         "signature": null,
+         "signature": {
+            "photoId": "a49d853b-c51b-488d-adc9-3baeab3bde3e",
+            "createdBy": {
+               "id": "3c71b2a5-4c00-4bb0-9f08-785a2d8f7128",
+               "name": "Jennifer Thompson"
+            }
+         },
          "failedInRowCount": 1,
          "itemType": 2,
          "data": {
