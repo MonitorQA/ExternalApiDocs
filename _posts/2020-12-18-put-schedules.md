@@ -95,7 +95,7 @@ The start rule determines when each audit period begins.
   "cycleMonthStart": 1
 }
 ```
-  - The `cycleMonthStart` property (1, 2, 3...) specifies which month within the `repeatEvery` cycle to start
+  - The `cycleMonthStart` property must be greater than 0 and specifies which month within the `repeatEvery` cycle to start (1, 2, 3...)
   - The audit always starts on the 1st day of the selected month in each cycle
   - Example: `cycleMonthStart: 1` with `repeatEvery: 3` starts on Jan 1, Apr 1, Jul 1, Oct 1
   - First period example: Schedule created on Jan 15 with `cycleMonthStart: 1` and `repeatEvery: 3` → first audit starts on Apr 1
@@ -111,7 +111,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   "cycleMonthEnd": 1
 }
 ```
-  - The `cycleMonthEnd` property (1, 2, 3...) specifies which month within the cycle to end
+  - The `cycleMonthEnd` property must be greater than 0 and specifies which month within the cycle to end (1, 2, 3...)
   - `cycleMonthEnd: 1` = end of same month as start, `2` = end of second month, etc.
 
 - **Type 1 (AfterDays)** - End after a fixed number of days from the audit start:
@@ -121,7 +121,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   "days": 20
 }
 ```
-  - The `days` property specifies how many days after the start date the audit ends
+  - The `days` property must be greater than 0 and specifies how many days after the start date the audit ends
   - Example: Start on Jan 15 with `days: 20` ends on Feb 4
 
 - **Type 2 (AfterWeeks)** - End after a fixed number of weeks from the audit start:
@@ -131,7 +131,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   "weeks": 3
 }
 ```
-  - The `weeks` property specifies how many weeks after the start date the audit ends
+  - The `weeks` property must be greater than 0 and specifies how many weeks after the start date the audit ends
   - Example: Start on Jan 15 with `weeks: 3` ends on Feb 5 (21 days later)
 
 - **Type 3 (BeforeNextStarts)** - End one day before the next audit begins:

@@ -75,7 +75,7 @@ When `type` is `0`, the audit starts on a fixed day of each scheduled month. The
 
 #### Type 1 (StartOfMonth) - Beginning of Month in Cycle
 
-When `type` is `1`, the audit starts at the beginning (1st day) of a specific month within the repeat cycle. The `cycleMonthStart` property (1, 2, 3...) specifies which month within the `repeatEvery` cycle should start the audit.
+When `type` is `1`, the audit starts at the beginning (1st day) of a specific month within the repeat cycle. The `cycleMonthStart` property must be greater than 0 and specifies which month within the `repeatEvery` cycle should start the audit (1, 2, 3...).
 
 **How it works:**
 - Each repeat cycle contains `repeatEvery` months
@@ -138,7 +138,7 @@ or
 
 #### Type 0 (EndOfMonth) - End at End of Month in Cycle
 
-When `type` is `0`, the audit ends at the end of a specific month within the repeat cycle. The `cycleMonthEnd` property (1, 2, 3...) specifies which month within the cycle the audit should end.
+When `type` is `0`, the audit ends at the end of a specific month within the repeat cycle. The `cycleMonthEnd` property must be greater than 0 and specifies which month within the cycle the audit should end (1, 2, 3...).
 
 **How it works:**
 - `cycleMonthEnd: 1` means the audit ends at the end of the same month it started
@@ -151,7 +151,7 @@ When `type` is `0`, the audit ends at the end of a specific month within the rep
 
 #### Type 1 (AfterDays) - End After N Days
 
-When `type` is `1`, the audit ends a fixed number of days after it starts. The `days` property specifies how many days the audit period lasts.
+When `type` is `1`, the audit ends a fixed number of days after it starts. The `days` property must be greater than 0 and specifies how many days the audit period lasts.
 
 **How it works:**
 - The end date is calculated by adding `days` to the audit start date
@@ -162,7 +162,7 @@ When `type` is `1`, the audit ends a fixed number of days after it starts. The `
 
 #### Type 2 (AfterWeeks) - End After N Weeks
 
-When `type` is `2`, the audit ends a fixed number of weeks after it starts. The `weeks` property specifies how many weeks the audit period lasts.
+When `type` is `2`, the audit ends a fixed number of weeks after it starts. The `weeks` property must be greater than 0 and specifies how many weeks the audit period lasts.
 
 **How it works:**
 - The end date is calculated by adding `weeks * 7` days to the audit start date

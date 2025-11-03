@@ -126,7 +126,7 @@ The start rule determines when each audit period begins. There are 2 types:
   "cycleMonthStart": number
 }
 ```
-  - The `cycleMonthStart` property (1, 2, 3...) specifies which month within the `repeatEvery` cycle should start the audit
+  - The `cycleMonthStart` property must be greater than 0 and specifies which month within the `repeatEvery` cycle should start the audit (1, 2, 3...)
   - The audit always starts on the 1st day of the selected month in each cycle
   - Each repeat cycle contains `repeatEvery` months, and `cycleMonthStart` indicates the position within that cycle (1 = first month, 2 = second month, etc.)
   - The first period's cycle month is always the closest month after (or on) the schedule creation date. If created after the 1st of a month, the cycle starts in the next month
@@ -144,7 +144,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   "cycleMonthEnd": number
 }
 ```
-  - The `cycleMonthEnd` property (1, 2, 3...) specifies which month within the cycle the audit should end
+  - The `cycleMonthEnd` property must be greater than 0 and specifies which month within the cycle the audit should end (1, 2, 3...)
   - `cycleMonthEnd: 1` means the audit ends at the end of the same month it started
   - `cycleMonthEnd: 2` means the audit ends at the end of the second month in the cycle
   - The end date is the last day of the specified month at end of day (23:59:59)
@@ -156,7 +156,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   "days": number
 }
 ```
-  - The `days` property specifies how many days after the start date the audit ends
+  - The `days` property must be greater than 0 and specifies how many days after the start date the audit ends
   - The end date is calculated by adding `days` to the audit start date
   - If this would overlap with the next audit, it's automatically adjusted to end one day before the next audit starts
   - Example: `{ "type": 1, "days": 20 }` with start on Jan 15 - Audit ends on Feb 4 (Jan 15 + 20 days)
@@ -168,7 +168,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   "weeks": number
 }
 ```
-  - The `weeks` property specifies how many weeks after the start date the audit ends
+  - The `weeks` property must be greater than 0 and specifies how many weeks after the start date the audit ends
   - The end date is calculated by adding `weeks * 7` days to the audit start date
   - If this would overlap with the next audit, it's automatically adjusted to end one day before the next audit starts
   - Example: `{ "type": 2, "weeks": 3 }` with start on Jan 15 - Audit ends on Feb 5 (Jan 15 + 21 days)
