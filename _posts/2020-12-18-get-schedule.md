@@ -112,7 +112,7 @@ The start rule determines when each audit period begins. There are 2 types:
   "day": number
 }
 ```
-  - The `day` property (1-31) specifies which day of the month to start the audit
+  - The `day` property must be greater than 0 and in the range 1-31, specifying which day of the month to start the audit
   - Each scheduled audit begins on the specified day of the month
   - If the month doesn't have that day (e.g., day 31 in February), the system automatically uses the last day of that month
   - Handles leap years: Day 29 in February becomes Feb 29 in leap years and Feb 28 in non-leap years

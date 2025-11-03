@@ -56,7 +56,7 @@ or
 
 #### Type 0 (DayOfMonth) - Specific Day of Month
 
-When `type` is `0`, the audit starts on a fixed day of each scheduled month. The `day` property (range 1-31) specifies which day of the month to start the audit.
+When `type` is `0`, the audit starts on a fixed day of each scheduled month. The `day` property must be greater than 0 and in the range 1-31, specifying which day of the month to start the audit.
 
 **How it works:**
 - Each scheduled audit begins on the specified day of the month

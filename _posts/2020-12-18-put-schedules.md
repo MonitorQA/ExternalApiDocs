@@ -83,7 +83,7 @@ The start rule determines when each audit period begins.
   "day": 15
 }
 ```
-  - The `day` property (1-31) specifies which day of the month to start
+  - The `day` property must be greater than 0 and in the range 1-31, specifying which day of the month to start
   - If the month doesn't have that day (e.g., day 31 in February), the system uses the last day of that month
   - Handles leap years automatically (e.g., day 29 = Feb 29 in leap years, Feb 28 otherwise)
   - First period example: Schedule created on Jan 20 with `day: 15` → first audit starts on Feb 15
