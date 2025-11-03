@@ -1215,9 +1215,9 @@ code {
     background: transparent !important;
 }
 
-/* Copy button for code blocks */
-#content pre::before {
-    content: "REQUEST";
+/* Copy button for code blocks - HTTP badge only for HTTP blocks */
+#content pre code[class*="language-http"]::before {
+    content: "HTTP";
     position: absolute;
     top: 8px;
     right: 12px;
@@ -1251,14 +1251,34 @@ code {
     color: #fff;
 }
 
-#content pre[class*="language-json"]::before {
+#content pre code[class*="language-json"]::before {
     content: "JSON";
     background: #007bff;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 3px;
 }
 
-#content pre[class*="language-http"]::before {
+#content pre code[class*="language-http"]::before {
     content: "HTTP";
     background: #6f42c1;
+    color: #fff;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    border-radius: 3px;
 }
 
 /* Unified Response Code Block Styling */
