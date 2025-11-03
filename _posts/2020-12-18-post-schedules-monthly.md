@@ -29,11 +29,11 @@ Create a monthly recurring schedule that generates audits at specified intervals
 
 ### Start rule description
 
-The start rule determines when each audit period begins. **Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date.
+The start rule determines when each audit period begins. **Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with Type 1 (StartOfMonth), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
 
 **First Period Examples:**
 - **Type 0 with day: 15**: If the schedule is created on January 20, the first audit starts on February 15 (the next occurrence of day 15). If created on January 5, the first audit starts on January 15 (the upcoming occurrence in the same month).
-- **Type 1 with cycleMonthStart: 1, repeatEvery: 3**: If the schedule is created on January 15, the first audit starts on April 1 (the next occurrence of the first month in a 3-month cycle). If created on March 20, the first audit still starts on April 1 (the closest cycle start date).
+- **Type 1 with cycleMonthStart: 1, repeatEvery: 3**: The first period's cycle month is the closest month after the creation date. If created in January, the first month of the cycle is February (the month after creation). For example, created on January 15 with cycleMonthStart: 1 and repeatEvery: 3 - the first cycle starts in February (month 1), March (month 2), April (month 3), so the first audit starts on February 1 (month 1 of that cycle).
 
 There are 2 types of start rule:
 - **Type 0 (DayOfMonth)** - Start on a specific day of each scheduled month
@@ -81,6 +81,7 @@ When `type` is `1`, the audit starts at the beginning (1st day) of a specific mo
 - Each repeat cycle contains `repeatEvery` months
 - `cycleMonthStart` indicates the position within that cycle (1 = first month, 2 = second month, etc.)
 - The audit always starts on the 1st day of the selected month in each cycle
+- The first period's cycle month is always the closest month after (or on) the schedule creation date. If created after the 1st of a month, the cycle starts in the next month. If created on the 1st, the cycle may start in the current month.
 
 **Examples:**
 - `{ "type": 1, "cycleMonthStart": 1 }` with `repeatEvery: 3` - Starts on the 1st day of the first month in each 3-month cycle (e.g., Jan 1, Apr 1, Jul 1, Oct 1)
@@ -88,8 +89,10 @@ When `type` is `1`, the audit starts at the beginning (1st day) of a specific mo
 - `{ "type": 1, "cycleMonthStart": 1 }` with `repeatEvery: 1` - Starts on the 1st day of every month
 
 **First Period Example:**
-- Schedule created on January 15 with `{ "type": 1, "cycleMonthStart": 1 }` and `repeatEvery: 3` - First audit starts on April 1 (next cycle start)
-- Schedule created on March 20 with `{ "type": 1, "cycleMonthStart": 1 }` and `repeatEvery: 3` - First audit starts on April 1 (closest cycle start date)
+- Schedule created on January 15 with `{ "type": 1, "cycleMonthStart": 1 }` and `repeatEvery: 3` - First period cycle starts in February (the month after creation, which becomes month 1 of the cycle), first audit starts on February 1
+- Schedule created on January 1 with `{ "type": 1, "cycleMonthStart": 1 }` and `repeatEvery: 3` - First period cycle starts in January (creation month, month 1 of cycle), first audit starts on January 1
+- Schedule created on March 10 with `{ "type": 1, "cycleMonthStart": 1 }` and `repeatEvery: 3` - First period cycle starts in April (the month after creation, month 1 of cycle), first audit starts on April 1
+- Schedule created on February 5 with `{ "type": 1, "cycleMonthStart": 2 }` and `repeatEvery: 3` - First period cycle starts in March (the month after creation, month 1 of cycle), first audit starts on April 1 (month 2 of that cycle)
 
 ### End rule description
 

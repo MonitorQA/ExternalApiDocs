@@ -66,11 +66,11 @@ Update an existing schedule's configuration, including audit objects, assignment
 }
 ```
 
-**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date.
+**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with Type 1 (StartOfMonth), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
 
 **First Period Examples:**
 - **Type 0 with day: 15**: Schedule created on January 20 → first audit starts on February 15. Created on January 5 → first audit starts on January 15.
-- **Type 1 with cycleMonthStart: 1, repeatEvery: 3**: Schedule created on January 15 → first audit starts on April 1. Created on March 20 → first audit starts on April 1.
+- **Type 1 with cycleMonthStart: 1, repeatEvery: 3**: Created on January 15 → first period cycle starts in February (month after creation, becomes month 1 of cycle), audit starts February 1. Created on January 1 → first period cycle starts in January (creation month, month 1 of cycle), audit starts January 1. Created on March 10 → first period cycle starts in April (month after creation, month 1 of cycle), audit starts April 1.
 
 **StartRule types:**
 
