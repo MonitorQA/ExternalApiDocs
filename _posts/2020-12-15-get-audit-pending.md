@@ -3,7 +3,7 @@ category: 2. Audits
 url_path: '/audit/pending'
 title: 'Get list of pending audits'
 type: 'GET'
-order: 6
+order: 2
 layout: null
 ---
 
@@ -23,37 +23,18 @@ This method allows you to retrieve a paginated list of pending audits with filte
 | `templateId` | string | No | Filter by audit template ID |
 | `auditObjectId` | string | No | Filter by audit object ID |
 | `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `auditScheduleId` | uuid | No | Filter by audit schedule ID |
 | `assignedTo` | string | No | Filter by assigned user ID |
 | `assignedToGroup` | string | No | Filter by assigned user group ID |
 | `pageNumber` | number | No | Current page number, starts from 1 |
 | `pageSize` | number | No | Page size |
-| `orderBy` | string | No | Field to sort by (default: 'name') |
-| `orderByDirection` | string | No | Sort direction (`asc` or `desc`) |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
-
-### Sorting Options
-
-**orderBy** values:
-
-| Value | Description |
-|-------|-------------|
-| `name` | Sort by audit name |
-| `auditObjectName` | Sort by audit object name |
-| `endDate` | Sort by audit end date |
-| `assignedTo` | Sort by assigned user name |
-
-**orderByDirection** values:
-
-| Value | Description |
-|-------|-------------|
-| `asc` | Ascending order |
-| `desc` | Descending order |
 
 ### Example Request
 
 ```http
-GET /audit/pending?inProgress=true&pageSize=50&orderBy=endDate&orderByDirection=asc
+GET /audit/pending?inProgress=true&auditScheduleId=d4e5f6a7-b8c9-7012-def4-567890123gbc&pageSize=50
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```

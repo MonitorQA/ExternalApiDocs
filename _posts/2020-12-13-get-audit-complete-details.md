@@ -3,7 +3,7 @@ category: 2. Audits
 url_path: '/audit/complete/{auditId}'
 title: 'Get details of complete audit'
 type: 'GET'
-order: 9
+order: 5
 layout: null
 ---
 
@@ -67,6 +67,7 @@ Content-Type: application/json
     }
   ],
   "isStarted": true,
+  "isFailed": false,
   "startedAt": "2023-10-25T07:30:00.000Z",
   "isCompleted": true,
   "completeDate": "2023-10-25T11:45:33.875Z",
@@ -82,7 +83,21 @@ Content-Type: application/json
   "scoreLabel": "Excellent",
   "scoreColor": "#198754",
   "completionTime": 255,
-  "reportUrl": "https://api-external.monitorqa.com/reports/audit/a1b2c3d4-e5f6-789a-bcde-f01234567890"
+  "reportUrl": "https://api-external.monitorqa.com/reports/audit/a1b2c3d4-e5f6-789a-bcde-f01234567890",
+   "auditeeSignature": {
+      "photoId": "d1b4b954-3e9f-4d93-bdeb-a4112f1ed26e",
+      "createdBy": {
+         "id": "00000000-0000-0000-0000-000000000000",
+         "name": "Auditee name"
+      }
+   },
+   "auditorSignature": {
+      "photoId": "c54e4562-3ce2-4957-b1f0-2dd96405de29",
+      "createdBy": {
+         "id": "3c71b2a5-4c01-4bb0-9f08-785a2d8f7128",
+         "name": "Rachel Kim"
+      }
+   }
 }
 ```
 

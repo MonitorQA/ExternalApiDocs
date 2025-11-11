@@ -3,7 +3,7 @@ category: 5. Audit Objects
 url_path: '/audit/objects/{id}/attributes'
 title: 'Assign Attributes to Audit Object'
 type: 'POST'
-order: 1
+order: 6
 layout: null
 ---
 

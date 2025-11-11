@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules'
 title: 'Delete schedules'
 type: 'DELETE'
-order: 23
+order: 8
 layout: null
 ---
 

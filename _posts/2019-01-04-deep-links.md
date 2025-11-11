@@ -25,7 +25,7 @@ The MonitorQA mobile application supports the following deep link patterns:
 
 ### Usage Examples
 
-```
+```text
 # Open settings page
 https://app.monitorqa.com/settings
 

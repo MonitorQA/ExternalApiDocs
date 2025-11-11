@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/weekly'
 title: 'Create weekly schedule'
 type: 'POST'
-order: 15
+order: 4
 layout: null
 ---
 
@@ -20,6 +20,7 @@ Create a weekly recurring schedule that generates audits on specified days of th
 | auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
 | assigneesIds | array[string] | No | Array of user IDs to assign the generated audits to |
 | daysOfWeek | array[integer] | Yes | Array of weekdays (0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday) |
+| repeatEvery | integer | Yes | Interval in weeks between audit creation |
 | active | boolean | No | Schedule status (defaults to `true`) |
 | startFromDate | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | stopByDate | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
@@ -45,6 +46,7 @@ Content-Type: application/json
     "def67890-e89b-12d3-a456-426614174000"
   ],
   "daysOfWeek": [1, 3, 5],
+  "repeatEvery": 2,
   "active": true,
   "startFromDate": "2024-01-01T08:00:00.000Z",
   "stopByDate": "2024-12-31T23:59:59.000Z"

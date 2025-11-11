@@ -3,7 +3,7 @@ category: 5. Audit Objects
 url_path: '/audit/object/{id}'
 title: 'Get an audit object details'
 type: 'GET'
-order: 18
+order: 2
 layout: null
 ---
 

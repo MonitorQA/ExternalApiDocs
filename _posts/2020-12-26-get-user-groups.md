@@ -3,7 +3,7 @@ category: 6. User Groups
 url_path: '/user-groups'
 title: 'Get list of user groups'
 type: 'GET'
-order: 22
+order: 1
 layout: null
 ---
 

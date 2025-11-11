@@ -3,7 +3,7 @@ category: 3. Schedules
 url_path: '/schedules/multiple-weeks'
 title: 'Create multiple weeks schedule'
 type: 'POST'
-order: 16
+order: 5
 layout: null
 ---
 

@@ -3,7 +3,7 @@ category: 2. Audits
 url_path: '/audit/reopen/{id}'
 title: 'Reopen Audit'
 type: 'POST'
-order: 20
+order: 8
 layout: null
 ---
 
