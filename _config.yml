@@ -1,10 +1,6 @@
 ---
 exclude: 
  - 'README.markdown, CLAUDE.md'
- - '_posts/2024-01-05-role-permissions-reference.md'
- - '_posts/2024-01-02-create-role.md'
- - '_posts/2024-01-03-update-role.md'
- - '_posts/2024-01-04-delete-roles.md'
 permalink: ':title'
 highlighter: pygments
 safe: false
