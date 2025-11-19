@@ -7,7 +7,7 @@ order: 7
 layout: null
 ---
 
-Update an existing schedule's configuration, including audit objects, assignments, and recurrence patterns. This endpoint allows you to modify all aspects of a schedule except its template.
+Update an existing schedule's configuration, including audit objects, assignments, and recurrence patterns. This endpoint allows modification of all aspects of a schedule except its template.
 
 ## Parameters
 

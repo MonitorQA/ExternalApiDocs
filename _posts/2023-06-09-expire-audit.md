@@ -2,11 +2,11 @@
 category: 2. Audits
 url_path: '/audit/expire'
 type: 'POST'
-order: 9
+order: 2
 layout: null
 ---
 
-Manually expire incomplete audits in your organization. This endpoint allows you to mark multiple audits as expired, effectively closing them without completion. This is useful for audits that are no longer relevant or cannot be completed.
+Manually expire incomplete audits in the organization. This endpoint enables marking multiple audits as expired, effectively closing them without completion. This is useful for audits that are no longer relevant or cannot be completed.
 
 ## Parameters
 

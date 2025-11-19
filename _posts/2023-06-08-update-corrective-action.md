@@ -7,7 +7,7 @@ order: 5
 layout: null
 ---
 
-Update the details of an existing corrective action. This endpoint allows you to modify corrective action properties including assignments, due dates, status, and priority levels.
+Update the details of an existing corrective action. This endpoint enables modifying corrective action properties including assignments, due dates, status, and priority levels.
 
 ## Parameters
 

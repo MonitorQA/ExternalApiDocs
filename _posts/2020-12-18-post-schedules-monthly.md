@@ -7,7 +7,7 @@ order: 6
 layout: null
 ---
 
-Create a monthly recurring schedule that generates audits at specified intervals on a particular day of the month. This endpoint allows you to set up automated audit creation with flexible monthly recurrence patterns.
+Create a monthly recurring schedule that generates audits at specified intervals on a particular day of the month. This endpoint enables setting up automated audit creation with flexible monthly recurrence patterns.
 
 ## Parameters
 

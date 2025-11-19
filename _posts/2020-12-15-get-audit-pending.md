@@ -7,13 +7,13 @@ order: 2
 layout: null
 ---
 
-This method allows you to retrieve a paginated list of pending audits with filtering and sorting options.
+Retrieve a paginated list of pending audits with filtering and sorting options.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Query Parameters
 

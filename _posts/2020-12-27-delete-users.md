@@ -7,7 +7,7 @@ order: 4
 layout: null
 ---
 
-Delete multiple users from your company account. This endpoint allows you to remove users in bulk by providing an array of user IDs. Use caution as this action cannot be undone.
+Delete multiple users from the company account. This endpoint enables removing users in bulk by providing an array of user IDs. Use caution as this action cannot be undone.
 
 ## Parameters
 

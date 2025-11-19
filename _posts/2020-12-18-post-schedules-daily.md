@@ -7,7 +7,7 @@ order: 3
 layout: null
 ---
 
-Create a daily recurring schedule that generates audits at specified intervals. This endpoint allows you to set up automated audit creation for designated users, audit objects, and templates on a daily basis.
+Create a daily recurring schedule that generates audits at specified intervals. This endpoint enables setting up automated audit creation for designated users, audit objects, and templates on a daily basis.
 
 ## Parameters
 

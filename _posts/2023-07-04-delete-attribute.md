@@ -1,5 +1,5 @@
 ---
-category: 10. Audit Object Attributes
+category: 6. Audit object attributes
 url_path: '/audit/objects/attributes'
 title: 'Delete Audit Object Attribute'
 type: 'DELETE'

@@ -1,5 +1,5 @@
 ---
-category: 8. Company Information
+category: 13. Company
 url_path: '/company'
 title: 'Update company'
 type: 'PUT'

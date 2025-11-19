@@ -1,5 +1,5 @@
 ---
-category: 13. Files
+category: 11. Files
 url_path: '/files/{id}'
 title: 'Get File'
 type: 'GET'
@@ -7,13 +7,13 @@ order: 1
 layout: null
 ---
 
-This method allows you to retrieve a file by its unique identifier. Files can include images, documents, and other attachments uploaded during audits or corrective actions.
+Retrieve a file by its unique identifier. Files can include images, documents, and other attachments uploaded during audits or corrective actions.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

@@ -2,7 +2,7 @@
 category: 1. General
 url_path: '/status-codes'
 title: 'Status Codes'
-order: 5
+order: 1
 
 layout: null
 ---

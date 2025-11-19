@@ -7,13 +7,13 @@ order: 2
 layout: null
 ---
 
-This method allows you to retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects.
+Retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

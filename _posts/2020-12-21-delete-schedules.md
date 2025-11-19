@@ -7,13 +7,13 @@ order: 8
 layout: null
 ---
 
-This method allows you to delete multiple schedules in a single request. **All unstarted audits for the selected schedules will be deleted**.
+Delete multiple schedules in a single request. **All unstarted audits for the selected schedules will be deleted**.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 | `Content-Type` | string | Yes | Must be `application/json` |
 
 ### Request Body Parameters

@@ -1,5 +1,5 @@
 ---
-category: 8. Company Information
+category: 13. Company
 url_path: '/company/icon'
 title: 'Delete company icon'
 type: 'DELETE'

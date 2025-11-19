@@ -1,5 +1,5 @@
 ---
-category: 9. Score Systems
+category: 10. Score systems
 url_path: '/score-systems'
 title: 'Delete score systems'
 type: 'DELETE'
@@ -52,9 +52,10 @@ Empty response body indicates successful deletion.
 
 ```http
 HTTP/1.1 409 Conflict
+Content-Type: application/json
 
 {
-  "error": "score-system/has-templates:123e4567-e89b-12d3-a456-426614174000"
+  "message": "score-system/has-templates:123e4567-e89b-12d3-a456-426614174000"
 }
 ```
 

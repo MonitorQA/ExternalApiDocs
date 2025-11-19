@@ -1,5 +1,5 @@
 ---
-category: 8. Company Information
+category: 13. Company
 url_path: '/company'
 title: 'Create company'
 type: 'POST'
@@ -8,6 +8,8 @@ layout: null
 ---
 
 Create a new company account. This endpoint sets up a new organization with an initial company administrator. The authenticated user becomes the company administrator for the newly created company.
+
+**Important:** In order to work with the created company, the user must authenticate with the returned API key. The response includes an `apiKey` field that contains a unique API key for the newly created company. All subsequent API requests for the newly created company must use this `apiKey` value as the `X-API-KEY` header. The API key is automatically generated and can be used immediately after company creation. Without using the returned API key, API requests will not have access to the newly created company's resources.
 
 **Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
@@ -108,7 +110,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "companyId": "456789jk-lmno-012b-cdef-123456789012"
+  "companyId": "456789jk-lmno-012b-cdef-123456789012",
+  "apiKey": "12345678-1234-1234-1234-123456789012"
 }
 ```
 
@@ -117,8 +120,9 @@ Content-Type: application/json
 | Field | Type | Description |
 |-------|------|-------------|
 | `companyId` | uuid | The unique identifier of the newly created company |
+| `apiKey` | string | The API key for the newly created company. This key can be used to authenticate requests for the new company |
 
-The response contains the unique identifier of the newly created company.
+The response contains the unique identifier and API key of the newly created company. The API key is automatically generated and can be used immediately to authenticate requests for the new company.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
 

@@ -1,5 +1,5 @@
 ---
-category: 10. Audit Object Attributes
+category: 6. Audit object attributes
 url_path: '/audit/objects/attributes/{id}'
 title: 'Update Audit Object Attribute'
 type: 'PUT'
@@ -7,7 +7,7 @@ order: 4
 layout: null
 ---
 
-Update an existing audit object attribute and its options. This endpoint allows you to modify attribute names, add new options, update existing options, or remove options. Options with IDs will be updated, options without IDs will be created, and options not included in the request will be deleted.
+Update an existing audit object attribute and its options. This endpoint enables modifying attribute names, adding new options, updating existing options, or removing options. Options with IDs will be updated, options without IDs will be created, and options not included in the request will be deleted.
 
 ## Parameters
 

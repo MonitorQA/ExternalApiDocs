@@ -1,5 +1,5 @@
 ---
-category: 9. Score Systems
+category: 10. Score systems
 url_path: '/score-systems/{id}'
 title: 'Update score system'
 type: 'PUT'

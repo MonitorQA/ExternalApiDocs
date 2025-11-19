@@ -7,13 +7,13 @@ order: 1
 layout: null
 ---
 
-This method allows you to retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities.
+Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Query Parameters
 

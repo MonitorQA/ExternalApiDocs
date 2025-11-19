@@ -3,7 +3,7 @@ category: 9. Corrective Actions
 url_path: '/corrective-actions/expired'
 title: 'Get expired corrective actions list'
 type: 'GET'
-order: 3
+order: 9
 layout: null
 ---
 

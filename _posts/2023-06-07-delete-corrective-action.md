@@ -3,7 +3,7 @@ category: 9. Corrective Actions
 url_path: '/corrective-actions/{id}'
 title: 'Delete corrective action'
 type: 'DELETE'
-order: 6
+order: 9
 layout: null
 ---
 

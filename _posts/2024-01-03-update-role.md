@@ -1,5 +1,5 @@
 ---
-category: 12. Roles
+category: 9. Roles
 url_path: '/roles/{id}'
 title: 'Update Role'
 type: 'PUT'

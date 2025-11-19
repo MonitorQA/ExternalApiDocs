@@ -7,13 +7,13 @@ order: 4
 layout: null
 ---
 
-This method allows you to retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
+Retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

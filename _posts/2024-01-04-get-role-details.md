@@ -1,5 +1,5 @@
 ---
-category: 12. Roles
+category: 9. Roles
 url_path: '/roles/{id}'
 title: 'Get Role Details'
 type: 'GET'
@@ -138,5 +138,5 @@ HTTP/1.1 404 Not Found
 
 Returned when the specified role ID does not exist or does not belong to the company.
 
-For other error responses, see the [response status codes documentation](#/response-status-codes).
+For errors responses, see the [response status codes documentation](#/response-status-codes).
 

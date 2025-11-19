@@ -1,5 +1,5 @@
 ---
-category: 6. User Groups
+category: 8. User groups
 url_path: '/user-groups'
 title: 'Get list of user groups'
 type: 'GET'
@@ -7,7 +7,7 @@ order: 1
 layout: null
 ---
 
-Retrieve a list of all user groups within your company. This endpoint provides the basic identification information for user groups, which can be used for audit assignments and access management.
+Retrieve a list of all user groups within the company. This endpoint provides the basic identification information for user groups, which can be used for audit assignments and access management.
 
 ### Example Request
 

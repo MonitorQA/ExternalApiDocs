@@ -3,17 +3,17 @@ category: 2. Audits
 url_path: '/audit/complete/{auditId}'
 title: 'Get details of complete audit'
 type: 'GET'
-order: 5
+order: 2
 layout: null
 ---
 
-This method allows you to retrieve comprehensive details of a completed audit, including audit metadata, assignees, completion status, and reporting information.
+Retrieve comprehensive details of a completed audit, including audit metadata, assignees, completion status, and reporting information.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

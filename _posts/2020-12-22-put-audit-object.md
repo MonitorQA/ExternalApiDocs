@@ -1,5 +1,5 @@
 ---
-category: 5. Audit Objects
+category: 5. Audit objects
 url_path: '/audit/objects/{id}'
 title: 'Update an audit object'
 type: 'PUT'
@@ -7,13 +7,13 @@ order: 4
 layout: null
 ---
 
-This method allows you to update an existing audit object with new information including name, notes, and geographic location.
+Update an existing audit object with new information including name, notes, and geographic location.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 | `Content-Type` | string | Yes | Must be `application/json` |
 
 ### Path Parameters

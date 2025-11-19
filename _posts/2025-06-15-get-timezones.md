@@ -1,5 +1,5 @@
 ---
-category: 8. Company Information
+category: 14. Time zones
 url_path: '/timezones'
 title: 'Get timezones'
 type: 'GET'

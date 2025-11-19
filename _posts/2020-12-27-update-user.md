@@ -7,7 +7,7 @@ order: 3
 layout: null
 ---
 
-Update an existing user's information within your company account. This endpoint allows you to modify a user's name, role, and phone number while preserving other account details.
+Update an existing user's information within the company account. This endpoint enables modifying a user's name, role, and phone number while preserving other account details.
 
 ## Parameters
 

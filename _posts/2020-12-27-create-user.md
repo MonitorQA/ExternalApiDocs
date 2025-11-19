@@ -7,13 +7,13 @@ order: 2
 layout: null
 ---
 
-This method allows you to create a new user within your company. The user will receive an invitation email to set up their account and access the MonitorQA platform.
+Create a new user within the company. The user will receive an invitation email to set up their account and access the MonitorQA platform.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Request Body Parameters
 

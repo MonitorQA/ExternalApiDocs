@@ -3,7 +3,7 @@ category: 9. Corrective Actions
 url_path: '/corrective-actions/completed'
 title: 'Get completed corrective actions list'
 type: 'GET'
-order: 2
+order: 9
 layout: null
 ---
 

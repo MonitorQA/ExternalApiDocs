@@ -1,5 +1,5 @@
 ---
-category: 8. Company Information
+category: 13. Company
 url_path: '/company'
 title: 'Delete company'
 type: 'DELETE'
@@ -9,11 +9,11 @@ layout: null
 
 **⚠️ DANGER ZONE ⚠️**
 
-Permanently delete your entire company account from the MonitorQA system. This is an irreversible action that will completely remove all data associated with your organization.
+Permanently delete the entire company account from the MonitorQA system. This is an irreversible action that will completely remove all data associated with the organization.
 
 ## ⚠️ WARNING: This action cannot be undone!
 
-Deleting your company account will:
+Deleting the company account will:
 - **Cancel your active subscription immediately**
 - **Remove all company users and revoke their access**
 - **Delete all audits, schedules, and historical data**
@@ -37,6 +37,6 @@ X-API-KEY: abcdef12345
 HTTP/1.1 200 OK
 ```
 
-Empty response body indicates successful account deletion. Your API key will be immediately invalidated after this operation.
+Empty response body indicates successful account deletion. The API key will be immediately invalidated after this operation.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
