@@ -1,5 +1,6 @@
 ---
 category: 7. Users
+categoryOrder: 7
 url_path: '/users/{id}'
 title: 'Update user'
 type: 'PUT'

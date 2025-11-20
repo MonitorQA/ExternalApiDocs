@@ -1,5 +1,6 @@
 ---
-category: 14. Time zones
+category: 15. Time zones
+categoryOrder: 15
 url_path: '/timezones'
 title: 'Get timezones'
 type: 'GET'

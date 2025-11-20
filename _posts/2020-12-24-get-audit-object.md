@@ -1,5 +1,6 @@
 ---
 category: 5. Audit objects
+categoryOrder: 5
 url_path: '/audit/object/{id}'
 title: 'Get an audit object details'
 type: 'GET'

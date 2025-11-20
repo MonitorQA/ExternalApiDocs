@@ -1,5 +1,6 @@
 ---
 category: 3. Schedules
+categoryOrder: 3
 url_path: '/schedules/{scheduleId}'
 title: 'Update schedule'
 type: 'PUT'

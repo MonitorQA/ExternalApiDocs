@@ -1,5 +1,6 @@
 ---
-category: 9. Corrective Actions
+category: 10. Corrective Actions
+categoryOrder: 10
 url_path: '/corrective-actions/completed'
 title: 'Get completed corrective actions list'
 type: 'GET'

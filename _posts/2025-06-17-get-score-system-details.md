@@ -1,5 +1,6 @@
 ---
-category: 10. Score systems
+category: 11. Score systems
+categoryOrder: 11
 url_path: '/score-systems/{id}'
 title: 'Get score system details'
 type: 'GET'

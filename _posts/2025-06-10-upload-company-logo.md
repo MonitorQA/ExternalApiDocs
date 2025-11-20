@@ -1,5 +1,6 @@
 ---
-category: 13. Company
+category: 14. Company
+categoryOrder: 14
 url_path: '/company/logo'
 title: 'Upload company logo'
 type: 'POST'

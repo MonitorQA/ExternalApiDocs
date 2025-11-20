@@ -1,5 +1,6 @@
 ---
 category: 3. Schedules
+categoryOrder: 3
 url_path: '/schedules/daily'
 title: 'Create daily schedule'
 type: 'POST'

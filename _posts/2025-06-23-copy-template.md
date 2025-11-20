@@ -1,5 +1,6 @@
 ---
 category: 4. Audit Templates
+categoryOrder: 4
 url_path: '/audit/templates/copy'
 title: 'Copy template to another company'
 type: 'POST'

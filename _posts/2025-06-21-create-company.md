@@ -1,5 +1,6 @@
 ---
-category: 13. Company
+category: 14. Company
+categoryOrder: 14
 url_path: '/company'
 title: 'Create company'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 3
 layout: null
 ---
 
-Create a new company account. This endpoint sets up a new organization with an initial company administrator. The authenticated user becomes the company administrator for the newly created company.
+Create a new company account. This endpoint sets up a new organization with an initial company administrator. The authenticated user becomes the company administrator for the newly created company. The company administrator's email address is automatically set to the email address associated with the authenticated user's API key.
 
 **Important:** In order to work with the created company, the user must authenticate with the returned API key. The response includes an `apiKey` field that contains a unique API key for the newly created company. All subsequent API requests for the newly created company must use this `apiKey` value as the `X-API-KEY` header. The API key is automatically generated and can be used immediately after company creation. Without using the returned API key, API requests will not have access to the newly created company's resources.
 

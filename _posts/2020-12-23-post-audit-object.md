@@ -1,5 +1,6 @@
 ---
 category: 5. Audit objects
+categoryOrder: 5
 url_path: '/audit/objects'
 title: 'Create a new audit object'
 type: 'POST'

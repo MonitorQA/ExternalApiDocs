@@ -1,5 +1,6 @@
 ---
 category: 5. Audit objects
+categoryOrder: 5
 url_path: '/audit/objects/{id}'
 title: 'Update an audit object'
 type: 'PUT'

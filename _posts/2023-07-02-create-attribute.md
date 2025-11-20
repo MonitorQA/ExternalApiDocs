@@ -1,5 +1,6 @@
 ---
 category: 6. Audit object attributes
+categoryOrder: 6
 url_path: '/audit/objects/attributes'
 title: 'Create Audit Object Attribute'
 type: 'POST'

@@ -1,5 +1,6 @@
 ---
 category: 9. Roles
+categoryOrder: 9
 url_path: '/roles/{id}'
 title: 'Get Role Details'
 type: 'GET'

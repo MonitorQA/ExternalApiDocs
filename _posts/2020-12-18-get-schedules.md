@@ -1,5 +1,6 @@
 ---
 category: 3. Schedules
+categoryOrder: 3
 url_path: '/schedules'
 title: 'Get schedules list'
 type: 'GET'

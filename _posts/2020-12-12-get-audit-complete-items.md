@@ -1,5 +1,6 @@
 ---
 category: 2. Audits
+categoryOrder: 2
 url_path: '/audit/complete/{auditId}/report'
 title: 'Get audit report'
 type: 'GET'

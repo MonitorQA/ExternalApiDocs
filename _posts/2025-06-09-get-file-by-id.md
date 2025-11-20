@@ -1,5 +1,6 @@
 ---
-category: 11. Files
+category: 12. Files
+categoryOrder: 12
 url_path: '/files/{id}'
 title: 'Get File'
 type: 'GET'

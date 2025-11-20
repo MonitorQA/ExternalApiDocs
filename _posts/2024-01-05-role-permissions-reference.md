@@ -1,5 +1,6 @@
 ---
 category: 9. Roles
+categoryOrder: 9
 title: 'Role Permissions Reference'
 order: 1
 layout: null
