@@ -1,5 +1,5 @@
 ---
-category: 14. Company
+category: Company
 categoryOrder: 14
 url_path: '/company/logo'
 title: 'Upload company logo'
@@ -8,7 +8,7 @@ order: 3
 layout: null
 ---
 
-Upload a logo image for the company. Supported image formats include JPEG, PNG, and other common image types.
+Upload a logo image for the company. Supported image formats: **BMP, PNG, GIF, JPEG** (content types: `image/bmp`, `image/png`, `image/gif`, `image/jpeg`, `image/jpg`).
 
 ### Request Headers
 
@@ -23,7 +23,7 @@ The request must be a multipart form-data upload containing a single image file.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| File | file | Yes | The logo image file to upload |
+| File | file | Yes | The logo image file to upload. Must include a `Content-Type` header set to one of: `image/bmp`, `image/png`, `image/gif`, `image/jpeg`, or `image/jpg` |
 
 ### Example Request
 
@@ -51,5 +51,12 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful logo upload.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+**Error Responses**
+
+The API will return `400 Bad Request` in the following cases:
+- `Content-Type` header is missing from the request
+- File `Content-Type` is missing or not one of the allowed image types
+- The request couldn't be processed
+
+For other error responses, see the [response status codes documentation](#/response-status-codes).
 

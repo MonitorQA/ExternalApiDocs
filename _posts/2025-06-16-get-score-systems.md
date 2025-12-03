@@ -1,5 +1,5 @@
 ---
-category: 11. Score systems
+category: Score systems
 categoryOrder: 11
 url_path: '/score-systems'
 title: 'Get score systems'

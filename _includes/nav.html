@@ -24,6 +24,7 @@
 {% assign sortedCategories = sortedCategories | sort %}
 {% for categoryEntry in sortedCategories %}
   {% assign parts = categoryEntry | split: "|" %}
+  {% assign categoryOrder = parts[0] | plus: 0 %}
   {% assign categoryName = parts[1] %}
   {% for category in site.categories %}
     {% if category[0] == categoryName %}

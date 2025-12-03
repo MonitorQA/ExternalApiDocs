@@ -1,5 +1,5 @@
 ---
-category: 10. Corrective Actions
+category: Corrective Actions
 categoryOrder: 10
 url_path: '/corrective-actions/expired'
 title: 'Get expired corrective actions list'

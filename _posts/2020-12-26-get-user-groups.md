@@ -1,5 +1,5 @@
 ---
-category: 8. User groups
+category: User groups
 categoryOrder: 8
 url_path: '/user-groups'
 title: 'Get list of user groups'

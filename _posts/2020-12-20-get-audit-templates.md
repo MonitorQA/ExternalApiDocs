@@ -1,5 +1,5 @@
 ---
-category: 4. Audit Templates
+category: Audit Templates
 categoryOrder: 4
 url_path: '/audit/templates'
 title: 'Get audit templates list'

@@ -1,5 +1,5 @@
 ---
-category: 2. Audits
+category: Audits
 categoryOrder: 2
 url_path: '/audit/complete/{auditId}/report-pdf'
 title: 'Get audit pdf report'

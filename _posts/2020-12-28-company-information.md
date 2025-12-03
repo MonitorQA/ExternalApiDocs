@@ -1,5 +1,5 @@
 ---
-category: 14. Company
+category: Company
 categoryOrder: 14
 url_path: '/company'
 title: 'Get company information'

@@ -1,5 +1,5 @@
 ---
-category: 5. Audit objects
+category: Audit objects
 categoryOrder: 5
 url_path: '/audit/objects'
 title: 'Get list of audit objects'

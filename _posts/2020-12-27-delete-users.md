@@ -1,5 +1,5 @@
 ---
-category: 7. Users
+category: Users
 categoryOrder: 7
 url_path: '/users'
 title: 'Delete users'

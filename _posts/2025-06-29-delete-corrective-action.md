@@ -1,6 +1,6 @@
 ---
-category: 3. Corrective Actions
-categoryOrder: 3
+category: Corrective Actions
+categoryOrder: 10
 url_path: '/corrective-actions/{id}'
 title: 'Delete corrective action'
 type: 'DELETE'

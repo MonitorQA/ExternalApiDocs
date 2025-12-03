@@ -1,5 +1,5 @@
 ---
-category: 9. Roles
+category: Roles
 categoryOrder: 9
 url_path: '/roles'
 title: 'Delete Roles'
