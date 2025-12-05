@@ -1062,6 +1062,7 @@ code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 13px;
   font-weight: 500;
+  display: inline;
 }
 
 /* Override for inline code in pre blocks */
@@ -1072,10 +1073,20 @@ code {
   padding: 20px !important;
 }
 
-#content .body p > code {
+#content .body p > code:only-child {
   display: block;
   padding: 15px;
   white-space: pre;
+}
+
+/* Ensure inline code within paragraphs stays inline */
+#content .body p > code:not(:only-child) {
+  display: inline !important;
+  width: auto !important;
+  max-width: none !important;
+  vertical-align: baseline !important;
+  box-sizing: content-box !important;
+  margin: 0 !important;
 }
 
 /* Enhanced Request Example Code Blocks */
@@ -1128,6 +1139,12 @@ code {
     border-radius: 3px !important;
     font-family: 'Monaco', monospace !important;
     font-size: 12px !important;
+    display: inline !important;
+    width: auto !important;
+    max-width: none !important;
+    vertical-align: baseline !important;
+    box-sizing: content-box !important;
+    margin: 0 !important;
 }
 
 /* Ensure readability on dark backgrounds */

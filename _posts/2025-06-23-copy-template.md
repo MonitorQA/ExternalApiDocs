@@ -29,7 +29,7 @@ Copy a published audit template from the current authorized company to another c
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `templateId` | uuid | Yes | The unique identifier of the source template to copy from the current authorized company |
-| `targetCompanyId` | uuid | Yes | The unique identifier of the target company where the template will be copied |
+| `targetCompanyId` | uuid | Yes | The unique identifier of the target company where the template will be copied. Use the [Get accessible companies](#/get-companies) endpoint to retrieve a list of companies accessible to the authenticated user |
 | `copyScoreSystem` | boolean | Yes | If `true`, the score system from the source template will be copied to the target company along with all its elements, and the copied template will use this new score system. If `false`, the copied template will be linked to the default score system in the target company |
 
 ### Example Request (Copy with Default Score System)

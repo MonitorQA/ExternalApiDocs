@@ -8,7 +8,7 @@ order: 4
 layout: null
 ---
 
-Retrieve a list of all companies accessible to the authenticated user. This endpoint returns all companies where the user has an account. This is useful for users who have access to multiple companies and need to switch between them or select a target company for template copying operations.
+Retrieve a list of all companies accessible to the authenticated user. This endpoint returns all companies where the user has an account. This is useful for users who have access to multiple companies and need to switch between them or select a target company for [template copying](#/copy-template) operations.
 
 ### Request Headers
 
