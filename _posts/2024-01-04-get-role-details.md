@@ -4,7 +4,7 @@ categoryOrder: 9
 url_path: '/roles/{id}'
 title: 'Get Role Details'
 type: 'GET'
-order: 1
+order: 3
 layout: null
 ---
 
@@ -49,7 +49,7 @@ Content-Type: application/json
 | name | string | The name of the role |
 | description | string | The description of the role |
 | roleType | int | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
-| permissions | array | Array of enabled permission string constants. The permission strings correspond to the role type (see [Role Permissions Reference](#/roles/permissions)) |
+| permissions | array | Array of enabled permission string constants. The permission strings correspond to the role type (see [Role Permissions Reference](#/role-permissions-reference)) |
 
 ### Role Types
 
@@ -67,7 +67,7 @@ The permissions array contains string constants (Google IAM-style) that correspo
 - **Auditee roles**: Use auditee permission strings (e.g., `audits.viewResults`, `correctiveActions.do`)
 - **Observer roles**: Use observer permission strings (e.g., `audits.viewResults`, `reports.viewSummary`)
 
-For detailed descriptions of each permission, see the [Role Permissions Reference](#/roles/permissions).
+For detailed descriptions of each permission, see the [Role Permissions Reference](#/role-permissions-reference).
 
 ### Example Response - Admin Role
 

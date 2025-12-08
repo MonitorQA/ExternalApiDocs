@@ -4,7 +4,7 @@ categoryOrder: 9
 url_path: '/roles'
 title: 'Create Role'
 type: 'POST'
-order: 3
+order: 4
 layout: null
 ---
 
@@ -18,7 +18,7 @@ Create a new role within a company. This endpoint enables defining custom roles 
 | name | string | Yes | The name of the role |
 | description | string | No | A description of the role |
 | permissions | array | No | Array of permission strings. All permissions in the array will be enabled. If not provided, the role will be created without permissions |
-| permissions[] | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/roles/permissions) for detailed descriptions |
+| permissions[] | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for detailed descriptions |
 
 ### Role Types
 
@@ -127,7 +127,7 @@ The following validation rules are enforced when creating roles:
 
 1. **Role Type**: Required and must be a valid role type (0-3)
 2. **Role Name**: Required and cannot be empty
-3. **Permissions**: Optional. If provided, permission strings must be valid permission constants for the specified role type. See [Role Permissions Reference](#/roles/permissions) for the complete list of available permissions for each role type
+3. **Permissions**: Optional. If provided, permission strings must be valid permission constants for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for the complete list of available permissions for each role type
 
 **Note**: Requests that violate these rules will return a 400 Bad Request with detailed validation error messages.
 
@@ -140,5 +140,5 @@ Each role type has its own set of available permissions:
 - **Auditee roles (roleType: 2)**: 4 permissions available, for viewing audit results, executing corrective actions, and limited object access
 - **Observer roles (roleType: 3)**: 9 permissions available, providing read-only access to audits, issues, corrective actions, and all reports
 
-For detailed descriptions of each permission, see the [Role Permissions Reference](#/roles/permissions).
+For detailed descriptions of each permission, see the [Role Permissions Reference](#/role-permissions-reference).
 

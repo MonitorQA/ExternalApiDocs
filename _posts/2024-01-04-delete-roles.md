@@ -4,7 +4,7 @@ categoryOrder: 9
 url_path: '/roles'
 title: 'Delete Roles'
 type: 'DELETE'
-order: 5
+order: 6
 layout: null
 ---
 
