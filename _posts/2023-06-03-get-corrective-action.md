@@ -10,6 +10,8 @@ layout: null
 
 Retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
 
+**Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
+
 ### Request Headers
 
 | Header | Type | Required | Description |

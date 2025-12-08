@@ -10,6 +10,8 @@ layout: null
 
 Retrieve a paginated list of completed corrective actions within your organization. This endpoint provides access to all approved corrective actions with detailed information about their completion status and approval details.
 
+**Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
+
 ## Query Parameters
 
 | Parameter | Type | Required | Description |
