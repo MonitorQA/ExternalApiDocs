@@ -8,7 +8,7 @@ order: 4
 layout: null
 ---
 
-Update an existing score system with new configuration, labels, and settings.
+Update an existing score system with new configuration and labels. Note: `scoreSystemType` cannot be changed after creation.
 
 ### Request Headers
 
@@ -30,19 +30,29 @@ Update an existing score system with new configuration, labels, and settings.
 | `name` | string | Yes | Score system name |
 | `description` | string | No | Description of the score system |
 | `passedThreshold` | number | Yes | Threshold value for passing |
-| `scoreSystemType` | number | No | Score system type: `0` (ProportionToMaxScorePoints) or `1` (CountNotApplicableAsPositive) |
 | `labels` | array | Yes | Array of score labels (at least one required) |
 | `labels[].min` | number | Yes | Minimum score value for this label |
 | `labels[].max` | number | Yes | Maximum score value for this label (must be >= min) |
 | `labels[].label` | string | Yes | Label text |
 | `labels[].color` | string | Yes | Color code for this label |
 
-### Score System Types
+### Label Validation Rules
 
-| Value | Description |
-|-------|-------------|
-| `0` | ProportionToMaxScorePoints - Calculates score as proportion of maximum possible points |
-| `1` | CountNotApplicableAsPositive - Counts not applicable items as positive in score calculation |
+Labels must meet the following requirements:
+
+- **Full Range Coverage**: Labels must cover the entire interval from 0 to 100
+  - The first label must start at 0 (`min: 0`)
+  - The last label must end at 100 (`max: 100`)
+- **No Overlaps**: Label ranges cannot overlap (e.g., `[0-50]` and `[40-80]` is invalid)
+- **No Gaps**: Label ranges must be continuous with no gaps. The next label's `min` must equal the previous label's `max` (e.g., `[0-50]` and `[60-100]` is invalid; should be `[0-50]` and `[50-100]`)
+
+**Valid Example**: `[{min: 0, max: 60}, {min: 60, max: 100}]` ✓
+
+**Invalid Examples**:
+- `[{min: 10, max: 50}, {min: 50, max: 100}]` ✗ (doesn't start at 0)
+- `[{min: 0, max: 50}, {min: 50, max: 90}]` ✗ (doesn't end at 100)
+- `[{min: 0, max: 50}, {min: 40, max: 100}]` ✗ (overlap - 40 < 50)
+- `[{min: 0, max: 50}, {min: 60, max: 100}]` ✗ (gap - next min (60) should equal previous max (50))
 
 ### Example Request
 
@@ -56,7 +66,6 @@ Content-Type: application/json
   "name": "Updated Scoring System",
   "description": "Updated description",
   "passedThreshold": 75,
-  "scoreSystemType": 1,
   "labels": [
     {
       "min": 0,
@@ -65,7 +74,7 @@ Content-Type: application/json
       "color": "#FF0000"
     },
     {
-      "min": 61,
+      "min": 60,
       "max": 100,
       "label": "Pass",
       "color": "#00FF00"
