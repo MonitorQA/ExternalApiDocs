@@ -8,7 +8,7 @@ order: 3
 layout: null
 ---
 
-Upload a logo image for the company. Supported image formats: **BMP, PNG, GIF, JPEG** (content types: `image/bmp`, `image/png`, `image/gif`, `image/jpeg`, `image/jpg`).
+Upload a logo image for the company. Supported image formats: **PNG, JPEG** (content types: `image/png`, `image/jpeg`, `image/jpg`).
 
 ### Request Headers
 
@@ -21,9 +21,11 @@ Upload a logo image for the company. Supported image formats: **BMP, PNG, GIF, J
 
 The request must be a multipart form-data upload containing a single image file.
 
+> **Note:** Only the first file in the request body will be processed. Any additional files will be ignored.
+
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| File | file | Yes | The logo image file to upload. Must include a `Content-Type` header set to one of: `image/bmp`, `image/png`, `image/gif`, `image/jpeg`, or `image/jpg` |
+| File | file | Yes | The logo image file to upload. Must include a `Content-Type` header set to one of: `image/png`, `image/jpeg`, or `image/jpg` |
 
 ### Example Request
 
