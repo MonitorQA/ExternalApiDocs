@@ -1,5 +1,6 @@
 ---
-category: 9. Corrective Actions
+category: Corrective Actions
+categoryOrder: 10
 url_path: '/corrective-actions/{id}'
 title: 'Get corrective action details'
 type: 'GET'
@@ -7,13 +8,15 @@ order: 4
 layout: null
 ---
 
-This method allows you to retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
+Retrieve detailed information about a specific corrective action, including its status, assignees, files, and related audit information.
+
+**Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

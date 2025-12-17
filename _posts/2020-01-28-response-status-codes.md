@@ -1,8 +1,9 @@
 ---
-category: 1. General
+category: General
+categoryOrder: 1
 url_path: '/status-codes'
 title: 'Status Codes'
-order: 5
+order: 1
 
 layout: null
 ---

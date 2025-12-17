@@ -1,19 +1,20 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit/complete/{auditId}/report-pdf'
 title: 'Get audit pdf report'
 type: 'GET'
-order: 7
+order: 2
 layout: null
 ---
 
-This method allows you to download a PDF report of a completed audit. The report contains all audit items, responses, and optional photos in a formatted document.
+Download a PDF report of a completed audit. The report contains all audit items, responses, and optional photos in a formatted document.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 
@@ -52,4 +53,4 @@ Content-Type: application/pdf
 - **Summary (1):** Condensed report highlighting key findings
 - **Full (2):** Comprehensive report with all details and context
 
-For error responses, see the [response status codes documentation](#/response-status-codes).
+For errors responses, see the [response status codes documentation](#/response-status-codes).

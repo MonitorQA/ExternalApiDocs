@@ -1,19 +1,20 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit/complete/{auditId}/report'
 title: 'Get audit report'
 type: 'GET'
-order: 6
+order: 2
 layout: null
 ---
 
-This method allows you to retrieve the detailed report of a completed audit, including all audit items, their statuses, and associated corrective actions.
+Retrieve the detailed report of a completed audit, including all audit items, their statuses, and associated corrective actions.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Path Parameters
 

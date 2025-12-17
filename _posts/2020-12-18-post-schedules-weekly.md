@@ -1,5 +1,6 @@
 ---
-category: 3. Schedules
+category: Schedules
+categoryOrder: 3
 url_path: '/schedules/weekly'
 title: 'Create weekly schedule'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 4
 layout: null
 ---
 
-Create a weekly recurring schedule that generates audits on specified days of the week. This endpoint allows you to set up automated audit creation for multiple days within each week.
+Create a weekly recurring schedule that generates audits on specified days of the week. This endpoint enables setting up automated audit creation for multiple days within each week.
 
 ## Parameters
 

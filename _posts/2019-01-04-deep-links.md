@@ -1,8 +1,9 @@
 ---
-category: 1. General
+category: General
+categoryOrder: 1
 url_path: '/deep-links'
 title: 'Deep Links'
-order: 4
+order: 1
 layout: null
 ---
 

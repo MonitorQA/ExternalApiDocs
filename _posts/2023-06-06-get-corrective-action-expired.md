@@ -1,13 +1,16 @@
 ---
-category: 9. Corrective Actions
+category: Corrective Actions
+categoryOrder: 10
 url_path: '/corrective-actions/expired'
 title: 'Get expired corrective actions list'
 type: 'GET'
-order: 3
+order: 9
 layout: null
 ---
 
 Retrieve a paginated list of expired corrective actions within your organization. This endpoint provides access to corrective actions that have passed their due dates without completion, helping track overdue items.
+
+**Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
 ## Query Parameters
 

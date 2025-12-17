@@ -1,5 +1,6 @@
 ---
-category: 3. Schedules
+category: Schedules
+categoryOrder: 3
 url_path: '/schedules/monthly'
 title: 'Create monthly schedule'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 6
 layout: null
 ---
 
-Create a monthly recurring schedule that generates audits at specified intervals on a particular day of the month. This endpoint allows you to set up automated audit creation with flexible monthly recurrence patterns.
+Create a monthly recurring schedule that generates audits at specified intervals on a particular day of the month. This endpoint enables setting up automated audit creation with flexible monthly recurrence patterns.
 
 ## Parameters
 
@@ -56,7 +57,7 @@ or
 
 #### Type 0 (DayOfMonth) - Specific Day of Month
 
-When `type` is `0`, the audit starts on a fixed day of each scheduled month. The `day` property (range 1-31) specifies which day of the month to start the audit.
+When `type` is `0`, the audit starts on a fixed day of each scheduled month. The `day` property must be greater than 0 and in the range 1-31, specifying which day of the month to start the audit.
 
 **How it works:**
 - Each scheduled audit begins on the specified day of the month
@@ -75,7 +76,7 @@ When `type` is `0`, the audit starts on a fixed day of each scheduled month. The
 
 #### Type 1 (StartOfMonth) - Beginning of Month in Cycle
 
-When `type` is `1`, the audit starts at the beginning (1st day) of a specific month within the repeat cycle. The `cycleMonthStart` property (1, 2, 3...) specifies which month within the `repeatEvery` cycle should start the audit.
+When `type` is `1`, the audit starts at the beginning (1st day) of a specific month within the repeat cycle. The `cycleMonthStart` property must be greater than 0 and specifies which month within the `repeatEvery` cycle should start the audit (1, 2, 3...).
 
 **How it works:**
 - Each repeat cycle contains `repeatEvery` months
@@ -138,7 +139,7 @@ or
 
 #### Type 0 (EndOfMonth) - End at End of Month in Cycle
 
-When `type` is `0`, the audit ends at the end of a specific month within the repeat cycle. The `cycleMonthEnd` property (1, 2, 3...) specifies which month within the cycle the audit should end.
+When `type` is `0`, the audit ends at the end of a specific month within the repeat cycle. The `cycleMonthEnd` property must be greater than 0 and specifies which month within the cycle the audit should end (1, 2, 3...).
 
 **How it works:**
 - `cycleMonthEnd: 1` means the audit ends at the end of the same month it started
@@ -151,7 +152,7 @@ When `type` is `0`, the audit ends at the end of a specific month within the rep
 
 #### Type 1 (AfterDays) - End After N Days
 
-When `type` is `1`, the audit ends a fixed number of days after it starts. The `days` property specifies how many days the audit period lasts.
+When `type` is `1`, the audit ends a fixed number of days after it starts. The `days` property must be greater than 0 and specifies how many days the audit period lasts.
 
 **How it works:**
 - The end date is calculated by adding `days` to the audit start date
@@ -162,7 +163,7 @@ When `type` is `1`, the audit ends a fixed number of days after it starts. The `
 
 #### Type 2 (AfterWeeks) - End After N Weeks
 
-When `type` is `2`, the audit ends a fixed number of weeks after it starts. The `weeks` property specifies how many weeks the audit period lasts.
+When `type` is `2`, the audit ends a fixed number of weeks after it starts. The `weeks` property must be greater than 0 and specifies how many weeks the audit period lasts.
 
 **How it works:**
 - The end date is calculated by adding `weeks * 7` days to the audit start date

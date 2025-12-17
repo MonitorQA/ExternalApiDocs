@@ -1,5 +1,6 @@
 ---
-category: 5. Audit Objects
+category: Audit objects
+categoryOrder: 5
 url_path: '/audit/objects/{id}/attributes'
 title: 'Delete Attributes Assignments from Audit Object'
 type: 'DELETE'
@@ -7,7 +8,7 @@ order: 7
 layout: null
 ---
 
-Remove specific attribute assignments from an audit object. This endpoint allows you to unassign particular attribute-option combinations while leaving other assignments intact. Invalid attribute or option IDs are silently ignored.
+Remove specific attribute assignments from an audit object. This endpoint enables unassigning particular attribute-option combinations while leaving other assignments intact. Invalid attribute or option IDs are silently ignored.
 
 ## Parameters
 

@@ -1,5 +1,6 @@
 ---
-category: 5. Audit Objects
+category: Audit objects
+categoryOrder: 5
 url_path: '/audit/objects'
 title: 'Delete audit objects'
 type: 'DELETE'
@@ -7,13 +8,13 @@ order: 5
 layout: null
 ---
 
-This method allows you to delete multiple audit objects in a single request.
+Delete multiple audit objects in a single request.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 | `Content-Type` | string | Yes | Must be `application/json` |
 
 ### Request Body Parameters

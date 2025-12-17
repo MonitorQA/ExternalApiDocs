@@ -1,5 +1,6 @@
 ---
-category: 9. Corrective Actions
+category: Corrective Actions
+categoryOrder: 10
 url_path: '/corrective-actions/pending'
 title: 'Get pending corrective actions list'
 type: 'GET'
@@ -7,7 +8,9 @@ order: 1
 layout: null
 ---
 
-Retrieve a paginated list of pending corrective actions within your organization. This endpoint allows you to filter results by various criteria and provides comprehensive details about each corrective action requiring attention.
+Retrieve a paginated list of pending corrective actions within the organization. This endpoint enables filtering results by various criteria and provides comprehensive details about each corrective action requiring attention.
+
+**Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
 ## Query Parameters
 

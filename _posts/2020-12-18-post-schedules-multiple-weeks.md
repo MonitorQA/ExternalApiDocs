@@ -1,5 +1,6 @@
 ---
-category: 3. Schedules
+category: Schedules
+categoryOrder: 3
 url_path: '/schedules/multiple-weeks'
 title: 'Create multiple weeks schedule'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 5
 layout: null
 ---
 
-Create a multi-week recurring schedule that generates audits at specified weekly intervals on a particular day of the week. This endpoint allows you to set up automated audit creation with flexible multi-week recurrence patterns.
+Create a multi-week recurring schedule that generates audits at specified weekly intervals on a particular day of the week. This endpoint enables setting up automated audit creation with flexible multi-week recurrence patterns.
 
 ## Parameters
 

@@ -1,9 +1,10 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit/reopen/{id}'
 title: 'Reopen Audit'
 type: 'POST'
-order: 8
+order: 2
 layout: null
 ---
 

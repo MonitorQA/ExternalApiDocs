@@ -1,5 +1,6 @@
 ---
-category: 10. Audit Object Attributes
+category: Audit object attributes
+categoryOrder: 6
 url_path: '/audit/objects/attributes/{id}'
 title: 'Get Audit Object Attribute Details'
 type: 'GET'

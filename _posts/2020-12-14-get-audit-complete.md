@@ -1,19 +1,20 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit/complete'
 title: 'Get list of complete audits'
 type: 'GET'
-order: 4
+order: 2
 layout: null
 ---
 
-This method allows you to retrieve a paginated list of completed audits with advanced filtering and sorting options.
+Retrieve a paginated list of completed audits with advanced filtering and sorting options.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Query Parameters
 

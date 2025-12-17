@@ -1,9 +1,10 @@
 ---
-category: 4. Audit Templates
+category: Audit Templates
+categoryOrder: 4
 url_path: '/audit/templates'
 title: 'Get audit templates list'
 type: 'GET'
-order: 1
+order: 4
 layout: null
 ---
 

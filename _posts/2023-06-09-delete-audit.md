@@ -1,13 +1,14 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit'
 title: 'Delete Audit'
 type: 'DELETE'
-order: 10
+order: 2
 layout: null
 ---
 
-Delete multiple audits from your organization. This endpoint allows you to permanently remove audits in bulk by providing an array of audit IDs. Use with caution as this action cannot be undone.
+Delete multiple audits from the organization. This endpoint enables permanently removing audits in bulk by providing an array of audit IDs. Use with caution as this action cannot be undone.
 
 ## Parameters
 

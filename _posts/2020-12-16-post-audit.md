@@ -1,19 +1,20 @@
 ---
-category: 2. Audits
+category: Audits
+categoryOrder: 2
 url_path: '/audit'
 title: 'Create one-time audit'
 type: 'POST'
-order: 1
+order: 2
 layout: null
 ---
 
-This method allows you to create a one-time audit for a specific user and audit object. This is useful for creating immediate audit tasks that need to be completed by a particular person.
+Create a one-time audit for a specific user and audit object. This endpoint is useful for creating immediate audit tasks that need to be completed by a particular person.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 
 ### Request Body Parameters
 

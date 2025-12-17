@@ -1,14 +1,14 @@
 ---
-category: Schedules
-categoryOrder: 3
-url_path: '/schedules'
-title: 'Delete schedules'
+category: Score systems
+categoryOrder: 11
+url_path: '/score-systems'
+title: 'Delete score systems'
 type: 'DELETE'
-order: 8
+order: 5
 layout: null
 ---
 
-Delete multiple schedules in a single request. **All unstarted audits for the selected schedules will be deleted**.
+Delete one or more score systems. Score systems that are associated with templates cannot be deleted and will return an error.
 
 ### Request Headers
 
@@ -21,12 +21,12 @@ Delete multiple schedules in a single request. **All unstarted audits for the se
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `ids` | array[string] | Yes | Array of schedule IDs to delete |
+| `ids` | array[uuid] | Yes | Array of score system IDs to delete |
 
 ### Example Request
 
 ```http
-DELETE /schedules
+DELETE /score-systems
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -47,4 +47,20 @@ Content-Type: application/json
 HTTP/1.1 200 OK
 ```
 
+Empty response body indicates successful deletion.
+
+**Error Response (Score System Has Templates)**
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type: application/json
+
+{
+  "message": "score-system/has-templates:123e4567-e89b-12d3-a456-426614174000"
+}
+```
+
+If a score system is associated with templates, it cannot be deleted and the error response will include the IDs of score systems that have templates.
+
 For errors responses, see the [response status codes documentation](#/response-status-codes).
+

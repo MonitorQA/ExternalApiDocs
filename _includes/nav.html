@@ -5,14 +5,39 @@
   <li><a href='#{{ post.url }}'>{{ post.title }}</a></li>
   {% endif %}
 {% endfor %}
+{% assign sortedCategories = "" | split: "," %}
 {% for category in site.categories %}
-<li><h2>{{ category | first }}</h2>
-  <ul>
-    {%assign sortedPosts = category[1]|sort:"order"%}
-    {% for post in sortedPosts%}
-    <li class='{{ post.type }}'><a href='#{{ post.url }}'>{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</li>
+  {% assign categoryName = category | first %}
+  {% assign categoryPosts = category[1] %}
+  {% assign firstPost = categoryPosts | first %}
+  {% assign categoryOrder = firstPost.categoryOrder | default: 999 %}
+  {% if categoryOrder < 10 %}
+    {% assign paddedOrder = "00" | append: categoryOrder %}
+  {% elsif categoryOrder < 100 %}
+    {% assign paddedOrder = "0" | append: categoryOrder %}
+  {% else %}
+    {% assign paddedOrder = categoryOrder %}
+  {% endif %}
+  {% assign categoryEntry = paddedOrder | append: "|" | append: categoryName %}
+  {% assign sortedCategories = sortedCategories | push: categoryEntry %}
+{% endfor %}
+{% assign sortedCategories = sortedCategories | sort %}
+{% for categoryEntry in sortedCategories %}
+  {% assign parts = categoryEntry | split: "|" %}
+  {% assign categoryOrder = parts[0] | plus: 0 %}
+  {% assign categoryName = parts[1] %}
+  {% for category in site.categories %}
+    {% if category[0] == categoryName %}
+      <li><h2>{{ categoryName }}</h2>
+        <ul>
+          {% assign sortedPosts = category[1] | sort: "order" %}
+          {% for post in sortedPosts %}
+          <li class='{{ post.type }}'><a href='#{{ post.url }}'>{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% break %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
 </ul>

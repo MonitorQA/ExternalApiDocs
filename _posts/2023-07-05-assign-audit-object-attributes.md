@@ -1,5 +1,6 @@
 ---
-category: 5. Audit Objects
+category: Audit objects
+categoryOrder: 5
 url_path: '/audit/objects/{id}/attributes'
 title: 'Assign Attributes to Audit Object'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 6
 layout: null
 ---
 
-Assign multiple attributes to a specific audit object. This endpoint allows you to categorize and tag audit objects with custom attributes for better organization and filtering. Duplicate assignments are ignored, and invalid options will not be assigned.
+Assign multiple attributes to a specific audit object. This endpoint enables categorizing and tagging audit objects with custom attributes for better organization and filtering. Duplicate assignments are ignored, and invalid options will not be assigned.
 
 ## Parameters
 

@@ -1,5 +1,6 @@
 ---
-category: 10. Audit Object Attributes
+category: Audit object attributes
+categoryOrder: 6
 url_path: '/audit/objects/attributes'
 title: 'Create Audit Object Attribute'
 type: 'POST'
@@ -7,7 +8,7 @@ order: 3
 layout: null
 ---
 
-Create a new audit object attribute with multiple options. This endpoint allows you to define custom attributes that can be assigned to audit objects for better categorization and filtering. At least one option must be provided, and the first option marked as default will be the default value.
+Create a new audit object attribute with multiple options. This endpoint enables defining custom attributes that can be assigned to audit objects for better categorization and filtering. At least one option must be provided, and the first option marked as default will be the default value.
 
 ## Parameters
 

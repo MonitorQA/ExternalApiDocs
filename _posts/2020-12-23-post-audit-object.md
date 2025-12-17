@@ -1,5 +1,6 @@
 ---
-category: 5. Audit Objects
+category: Audit objects
+categoryOrder: 5
 url_path: '/audit/objects'
 title: 'Create a new audit object'
 type: 'POST'
@@ -7,13 +8,13 @@ order: 3
 layout: null
 ---
 
-This method allows you to create a new audit object with specified properties including name, notes, and geographic location.
+Create a new audit object with specified properties including name, notes, and geographic location.
 
 ### Request Headers
 
 | Header | Type | Required | Description |
 |--------|------|----------|-------------|
-| `X-API-KEY` | string | Yes | Your API authentication key |
+| `X-API-KEY` | string | Yes | API authentication key |
 | `Content-Type` | string | Yes | Must be `application/json` |
 
 ### Request Body Parameters
