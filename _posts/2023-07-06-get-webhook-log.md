@@ -1,5 +1,5 @@
 ---
-category: Webhook Log
+category: Webhook
 categoryOrder: 13
 url_path: '/webhooks/status'
 title: 'Get webhooks log'
