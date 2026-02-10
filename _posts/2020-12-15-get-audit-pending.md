@@ -64,7 +64,7 @@ Content-Type: application/json
         "name": "Main Kitchen - Building B"
       },
       "endDate": "2023-12-15T17:00:00.000Z",
-      "number": "AUD-2023-1247",
+      "number": null,
       "startDate": "2023-12-15T09:00:00.000Z",
       "template": {
         "id": "d4e5f6a7-b8c9-7012-def4-567890123gbc",
@@ -93,7 +93,7 @@ Content-Type: application/json
         "name": "Manufacturing Floor - Zone A"
       },
       "endDate": "2023-12-20T16:30:00.000Z",
-      "number": "AUD-2023-1248",
+      "number": null,
       "startDate": "2023-12-18T08:00:00.000Z",
       "template": {
         "id": "c9d0e1f2-a3b4-2567-ijk9-012345678lgh",

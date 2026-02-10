@@ -43,6 +43,7 @@ Content-Type: application/json
   "auditorHint": "Check all emergency exits are clear and properly marked",
   "companyId": "b2c3d4e5-f6a7-890b-cdef-012345678901",
   "number": "AUD-2023-0892",
+  "name": "Fire Safety and Emergency Preparedness Audit - Nov 2023",
   "auditObject": {
     "id": "c3d4e5f6-a7b8-901c-defa-123456789012",
     "name": "Corporate Headquarters - Floor 3",

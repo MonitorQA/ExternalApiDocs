@@ -8,7 +8,7 @@ order: 1
 layout: null
 ---
 
-Retrieve basic information about the company account. This endpoint provides essential company details including the unique company identifier, display name, file identifiers for uploaded logo and icon images, usage purpose, and custom audit object name.
+Retrieve basic information about the company account. This endpoint provides essential company details including the unique company identifier, display name, file identifiers for uploaded logo and icon images, usage purpose, custom audit object name, and the company's IANA time zone.
 
 ### Example Request
 
@@ -32,7 +32,8 @@ Content-Type: application/json
   "logoFileId": "123e4567-e89b-12d3-a456-426614174000",
   "iconFileId": "789e4567-e89b-12d3-a456-426614174001",
   "usagePurpose": 0,
-  "customAuditObjectName": null
+  "customAuditObjectName": null,
+  "ianaTimeZone": "America/New_York"
 }
 ```
 
@@ -48,7 +49,8 @@ Content-Type: application/json
   "logoFileId": null,
   "iconFileId": null,
   "usagePurpose": 6,
-  "customAuditObjectName": "Facility"
+  "customAuditObjectName": "Facility",
+  "ianaTimeZone": "America/Los_Angeles"
 }
 ```
 
@@ -62,5 +64,6 @@ Content-Type: application/json
 | `iconFileId` | uuid | Optional. The unique identifier of the company icon file, if an icon has been uploaded |
 | `usagePurpose` | number | Optional. The primary usage purpose for the company. Valid values: `0` (Locations), `1` (Stores), `2` (Sites), `3` (Machines), `4` (Plants), `5` (Vehicles), `6` (Other), `7` (Processes) |
 | `customAuditObjectName` | string | Optional. Custom name for the audit object type when `usagePurpose` is `6` (Other) |
+| `ianaTimeZone` | string | Optional. IANA time zone identifier for the company (e.g. "America/New_York", "Europe/London") |
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -42,6 +42,7 @@ Content-Type: application/json
   "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",  
   "companyId": "b2c3d4e5-f6a7-890b-cdef-012345678901",
   "number": "AUD-2023-0475",
+  "name": "Cold Storage Compliance Audit - Oct 2023",
   "auditorHint": "Pay special attention to cold storage temperature logs and cleaning schedules",
   "auditObject": {
     "id": "c3d4e5f6-a7b8-901c-defa-123456789012",
