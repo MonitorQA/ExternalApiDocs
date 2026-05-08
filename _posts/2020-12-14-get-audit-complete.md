@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of completed audits with advanced filtering and sorting options.
+Retrieve a paginated list of completed audits with advanced filtering and sorting options. Parameters named `*Group` are **company structure unit** IDs (legacy names): `completedByGroup` filters by users linked to that unit who completed the audit; `auditObjectGroupId` by audit objects linked to that unit; `assignedToGroup` by assignees who are users linked to that unit. See [Get company structure units](#/get-company-structure-units).
 
 ### Request Headers
 
@@ -23,12 +23,12 @@ Retrieve a paginated list of completed audits with advanced filtering and sortin
 | `scoreMin` | number | No | Filter by minimum score |
 | `scoreMax` | number | No | Filter by maximum score |
 | `completedBy` | string | No | Filter by user ID who completed audit |
-| `completedByGroup` | string | No | Filter by user group ID |
+| `completedByGroup` | string | No | Company structure unit ID (legacy parameter name). Filter by users linked to that unit who completed the audit |
 | `templateId` | string | No | Filter by audit template ID |
 | `auditObjectId` | string | No | Filter by audit object ID |
-| `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `auditObjectGroupId` | string | No | Company structure unit ID (legacy parameter name). Filter by audit objects linked to that unit |
 | `assignedTo` | string | No | Filter by assigned user ID |
-| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `assignedToGroup` | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are users linked to that unit |
 | `fromDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | `toDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | `pageNumber` | number | No | Current page number, starts from 1 (default: 1) |

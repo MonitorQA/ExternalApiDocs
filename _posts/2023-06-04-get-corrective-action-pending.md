@@ -20,7 +20,7 @@ Retrieve a paginated list of pending corrective actions within the organization.
 | templateId | string | No | Filter by audit template ID |
 | auditObjectId | string | No | Filter by audit object ID |
 | assignedToId | string | No | Filter by assigned user ID |
-| assignedToGroupId | string | No | Filter by assigned user group ID |
+| assignedToGroupId | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are **users linked to that unit** |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 

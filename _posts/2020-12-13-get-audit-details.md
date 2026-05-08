@@ -84,7 +84,7 @@ Content-Type: application/json
   "score": 87,
   "scoreLabel": "Good",
   "scoreColor": "#28a745",
-  "completionTime": 315
+  "durationInSeconds": 315
 }
 ```
 

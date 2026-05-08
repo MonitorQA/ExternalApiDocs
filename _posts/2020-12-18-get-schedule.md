@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects.
+Retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects. **`auditObjectGroups`** in the JSON response lists **company structure units** (legacy property name) attached to the schedule; each unit expands to **audit objects linked to that unit** for schedule scope.
 
 ### Request Headers
 
@@ -43,7 +43,7 @@ X-API-KEY: abcdef12345
 * **`template`** is information about template.
 * **`assignees`** is information about users assigned to this schedule.
 * **`auditObjects`** is information about audit objects assigned to this schedule.
-* **`auditObjectGroups`** is information about audit object groups assigned to this schedule.
+* **`auditObjectGroups`** lists company structure units assigned to this schedule (legacy property name); each unit corresponds to **audit objects linked to that unit** included in the schedule scope.
 * **`repeatPattern`** is schedule repeat pattern.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
 

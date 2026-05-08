@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve detailed information about a specific user by their unique identifier. This endpoint provides comprehensive user information including role, permissions, and account details.
+Retrieve detailed information about a specific user by their unique identifier. This endpoint returns account fields, **role** summary (`id`, `name`, `roleType`), and **`userGroups`**: each entry is a **company structure unit** the user is linked to (legacy JSON property name `userGroups`). See [Get company structure units](#/get-company-structure-units).
 
 ### Request Headers
 
@@ -69,9 +69,9 @@ Content-Type: application/json
 | `role.id` | uuid | The unique identifier of the role |
 | `role.name` | string | The role name |
 | `role.roleType` | number | The role type. See [Role Types](#role-types) below |
-| `userGroups` | array | The user groups the user belongs to. Each item has `id` (uuid) and `name` (string) |
-| `userGroups[].id` | uuid | The unique identifier of the user group |
-| `userGroups[].name` | string | The user group name |
+| `userGroups` | array | Company structure units the user is linked to (legacy property name). Each item has `id` (uuid) and `name` (string) |
+| `userGroups[].id` | uuid | Company structure unit identifier |
+| `userGroups[].name` | string | Company structure unit name |
 
 ### Role Types
 

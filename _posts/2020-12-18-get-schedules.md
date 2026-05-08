@@ -8,7 +8,7 @@ order: 1
 layout: null
 ---
 
-Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities.
+Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities. `auditObjectGroupId` is a **company structure unit** ID (legacy query name); results include schedules that target **audit objects linked to that unit**. See [Get company structure units](#/get-company-structure-units).
 
 ### Request Headers
 
@@ -21,7 +21,7 @@ Retrieve a paginated list of active audit schedules with optional filtering and 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `auditObjectId` | string | No | Filter schedules by specific audit object ID |
-| `auditObjectGroupId` | string | No | Filter schedules by audit object group ID |
+| `auditObjectGroupId` | string | No | Company structure unit ID (legacy parameter name). Filter schedules that include **audit objects linked to that unit** |
 | `pageNumber` | integer | No | Page number for pagination, starting from 1 (default: 1) |
 | `pageSize` | integer | No | Number of items per page (default: 10) |
 
@@ -37,7 +37,7 @@ X-API-KEY: abcdef12345
 
 **Success Response**
 
-See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options
+See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options. In responses, **`auditObjectGroups`** lists company structure units (legacy JSON property name) whose linked audit objects are included on the schedule.
 
 ```http
 HTTP/1.1 200 OK
@@ -59,7 +59,7 @@ Content-Type: application/json
          "repeat": {
             "repeatEvery": 3
          },
-         "auditObjects: [{
+         "auditObjects": [{
             "id": string,
             "name": string
          }],

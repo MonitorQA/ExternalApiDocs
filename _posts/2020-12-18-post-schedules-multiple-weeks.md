@@ -16,7 +16,7 @@ Create a multi-week recurring schedule that generates audits at specified weekly
 |-----------|------|----------|-------------|
 | templateId | string | Yes | The unique identifier of the audit template to use |
 | auditObjectIds | array[string] | Conditional | Array of audit object IDs (required if auditObjectGroupIds not provided) |
-| auditObjectGroupIds | array[string] | Conditional | Array of audit object group IDs (required if auditObjectIds not provided) |
+| auditObjectGroupIds | array[string] | Conditional | Company structure unit IDs (legacy parameter name). Schedule applies to **audit objects linked to each unit** (required if auditObjectIds not provided) |
 | name | string | Yes | Display name for the schedule |
 | auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
 | assigneesIds | array[string] | No | Array of user IDs to assign the generated audits to |

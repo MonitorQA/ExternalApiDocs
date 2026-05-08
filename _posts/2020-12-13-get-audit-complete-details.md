@@ -84,7 +84,7 @@ Content-Type: application/json
   "score": 91,
   "scoreLabel": "Excellent",
   "scoreColor": "#198754",
-  "completionTime": 255,
+  "durationInSeconds": 255,
   "reportUrl": "https://api-external.monitorqa.com/reports/audit/a1b2c3d4-e5f6-789a-bcde-f01234567890",
    "auditeeSignature": {
       "photoId": "d1b4b954-3e9f-4d93-bdeb-a4112f1ed26e",

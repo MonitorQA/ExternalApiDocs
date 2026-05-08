@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of pending audits with filtering and sorting options.
+Retrieve a paginated list of pending audits with filtering and sorting options. Query parameters that still use the word “group” expect **company structure unit** identifiers: `auditObjectGroupId` limits results to audit objects linked to that unit; `assignedToGroup` limits results to audits assigned to **users linked to that unit**. Use [Get company structure units](#/get-company-structure-units) to list valid unit IDs.
 
 ### Request Headers
 
@@ -23,10 +23,10 @@ Retrieve a paginated list of pending audits with filtering and sorting options.
 | `inProgress` | boolean | No | Filter by in progress state |
 | `templateId` | string | No | Filter by audit template ID |
 | `auditObjectId` | string | No | Filter by audit object ID |
-| `auditObjectGroupId` | string | No | Filter by audit object group ID |
+| `auditObjectGroupId` | string | No | Filter by company structure unit ID (legacy parameter name). Matches audits whose audit object is linked to that unit |
 | `auditScheduleId` | uuid | No | Filter by audit schedule ID |
 | `assignedTo` | string | No | Filter by assigned user ID |
-| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `assignedToGroup` | string | No | Filter by company structure unit ID (legacy parameter name). Matches audits assigned to **users linked to that unit** |
 | `pageNumber` | number | No | Current page number, starts from 1 |
 | `pageSize` | number | No | Page size |
 
@@ -70,10 +70,7 @@ Content-Type: application/json
         "id": "d4e5f6a7-b8c9-7012-def4-567890123gbc",
         "name": "Kitchen Safety Inspection Template"
       },
-      "isReopened": false,
-      "isStarted": true,
-      "completedActionsCount": 8,
-      "pendingActionsCount": 3
+      "isStarted": true
     },
     {
       "id": "e5f6a7b8-c9d0-8123-efg5-678901234hcd",
@@ -99,10 +96,7 @@ Content-Type: application/json
         "id": "c9d0e1f2-a3b4-2567-ijk9-012345678lgh",
         "name": "Equipment Maintenance Audit"
       },
-      "isReopened": true,
-      "isStarted": true,
-      "completedActionsCount": 15,
-      "pendingActionsCount": 7
+      "isStarted": true
     }
   ],
   "meta": {

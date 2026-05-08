@@ -21,7 +21,7 @@ Retrieve a paginated list of completed corrective actions within your organizati
 | auditObjectId | string | No | Filter by audit object ID |
 | assignedToId | string | No | Filter by assigned user ID |
 | approvedById | string | No | Filter by approver user ID |
-| assignedToGroupId | string | No | Filter by assigned user group ID |
+| assignedToGroupId | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are **users linked to that unit** |
 | fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |

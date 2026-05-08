@@ -10,6 +10,8 @@ layout: null
 
 Retrieve detailed information about a specific audit object, including its participants, attributes, and location data. This endpoint provides comprehensive audit object details needed for audit planning and execution.
 
+**Company structure units (legacy JSON names):** `participantUserGroups` lists units (legacy property name) used for participant resolution—**users linked to each unit** participate as a group. `auditObjectGroupIds` are **company structure unit** identifiers (legacy name); each ID refers to a unit whose **linked audit objects** share that grouping. See [Get company structure units](#/get-company-structure-units).
+
 ## Parameters
 
 | Parameter | Type | Required | Description |
