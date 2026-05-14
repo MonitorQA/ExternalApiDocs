@@ -14,7 +14,7 @@ Retrieve detailed information about a specific role within a company. This endpo
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | Guid | Yes | The unique identifier of the role (path parameter) |
+| id | uuid | Yes | The unique identifier of the role (path parameter) |
 
 ### Example Request
 
@@ -45,10 +45,10 @@ Content-Type: application/json
 
 | Field | Type | Description |
 |-------|------|-------------|
-| id | Guid | The unique identifier of the role |
+| id | uuid | The unique identifier of the role |
 | name | string | The name of the role |
 | description | string | The description of the role |
-| roleType | int | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
+| roleType | number | Optional. The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer). May be `null` |
 | permissions | array | Array of enabled permission string constants. The permission strings correspond to the role type (see [Role Permissions Reference](#/role-permissions-reference)) |
 
 ### Role Types

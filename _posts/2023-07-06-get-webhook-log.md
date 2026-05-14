@@ -14,8 +14,9 @@ Retrieve a paginated history of executed webhooks, including their status, respo
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| pageNumber | integer | No | Page number for pagination (starts from 1) |
-| pageSize | integer | No | Number of items per page |
+| `search` | string | No | Optional search filter |
+| `pageNumber` | integer | No | Page number for pagination (starts from 1) |
+| `pageSize` | integer | No | Number of items per page |
 
 ### Example Request
 

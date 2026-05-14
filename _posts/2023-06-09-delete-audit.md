@@ -14,7 +14,7 @@ Delete multiple audits from the organization. This endpoint enables permanently 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| ids | array[string] | Yes | Array of audit IDs to be deleted |
+| ids | uuid[] | Yes | Array of audit IDs to be deleted |
 
 ### Example Request
 

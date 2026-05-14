@@ -16,12 +16,12 @@ Retrieve a paginated list of completed corrective actions within your organizati
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | string | No | Filter by specific audit ID |
-| templateId | string | No | Filter by audit template ID |
-| auditObjectId | string | No | Filter by audit object ID |
-| assignedToId | string | No | Filter by assigned user ID |
+| auditId | uuid | No | Filter by specific audit ID |
+| templateId | uuid | No | Filter by audit template ID |
+| auditObjectId | uuid | No | Filter by audit object ID |
+| assignedToId | uuid | No | Filter by assigned user ID |
 | approvedById | string | No | Filter by approver user ID |
-| assignedToGroupId | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are **users linked to that unit** |
+| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
 | fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
@@ -91,7 +91,8 @@ Content-Type: application/json
         "id": "123e4567-e89b-12d3-a456-426614174000",
         "name": "Jane Manager"
       },
-      "approvedAtUtc": "2024-01-24T14:30:00.000Z"
+      "approvedAtUtc": "2024-01-24T14:30:00.000Z",
+      "issue": null
     }
   ],
   "meta": {

@@ -16,11 +16,11 @@ Retrieve a paginated list of pending corrective actions within the organization.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | string | No | Filter by specific audit ID |
-| templateId | string | No | Filter by audit template ID |
-| auditObjectId | string | No | Filter by audit object ID |
-| assignedToId | string | No | Filter by assigned user ID |
-| assignedToGroupId | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are **users linked to that unit** |
+| auditId | uuid | No | Filter by specific audit ID |
+| templateId | uuid | No | Filter by audit template ID |
+| auditObjectId | uuid | No | Filter by audit object ID |
+| assignedToId | uuid | No | Filter by assigned user ID |
+| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
 | pageSize | integer | No | Number of items per page |
 
@@ -83,7 +83,8 @@ Content-Type: application/json
       "createdAtUtc": "2024-01-15T10:30:00.000Z",
       "dueDateUtc": "2024-02-01T17:00:00.000Z",
       "name": "Fix Safety Guard",
-      "number": "CA-2024-001"
+      "number": "CA-2024-001",
+      "issue": null
     }
   ],
   "meta": {

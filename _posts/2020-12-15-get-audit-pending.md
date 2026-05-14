@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of pending audits with filtering and sorting options. Query parameters that still use the word “group” expect **company structure unit** identifiers: `auditObjectGroupId` limits results to audit objects linked to that unit; `assignedToGroup` limits results to audits assigned to **users linked to that unit**. Use [Get company structure units](#/get-company-structure-units) to list valid unit IDs.
+Retrieve a paginated list of pending audits with filtering and sorting options. `auditObjectUnitId` is a **company structure unit** identifier: it limits results to audits whose audit object is linked to that unit. `assignedToUnit` limits results to audits assigned to **users linked to that unit**. Use [Get company structure units](#/get-company-structure-units) to list valid unit IDs. The legacy query name `auditObjectGroupId` is still accepted and means the same filter.
 
 ### Request Headers
 
@@ -21,12 +21,12 @@ Retrieve a paginated list of pending audits with filtering and sorting options. 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `inProgress` | boolean | No | Filter by in progress state |
-| `templateId` | string | No | Filter by audit template ID |
-| `auditObjectId` | string | No | Filter by audit object ID |
-| `auditObjectGroupId` | string | No | Filter by company structure unit ID (legacy parameter name). Matches audits whose audit object is linked to that unit |
+| `templateId` | uuid | No | Filter by audit template ID |
+| `auditObjectId` | uuid | No | Filter by audit object ID |
+| `auditObjectUnitId` | uuid | No | Company structure unit ID. Matches audits whose audit object is linked to that unit |
 | `auditScheduleId` | uuid | No | Filter by audit schedule ID |
-| `assignedTo` | string | No | Filter by assigned user ID |
-| `assignedToGroup` | string | No | Filter by company structure unit ID (legacy parameter name). Matches audits assigned to **users linked to that unit** |
+| `assignedTo` | uuid | No | Filter by assigned user ID |
+| `assignedToUnit` | uuid | No | Filter by company structure unit ID. Matches audits assigned to **users linked to that unit** |
 | `pageNumber` | number | No | Current page number, starts from 1 |
 | `pageSize` | number | No | Page size |
 
@@ -106,5 +106,7 @@ Content-Type: application/json
   }
 }
 ```
+
+Each element of `data` has: `id` (uuid), `name` (string), `assignees` (array of `id`, `name`), `auditObject` (`id`, `name`), `endDate` (string UTC or null), `number` (string or null), `startDate` (string UTC or null), `template` (`id`, `name`), `isStarted` (boolean).
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

@@ -16,11 +16,11 @@ Retrieve a paginated list of expired corrective actions within your organization
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | string | No | Filter by specific audit ID |
-| templateId | string | No | Filter by audit template ID |
-| auditObjectId | string | No | Filter by audit object ID |
-| assignedToId | string | No | Filter by assigned user ID |
-| assignedToGroupId | string | No | Company structure unit ID (legacy parameter name). Filter by assignees who are **users linked to that unit** |
+| auditId | uuid | No | Filter by specific audit ID |
+| templateId | uuid | No | Filter by audit template ID |
+| auditObjectId | uuid | No | Filter by audit object ID |
+| assignedToId | uuid | No | Filter by assigned user ID |
+| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
 | fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | pageNumber | integer | No | Page number for pagination (starts from 1) |
@@ -90,7 +90,8 @@ Content-Type: application/json
         "id": "000000000-0000-0000-0000-000000000000",
         "name": "System Auto-Expire"
       },
-      "expiredAtUtc": "2024-01-21T00:00:00.000Z"
+      "expiredAtUtc": "2024-01-21T00:00:00.000Z",
+      "issue": null
     }
   ],
   "meta": {

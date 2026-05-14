@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects. **`auditObjectGroups`** in the JSON response lists **company structure units** (legacy property name) attached to the schedule; each unit expands to **audit objects linked to that unit** for schedule scope.
+Retrieve detailed information about a specific schedule, including its configuration, repeat patterns, and assigned objects. **`auditObjectUnits`** lists **company structure units** attached to the schedule; each unit corresponds to **audit objects linked to that unit** included in the schedule scope.
 
 ### Request Headers
 
@@ -20,7 +20,7 @@ Retrieve detailed information about a specific schedule, including its configura
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `scheduleId` | string | Yes | Unique identifier of the schedule |
+| `scheduleId` | uuid | Yes | Unique identifier of the schedule |
 
 ### Example Request
 
@@ -43,7 +43,7 @@ X-API-KEY: abcdef12345
 * **`template`** is information about template.
 * **`assignees`** is information about users assigned to this schedule.
 * **`auditObjects`** is information about audit objects assigned to this schedule.
-* **`auditObjectGroups`** lists company structure units assigned to this schedule (legacy property name); each unit corresponds to **audit objects linked to that unit** included in the schedule scope.
+* **`auditObjectUnits`** lists company structure units assigned to this schedule; each unit corresponds to **audit objects linked to that unit** included in the schedule scope.
 * **`repeatPattern`** is schedule repeat pattern.
 * **`repeat`** is repeat options. Options vary depending on **`repeatPattern`** value.
 
@@ -81,7 +81,7 @@ Multiple weeks audit repeat options:
 ```json
 {
   "repeatEvery": number, //value in range 1..10
-  "startDay": DayOfWeek, //0 - Sun ... 6 - Sat
+  "startDay": integer, // 0 = Sunday ... 6 = Saturday
   "duration": number //value in range 1..repeatEvery*7
 }
 ```
@@ -96,7 +96,7 @@ Monthly audit repeat options:
 }
 ```
 
-**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with Type 1 (StartOfMonth), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
+**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with **type 1** start rules (first day of a month within the repeat cycle), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
 
 **First Period Examples:**
 - **Type 0 with day: 15**: Schedule created on January 20 → first audit starts on February 15 (next occurrence). Created on January 5 → first audit starts on January 15 (upcoming in same month).
@@ -106,7 +106,7 @@ Monthly audit repeat options:
 
 The start rule determines when each audit period begins. There are 2 types:
 
-- **Type 0 (DayOfMonth)** - Start on a specific day of each scheduled month:
+- **Type 0** — Start on a specific day of each scheduled month:
 ```json
 {
   "type": 0,
@@ -120,7 +120,7 @@ The start rule determines when each audit period begins. There are 2 types:
   - Example: `{ "type": 0, "day": 15 }` - Audit starts on the 15th of each scheduled month (e.g., Jan 15, Feb 15, Mar 15)
   - First period: Schedule created on Jan 20 with `day: 15` → first audit starts on Feb 15. Created on Jan 5 → first audit starts on Jan 15
 
-- **Type 1 (StartOfMonth)** - Start at the beginning of a specific month within the repeat cycle:
+- **Type 1** — Start at the beginning of a specific month within the repeat cycle:
 ```json
 {
   "type": 1,
@@ -138,7 +138,7 @@ The start rule determines when each audit period begins. There are 2 types:
 
 The end rule determines when each audit period ends. There are 4 types. **Important:** In all cases, if the calculated end date would overlap with the next audit's start date, the system automatically adjusts it to end one day before the next audit starts to prevent overlaps.
 
-- **Type 0 (EndOfMonth)** - End at the end of a specific month within the cycle:
+- **Type 0** — End at the end of a specific month within the cycle:
 ```json
 {
   "type": 0,
@@ -150,7 +150,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   - `cycleMonthEnd: 2` means the audit ends at the end of the second month in the cycle
   - The end date is the last day of the specified month at end of day (23:59:59)
 
-- **Type 1 (AfterDays)** - End after a fixed number of days from the audit start:
+- **Type 1** — End after a fixed number of days from the audit start:
 ```json
 {
   "type": 1,
@@ -162,7 +162,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   - If this would overlap with the next audit, it's automatically adjusted to end one day before the next audit starts
   - Example: `{ "type": 1, "days": 20 }` with start on Jan 15 - Audit ends on Feb 4 (Jan 15 + 20 days)
 
-- **Type 2 (AfterWeeks)** - End after a fixed number of weeks from the audit start:
+- **Type 2** — End after a fixed number of weeks from the audit start:
 ```json
 {
   "type": 2,
@@ -174,7 +174,7 @@ The end rule determines when each audit period ends. There are 4 types. **Import
   - If this would overlap with the next audit, it's automatically adjusted to end one day before the next audit starts
   - Example: `{ "type": 2, "weeks": 3 }` with start on Jan 15 - Audit ends on Feb 5 (Jan 15 + 21 days)
 
-- **Type 3 (BeforeNextStarts)** - End one day before the next audit begins:
+- **Type 3** — End one day before the next audit begins:
 ```json
 {
   "type": 3
@@ -189,7 +189,7 @@ Weekly audits repeat options:
 
 ```json
 {
-  "daysOfWeek": DayOfWeek[], //0 - Sun ... 6 - Sat
+  "daysOfWeek": array[integer], // each 0 = Sunday ... 6 = Saturday
   "repeatEvery":  number, //value in range 1..10
 }
 ```
@@ -223,7 +223,7 @@ Content-Type: application/json
          "name": string
       }
    ],
-   "auditObjectGroups": [
+   "auditObjectUnits": [
       {
          "id": string,
          "name": string

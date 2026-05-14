@@ -14,10 +14,10 @@ Reopen a completed audit to allow additional work or corrections. This endpoint 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | string | Yes | The unique identifier of the completed audit to reopen |
+| id | uuid | Yes | The unique identifier of the completed audit to reopen |
 | startDate | string | Yes | New start date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | endDate | string | Yes | New due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| assigneesIds | array[string] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
+| assigneesIds | array[uuid] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
 
 ### Example Request
 

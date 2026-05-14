@@ -14,8 +14,8 @@ Update the details of an existing corrective action. This endpoint enables modif
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | string | Yes | The unique identifier of the corrective action to update |
-| assignedUsersIds | array[string] | No | Array of user IDs to assign the corrective action to |
+| id | uuid | Yes | The unique identifier of the corrective action to update |
+| assignedUsersIds | array[uuid] | No | Array of user IDs to assign the corrective action to |
 | description | string | No | Detailed description of the corrective action |
 | name | string | Yes | Name/title of the corrective action |
 | dueDateUtc | string | Yes | Due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |

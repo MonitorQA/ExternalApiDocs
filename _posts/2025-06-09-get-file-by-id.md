@@ -20,7 +20,7 @@ Retrieve a file by its unique identifier. Files can include images, documents, a
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `id` | string | Yes | Unique identifier of the file |
+| `id` | uuid | Yes | Unique identifier of the file |
 
 ### Query Parameters
 

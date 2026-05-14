@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve detailed information about a specific user by their unique identifier. This endpoint returns account fields, **role** summary (`id`, `name`, `roleType`), and **`userGroups`**: each entry is a **company structure unit** the user is linked to (legacy JSON property name `userGroups`). See [Get company structure units](#/get-company-structure-units).
+Retrieve detailed information about a specific user by their unique identifier. This endpoint returns account fields, **role** summary (`id`, `name`, `roleType`), and **`userUnits`**: each entry is a **company structure unit** the user is linked to. See [Get company structure units](#/get-company-structure-units).
 
 ### Request Headers
 
@@ -48,7 +48,7 @@ Content-Type: application/json
     "name": "Senior Auditor",
     "roleType": 1
   },
-  "userGroups": [
+  "userUnits": [
     {
       "id": "789e0123-e89b-12d3-a456-426614174002",
       "name": "Warehouse Auditors"
@@ -69,9 +69,9 @@ Content-Type: application/json
 | `role.id` | uuid | The unique identifier of the role |
 | `role.name` | string | The role name |
 | `role.roleType` | number | The role type. See [Role Types](#role-types) below |
-| `userGroups` | array | Company structure units the user is linked to (legacy property name). Each item has `id` (uuid) and `name` (string) |
-| `userGroups[].id` | uuid | Company structure unit identifier |
-| `userGroups[].name` | string | Company structure unit name |
+| `userUnits` | array | Company structure units the user is linked to. Each item has `id` (uuid) and `name` (string) |
+| `userUnits[].id` | uuid | Company structure unit identifier |
+| `userUnits[].name` | string | Company structure unit name |
 
 ### Role Types
 

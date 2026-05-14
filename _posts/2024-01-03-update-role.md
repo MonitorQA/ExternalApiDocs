@@ -14,7 +14,7 @@ Update an existing role within a company. This endpoint enables updating the nam
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | Guid | Yes | The unique identifier of the role to update (path parameter) |
+| id | uuid | Yes | The unique identifier of the role to update (path parameter) |
 | roleType | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
 | name | string | Yes | The name of the role |
 | description | string | No | A description of the role |

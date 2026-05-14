@@ -8,7 +8,7 @@ order: 1
 layout: null
 ---
 
-Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities. `auditObjectGroupId` is a **company structure unit** ID (legacy query name); results include schedules that target **audit objects linked to that unit**. See [Get company structure units](#/get-company-structure-units).
+Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities. Query parameter `auditObjectUnitId` is a **company structure unit** ID; results include schedules that target **audit objects linked to that unit**. See [Get company structure units](#/get-company-structure-units). The legacy name `auditObjectGroupId` is still accepted with the same meaning.
 
 ### Request Headers
 
@@ -20,8 +20,8 @@ Retrieve a paginated list of active audit schedules with optional filtering and 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `auditObjectId` | string | No | Filter schedules by specific audit object ID |
-| `auditObjectGroupId` | string | No | Company structure unit ID (legacy parameter name). Filter schedules that include **audit objects linked to that unit** |
+| `auditObjectId` | uuid | No | Filter schedules by specific audit object ID |
+| `auditObjectUnitId` | uuid | No | Company structure unit ID. Filter schedules that include **audit objects linked to that unit** |
 | `pageNumber` | integer | No | Page number for pagination, starting from 1 (default: 1) |
 | `pageSize` | integer | No | Number of items per page (default: 10) |
 
@@ -37,7 +37,7 @@ X-API-KEY: abcdef12345
 
 **Success Response**
 
-See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options. In responses, **`auditObjectGroups`** lists company structure units (legacy JSON property name) whose linked audit objects are included on the schedule.
+See [schedule details](#/get-schedule) for details about **`repeatPattern`** and **`repeat`** options. Each list item includes **`auditObjectUnits`**: company structure units whose linked audit objects are included on the schedule (`id`, `name` on each entry).
 
 ```http
 HTTP/1.1 200 OK
@@ -63,7 +63,7 @@ Content-Type: application/json
             "id": string,
             "name": string
          }],
-         "auditObjectGroups": [{
+         "auditObjectUnits": [{
             "id": string,
             "name": string
          }]

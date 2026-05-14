@@ -8,9 +8,9 @@ order: 1
 layout: null
 ---
 
-Retrieve a concise list of **company structure units** for the company. Each unit has an `id` and `name`. Use these IDs wherever the External API still exposes legacy query or JSON names for “groups” (for example `assignedToGroup`, `completedByGroup`, `assignedToGroupId`): those values are **company structure unit IDs**. When a filter or field refers to a unit on the **user** side, the API resolves it to **users linked to that company structure unit**. When it refers to a unit on the **audit object** side, the API resolves it to **audit objects linked to that company structure unit**.
+Retrieve a concise list of **company structure units** for the company. Each unit has an `id` and `name`. Use these IDs with request fields such as `assignedToUnit`, `auditObjectUnitIds`, and `assignedToUnitId`, and with list filters `auditObjectUnitId` (pending audits, complete audits, schedules) and `completedByUnit` (complete audits only). Deprecated query names `auditObjectGroupId` and `completedByGroup` are still accepted. When a filter refers to a unit on the **user** side, the API resolves it to **users linked to that unit**. When it refers to a unit on the **audit object** side, it resolves to **audit objects linked to that unit**.
 
-Legacy **user groups** and **audit object groups** are deprecated for integrations; prefer this endpoint and unit-based semantics.
+Prefer this endpoint and unit-based semantics for new integrations.
 
 ### Example Request
 
