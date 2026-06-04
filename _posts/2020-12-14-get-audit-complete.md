@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of completed audits with advanced filtering and sorting options.
+Retrieve a paginated list of completed audits with advanced filtering and sorting options. `completedByUnit` and `auditObjectUnitId` are **company structure unit** identifiers. `completedByUnit` filters by users linked to that unit who completed the audit; `auditObjectUnitId` filters by audit objects linked to that unit; `assignedToUnit` filters by assignees who are users linked to that unit. See [Get company structure units](#/get-company-structure-units). Legacy query names `completedByGroup` and `auditObjectGroupId` are still accepted with the same meaning.
 
 ### Request Headers
 
@@ -22,13 +22,13 @@ Retrieve a paginated list of completed audits with advanced filtering and sortin
 |-----------|------|----------|-------------|
 | `scoreMin` | number | No | Filter by minimum score |
 | `scoreMax` | number | No | Filter by maximum score |
-| `completedBy` | string | No | Filter by user ID who completed audit |
-| `completedByGroup` | string | No | Filter by user group ID |
-| `templateId` | string | No | Filter by audit template ID |
-| `auditObjectId` | string | No | Filter by audit object ID |
-| `auditObjectGroupId` | string | No | Filter by audit object group ID |
-| `assignedTo` | string | No | Filter by assigned user ID |
-| `assignedToGroup` | string | No | Filter by assigned user group ID |
+| `completedBy` | uuid | No | Filter by user ID who completed audit |
+| `completedByUnit` | uuid | No | Company structure unit ID. Filter by users linked to that unit who completed the audit |
+| `templateId` | uuid | No | Filter by audit template ID |
+| `auditObjectId` | uuid | No | Filter by audit object ID |
+| `auditObjectUnitId` | uuid | No | Company structure unit ID. Filter by audit objects linked to that unit |
+| `assignedTo` | uuid | No | Filter by assigned user ID |
+| `assignedToUnit` | uuid | No | Company structure unit ID. Filter by assignees who are users linked to that unit |
 | `fromDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | `toDate` | string | No | Filter by audit completion date (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 | `pageNumber` | number | No | Current page number, starts from 1 (default: 1) |
@@ -122,5 +122,7 @@ Content-Type: application/json
   }
 }
 ```
+
+Each element of `data` has: `id` (uuid), `name` (string), `assignees`, `auditObject`, `endDate`, `number`, `startDate`, `template` (same shapes as pending list), plus `completeDate` (string UTC or null), `completedBy` (`id`, `name`), `score` (number or null), `scoreLabel` (string or null).
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

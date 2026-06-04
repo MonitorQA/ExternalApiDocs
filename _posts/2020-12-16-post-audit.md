@@ -24,9 +24,9 @@ Create a one-time audit for a specific user and audit object. This endpoint is u
 | `endDate` | datetime | Yes | Local due date when the audit must be completed |
 | `name` | string | Yes | Name of the audit for identification purposes |
 | `auditorHint` | string | No | Helpful hint or instructions visible to the auditor during audit execution (max 2000 characters) |
-| `templateId` | string | Yes | Unique identifier of the audit template to use |
-| `auditObjectId` | string | Yes | Unique identifier of the audit object to be audited |
-| `assigneeId` | string | No | Unique identifier of the user who will perform the audit |
+| `templateId` | uuid | Yes | Unique identifier of the audit template to use |
+| `auditObjectId` | uuid | Yes | Unique identifier of the audit object to be audited |
+| `assigneeId` | uuid | No | Unique identifier of the user who will perform the audit |
 
 ### Example Request
 

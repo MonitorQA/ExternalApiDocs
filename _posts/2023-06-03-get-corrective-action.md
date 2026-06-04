@@ -22,7 +22,7 @@ Retrieve detailed information about a specific corrective action, including its 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `id` | string | Yes | Unique identifier of the corrective action |
+| `id` | uuid | Yes | Unique identifier of the corrective action |
 
 ### Example Request
 
@@ -80,7 +80,8 @@ Content-Type: application/json
    "audit": {
       "id": "c0f5d4e3-d6g7-6h8i-1j0k-3l4m5n6o7p8q",
       "name": "Monthly Safety Inspection - Building A",
-      "ianaTimeZone": "America/New_York"
+      "ianaTimeZone": "America/New_York",
+      "number": "AUD-2023-100"
    },
    "auditItemId": "d1g6e5f4-e7h8-7i9j-2k1l-4m5n6o7p8q9r",
    "auditObject": {
@@ -132,9 +133,38 @@ Content-Type: application/json
          "contentType": "image/jpeg",
          "updatedAt": "2023-10-31T11:05:37.688Z"
       }
-   ]
+   ],
+   "metafields": []
 }
 ```
 
+### Response fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | uuid | Corrective action identifier |
+| `answer` | object | Optional. Answer summary: `name`, `points`, `text`, `number`, `isFailed` |
+| `approvedAtUtc` | string (UTC) | Optional. When approved |
+| `approvedBy` | object | Optional. `id`, `name` |
+| `assignedUsers` | array | Assignees; each `id`, `name` |
+| `audit` | object | Optional. `id`, `name`, `ianaTimeZone`, `number` |
+| `auditItemId` | uuid | Optional. Related audit item |
+| `auditObject` | object | `id`, `name` |
+| `createdAtUtc` | string (UTC) | Created at |
+| `createdBy` | object | `id`, `name` |
+| `description` | string | Description |
+| `dueDateUtc` | string (UTC) | Due date |
+| `expiredAtUtc` | string (UTC) | Optional. When expired |
+| `expiredBy` | object | Optional. `id`, `name` |
+| `information` | object | Optional. `text`, `photosIds` (array of uuid), `files` (same shape as top-level `files`) |
+| `name` | string | Title |
+| `number` | string | Reference number |
+| `priority` | integer | Priority enum |
+| `question` | string | Related question text |
+| `status` | integer | Status enum |
+| `tags` | array | Each item `id` (uuid), `name` (string) |
+| `files` | array | File metadata: `id`, `name`, `contentType`, `updatedAt` |
+| `issue` | object | Optional. `id`, `name`, `isDeleted` |
+| `metafields` | array | Metafield objects (`id`, `name`, `answerType`, `data` per item) |
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

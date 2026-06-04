@@ -15,11 +15,11 @@ Update an existing schedule's configuration, including audit objects, assignment
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | scheduleId | string | Yes | The unique identifier of the schedule to update |
-| auditObjectIds | array[string] | Conditional | Array of audit object IDs (required if auditObjectGroupIds not provided) |
-| auditObjectGroupIds | array[string] | Conditional | Array of audit object group IDs (required if auditObjectIds not provided) |
+| auditObjectIds | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
+| auditObjectUnitIds | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
 | name | string | Yes | Display name for the schedule |
 | auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
-| assigneesIds | array[string] | No | Array of user IDs to assign the generated audits to |
+| assigneesIds | array[uuid] | No | Array of user IDs to assign the generated audits to |
 | repeatPattern | integer | Yes | Schedule repeat pattern (0=One-time, 1=Daily, 2=Multiple Weeks, 3=Monthly, 4=Weekly) |
 | repeat | object | Yes | Repeat configuration options (varies by repeatPattern) |
 | active | boolean | No | Schedule status (defaults to `true`, ignored for one-time schedules) |
@@ -67,7 +67,7 @@ Update an existing schedule's configuration, including audit objects, assignment
 }
 ```
 
-**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with Type 1 (StartOfMonth), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
+**Note:** The first audit period begins at the closest date (based on the start rule) to the schedule creation date. For monthly schedules with **type 1** start rules (first day of a month within the repeat cycle), the first period's cycle month is always the closest month after (or on) the schedule creation date - if created after the 1st, the cycle starts in the next month.
 
 **First Period Examples:**
 - **Type 0 with day: 15**: Schedule created on January 20 → first audit starts on February 15. Created on January 5 → first audit starts on January 15.
@@ -77,7 +77,7 @@ Update an existing schedule's configuration, including audit objects, assignment
 
 The start rule determines when each audit period begins.
 
-- **Type 0 (DayOfMonth)** - Start on a specific day of each scheduled month:
+- **Type 0** — Start on a specific day of each scheduled month:
 ```json
 {
   "type": 0,
@@ -89,7 +89,7 @@ The start rule determines when each audit period begins.
   - Handles leap years automatically (e.g., day 29 = Feb 29 in leap years, Feb 28 otherwise)
   - First period example: Schedule created on Jan 20 with `day: 15` → first audit starts on Feb 15
 
-- **Type 1 (StartOfMonth)** - Start at the beginning of a specific month within the repeat cycle:
+- **Type 1** — Start at the beginning of a specific month within the repeat cycle:
 ```json
 {
   "type": 1,
@@ -105,7 +105,7 @@ The start rule determines when each audit period begins.
 
 The end rule determines when each audit period ends. In all cases, if the calculated end date would overlap with the next audit's start date, the system automatically adjusts it to end one day before the next audit starts to prevent overlaps.
 
-- **Type 0 (EndOfMonth)** - End at the end of a specific month within the cycle:
+- **Type 0** — End at the end of a specific month within the cycle:
 ```json
 {
   "type": 0,
@@ -115,7 +115,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   - The `cycleMonthEnd` property must be greater than 0 and specifies which month within the cycle to end (1, 2, 3...)
   - `cycleMonthEnd: 1` = end of same month as start, `2` = end of second month, etc.
 
-- **Type 1 (AfterDays)** - End after a fixed number of days from the audit start:
+- **Type 1** — End after a fixed number of days from the audit start:
 ```json
 {
   "type": 1,
@@ -125,7 +125,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   - The `days` property must be greater than 0 and specifies how many days after the start date the audit ends
   - Example: Start on Jan 15 with `days: 20` ends on Feb 4
 
-- **Type 2 (AfterWeeks)** - End after a fixed number of weeks from the audit start:
+- **Type 2** — End after a fixed number of weeks from the audit start:
 ```json
 {
   "type": 2,
@@ -135,7 +135,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
   - The `weeks` property must be greater than 0 and specifies how many weeks after the start date the audit ends
   - Example: Start on Jan 15 with `weeks: 3` ends on Feb 5 (21 days later)
 
-- **Type 3 (BeforeNextStarts)** - End one day before the next audit begins:
+- **Type 3** — End one day before the next audit begins:
 ```json
 {
   "type": 3
@@ -146,7 +146,7 @@ The end rule determines when each audit period ends. In all cases, if the calcul
 
 **Complete Monthly Examples:**
 
-Example with DayOfMonth start and AfterDays end:
+Example: fixed calendar day each month to start, fixed number of days until end:
 ```json
 {
   "repeatEvery": 1,
@@ -161,7 +161,7 @@ Example with DayOfMonth start and AfterDays end:
 }
 ```
 
-Example with StartOfMonth start and EndOfMonth end:
+Example: first day of a cycle month to start, end at the end of a month in the cycle:
 ```json
 {
   "repeatEvery": 3,
@@ -176,7 +176,7 @@ Example with StartOfMonth start and EndOfMonth end:
 }
 ```
 
-Example with DayOfMonth start and BeforeNextStarts end:
+Example: fixed calendar day each month to start, end one day before the next audit starts:
 ```json
 {
   "repeatEvery": 1,

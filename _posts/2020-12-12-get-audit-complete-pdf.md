@@ -20,14 +20,17 @@ Download a PDF report of a completed audit. The report contains all audit items,
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `auditId` | string | Yes | Unique identifier of the completed audit |
+| `auditId` | uuid | Yes | Unique identifier of the completed audit |
 
 ### Query Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `reportType` | integer | No | Report format type: `0` = Regular, `1` = Summary, `2` = Full (default: `0`) |
-| `includePhotos` | boolean | No | Whether to include photos in the report (default: `false`) |
+| `reportType` | integer | No | When set, controls layout: `0` = Regular (details, no summary), `1` = Summary (summary, no details), `2` = Full (both). When omitted, use `includeSummary` / `includeDetails` below |
+| `includeSummary` | boolean | No | Include summary section (used when `reportType` is not set) |
+| `includeDetails` | boolean | No | Include details section (used when `reportType` is not set) |
+| `includePhotos` | boolean | No | Include photos in the PDF (default: `false`) |
+| `includeNAAnswers` | boolean | No | Include not-applicable answers (default: `true` on server) |
 
 ### Example Request
 
@@ -48,9 +51,9 @@ Content-Type: application/pdf
 [Binary PDF file content]
 ```
 
-**Report Types:**
-- **Regular (0):** Standard audit report with basic information
-- **Summary (1):** Condensed report highlighting key findings
-- **Full (2):** Comprehensive report with all details and context
+**reportType values (when provided):**
+- **Regular (0):** Details section, no summary
+- **Summary (1):** Summary section, no details
+- **Full (2):** Summary and details
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).

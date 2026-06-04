@@ -20,7 +20,7 @@ Retrieve the detailed report of a completed audit, including all audit items, th
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `auditId` | string | Yes | Unique identifier of the completed audit |
+| `auditId` | uuid | Yes | Unique identifier of the completed audit |
 
 ### Example Request
 
@@ -33,6 +33,49 @@ X-API-KEY: abcdef12345
 ## Response
 
 **Success Response**
+
+Root object: `id` (string, audit id in UUID format), `items` (array of report items).
+
+Each **item** includes:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | uuid | Audit item id |
+| `text` | string | Item text |
+| `note` | string | Auditor note |
+| `notApplicable` | boolean | N/A flag |
+| `isCritical` | boolean | Critical flag |
+| `isPassed` | boolean | Optional. Pass/fail where applicable |
+| `isFailed` | boolean | Failed flag |
+| `childrenIds` | array[uuid] | Child item ids |
+| `actions` | array | Corrective actions (see below) |
+| `photos` | array | Item photos |
+| `itemsCount` | integer | Optional. Child item count |
+| `points` | object | Optional. `total`, `selected`, `score`, `previousScore`, `color` |
+| `signature` | object | Optional. `photoId` (uuid), `createdBy` (`id`, `name`) |
+| `failedInRowCount` | integer | Consecutive failures count |
+| `itemType` | integer | Item type (see table below) |
+| `data` | object | Answer summary: `name`, `points`, `text`, `number`, `isFailed` |
+| `metafields` | array | Each: `name`, `text` |
+
+Each element of **`actions`** (corrective action summary):
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | uuid | Corrective action id |
+| `name` | string | Name |
+| `number` | string | Number |
+| `description` | string | Description |
+| `assignedUsers` | array | Assignees; each `id` (uuid), `name` (string) |
+| `createdBy` | object | `id` (uuid), `name` (string) |
+| `createdAt` | string (UTC) | Optional. Created at |
+| `dueDate` | string (UTC) | Optional. Due date |
+| `priority` | integer | Priority (see below) |
+| `status` | integer | Status (see below) |
+| `photos` | array | Photo metadata |
+| `files` | array | File references |
+| `tags` | array | Tag objects |
+| `metafields` | array | Metafield objects |
 
 ```http
 HTTP/1.1 200 OK
@@ -60,13 +103,12 @@ Content-Type: application/json
                "name": "Schedule fire extinguisher maintenance",
                "number": "CA-2023-0892",
                "description": "Contact certified technician for monthly pressure check",
-               "assignees": [
+               "assignedUsers": [
                     {
                         "id": "b2c3d4e5-f6a7-890b-cdef-012345678901",
                         "name": "David Martinez"
                     }
                 ],
-               "comments": [],
                "createdBy": {
                   "id": "3c71b2a5-4c00-4bb0-9f08-785a2d8f7128",
                   "name": "Jennifer Thompson"
@@ -76,7 +118,9 @@ Content-Type: application/json
                "priority": 2,
                "status": 0,
                "photos": [],
-               "tags": []
+               "files": [],
+               "tags": [],
+               "metafields": []
             }
          ],
          "photos": [],
@@ -103,9 +147,7 @@ Content-Type: application/json
 }
 ```
 
-### Response Fields
-
-**itemType** values:
+### itemType values
 
 | Value | Description |
 |-------|-------------|
@@ -115,7 +157,7 @@ Content-Type: application/json
 | `3` | ConditionalItem |
 | `4` | Condition |
 
-**actions.priority** values:
+### actions.priority values
 
 | Value | Description |
 |-------|-------------|
@@ -123,7 +165,7 @@ Content-Type: application/json
 | `1` | Medium |
 | `2` | High |
 
-**actions.status** values:
+### actions.status values
 
 | Value | Description |
 |-------|-------------|
@@ -133,3 +175,4 @@ Content-Type: application/json
 | `3` | Submitted |
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
+

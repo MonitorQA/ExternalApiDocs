@@ -15,11 +15,11 @@ Create a multi-week recurring schedule that generates audits at specified weekly
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | templateId | string | Yes | The unique identifier of the audit template to use |
-| auditObjectIds | array[string] | Conditional | Array of audit object IDs (required if auditObjectGroupIds not provided) |
-| auditObjectGroupIds | array[string] | Conditional | Array of audit object group IDs (required if auditObjectIds not provided) |
+| auditObjectIds | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
+| auditObjectUnitIds | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
 | name | string | Yes | Display name for the schedule |
 | auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
-| assigneesIds | array[string] | No | Array of user IDs to assign the generated audits to |
+| assigneesIds | array[uuid] | No | Array of user IDs to assign the generated audits to |
 | repeatEvery | integer | Yes | Interval in weeks between audit creation |
 | startDay | integer | Yes | Day of the week to start audits (0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday) |
 | duration | integer | Yes | Audit duration in days (1 to repeatEvery×7) |
