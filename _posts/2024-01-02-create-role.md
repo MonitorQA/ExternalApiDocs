@@ -135,7 +135,7 @@ The following validation rules are enforced when creating roles:
 
 Each role type has its own set of available permissions:
 
-- **Admin roles (roleType: 0)**: 31 permissions available, including full system control, user management, billing, and all operational permissions
+- **Admin roles (roleType: 0)**: 34 permissions available, including full system control, user management, billing, and all operational permissions
 - **Auditor roles (roleType: 1)**: 17 permissions available, focused on audit execution, issue management, corrective action oversight, and performance reporting
 - **Auditee roles (roleType: 2)**: 4 permissions available, for viewing audit results, executing corrective actions, and limited object access
 - **Observer roles (roleType: 3)**: 9 permissions available, providing read-only access to audits, issues, corrective actions, and all reports

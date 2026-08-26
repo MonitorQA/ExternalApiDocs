@@ -20,6 +20,7 @@ Admin roles have access to all system permissions, providing complete control ov
 | `audits.schedule` | Permission to create and manage audit schedules and recurring audit plans |
 | `audits.createInstant` | Ability to create immediate, unscheduled audits for urgent situations |
 | `audits.viewResults` | Access to view completed audit results, findings, and outcomes |
+| `audits.viewCompletedFromSubcompanies` | View completed audits from subcompanies in a holding/parent company |
 | `correctiveActions.manage` | Full management of corrective actions including creation, assignment, and tracking |
 | `correctiveActions.approve` | Authority to approve or reject proposed corrective actions |
 | `correctiveActions.assign` | Permission to assign corrective actions to responsible parties |
@@ -45,6 +46,8 @@ Admin roles have access to all system permissions, providing complete control ov
 | `reports.viewAuditObjectPerformance` | Performance reports for specific audit objects and their compliance history |
 | `reports.viewItemAnalysis` | Detailed analysis reports on specific audit items and question performance |
 | `dataExports.accessCustom` | Permission to export custom data sets and create specialized reports |
+| `companyStructureUnits.manage` | Create, modify, and delete company structure units and their assignments |
+| `userNotifications.manage` | Manage user notification settings and event subscriptions |
 
 ## Auditor Role Permissions (roleType: 1)
 
