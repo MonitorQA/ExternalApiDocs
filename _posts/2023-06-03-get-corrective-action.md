@@ -64,7 +64,24 @@ Content-Type: application/json
       "points": 5,
       "text": "Fire extinguisher is missing from designated location",
       "number": 3,
-      "isFailed": true
+      "isFailed": true,
+      "note": "Blocked by pallets in the hallway near conference room 101",
+      "signature": {
+         "photoId": "c1d6e5f4-a7b8-7c9d-2e1f-4a5b6c7d8e9f",
+         "createdBy": {
+            "id": "f3080706-09a0-9b1c-4d3e-607182930415",
+            "name": "John Smith"
+         }
+      },
+      "files": [
+         {
+            "id": "b1c6d5e4-f7a8-7b9c-2d1e-4f5a6b7c8d9e",
+            "name": "missing_extinguisher.jpg",
+            "contentType": "image/jpeg",
+            "fileOrigin": 1,
+            "clientCreatedAtUtc": "2023-10-31T11:04:12.000Z"
+         }
+      ]
    },
    "approvedAtUtc": "2023-11-15T14:30:22.123Z",
    "approvedBy": {
@@ -111,7 +128,8 @@ Content-Type: application/json
             "id": "a7b2c1d0-e3f4-3a5b-8c7d-0e1f2a3b4c5d",
             "name": "fire_extinguisher_order_receipt.pdf",
             "contentType": "application/pdf",
-            "updatedAt": "2023-11-02T09:15:33.456Z"
+            "fileOrigin": 0,
+            "clientCreatedAtUtc": "2023-11-02T09:15:33.456Z"
          }
       ]
    },
@@ -131,7 +149,8 @@ Content-Type: application/json
          "id": "a9b4c3d2-e5f6-5a7b-0c9d-2e3f4a5b6c7d",
          "name": "corrective_action_photos.jpg",
          "contentType": "image/jpeg",
-         "updatedAt": "2023-10-31T11:05:37.688Z"
+         "fileOrigin": 1,
+         "clientCreatedAtUtc": "2023-10-31T11:05:37.688Z"
       }
    ],
    "issue": {
@@ -148,7 +167,7 @@ Content-Type: application/json
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | uuid | Corrective action identifier |
-| `answer` | object | Optional. Answer summary: `name`, `points`, `text`, `number`, `isFailed` |
+| `answer` | object | Optional. Related audit item answer. Present when a selected answer, note, signature, or audit-item files exist. See **`answer` fields** below. |
 | `approvedAtUtc` | string (UTC) | Optional. When approved |
 | `approvedBy` | object | Optional. `id`, `name` |
 | `assignedUsers` | array | Assignees; each `id`, `name` |
@@ -168,8 +187,23 @@ Content-Type: application/json
 | `question` | string | Related question text |
 | `status` | integer | Status: `0` (Open), `1` (Approved), `2` (Rejected), `3` (Submitted), `4` (Expired) |
 | `tags` | array | Each item `id` (uuid), `name` (string) |
-| `files` | array | File metadata: `id`, `name`, `contentType`, `updatedAt` |
+| `files` | array | Corrective action attachments. Each item: `id` (uuid), `name` (string), `contentType` (string), `fileOrigin` (integer, optional: `0` Gallery, `1` Camera), `clientCreatedAtUtc` (string UTC, optional). Distinct from `answer.files`. |
 | `issue` | object | Optional. `id`, `name`, `isDeleted` |
 | `metafields` | array | Metafield objects (`id`, `name`, `answerType`, `data` per item) |
+
+### `answer` fields
+
+`answer` can include only `note`, `signature`, and/or `files` when no option was selected (`name`, `text`, `number`, and `points` may be `null`; `isFailed` is `false`).
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Optional. Selected answer label |
+| `points` | number | Optional. Points for the selected answer |
+| `text` | string | Optional. Text answer |
+| `number` | number | Optional. Numeric answer |
+| `isFailed` | boolean | Whether the selected answer is marked as failed. `false` when no answer is selected |
+| `note` | string | Optional. Auditor note on the related audit item |
+| `signature` | object | Optional. Audit item signature: `photoId` (uuid), `createdBy` (`id`, `name`) |
+| `files` | array | Optional. Photos attached to the related audit item (same file shape as top-level `files`). Distinct from top-level `files`, which are corrective action attachments |
 
 For error responses, see the [response status codes documentation](#/response-status-codes).
