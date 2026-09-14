@@ -51,5 +51,5 @@ Content-Type: application/json
 | `id` | uuid | The unique identifier of the company |
 | `name` | string | The company name |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

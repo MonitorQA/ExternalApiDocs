@@ -62,5 +62,5 @@ Content-Type: application/json
 
 If a score system is associated with templates, it cannot be deleted and the error response will include the IDs of score systems that have templates.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

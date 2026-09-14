@@ -12,20 +12,26 @@ Retrieve a paginated list of completed corrective actions within your organizati
 
 **Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
-## Query Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Query Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | uuid | No | Filter by specific audit ID |
-| templateId | uuid | No | Filter by audit template ID |
-| auditObjectId | uuid | No | Filter by audit object ID |
-| assignedToId | uuid | No | Filter by assigned user ID |
-| approvedById | string | No | Filter by approver user ID |
-| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
-| fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| pageNumber | integer | No | Page number for pagination (starts from 1) |
-| pageSize | integer | No | Number of items per page |
+| `auditId` | uuid | No | Filter by specific audit ID |
+| `templateId` | uuid | No | Filter by audit template ID |
+| `auditObjectId` | uuid | No | Filter by audit object ID |
+| `assignedToId` | uuid | No | Filter by assigned user ID |
+| `approvedById` | uuid | No | Filter by approver user ID |
+| `assignedToUnitId` | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
+| `fromDate` | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `toDate` | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `pageNumber` | integer | No | Page number for pagination (starts from 1) |
+| `pageSize` | integer | No | Number of items per page |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
 
@@ -60,7 +66,7 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "678901lm-nopq-234d-efgh-345678901234",
+      "id": "678901ab-cdef-234d-ef00-345678901234",
       "name": "Replace Safety Equipment",
       "number": "CA-2024-002",
       "assignedUsers": [
@@ -70,7 +76,7 @@ Content-Type: application/json
         }
       ],
       "audit": {
-        "id": "890123no-pqrs-456f-ghij-567890123456",
+        "id": "890123ab-cdef-456f-a012-567890123456",
         "name": "Monthly Safety Check",
         "ianaTimeZone": "America/New_York",
         "number": "AUD-2024-002"
@@ -80,7 +86,7 @@ Content-Type: application/json
         "name": "Sarah Supervisor"
       },
       "auditObject": {
-        "id": "345678901-bcde-fghi-jklm-nopqrstuvwxy",
+        "id": "34567890-bcde-4f01-a012-345678901234",
         "name": "Warehouse Section A"
       },
       "status": 1,
@@ -103,4 +109,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

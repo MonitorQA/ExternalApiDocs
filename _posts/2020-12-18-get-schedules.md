@@ -8,7 +8,7 @@ order: 1
 layout: null
 ---
 
-Retrieve a paginated list of active audit schedules with optional filtering and sorting capabilities. Query parameter `auditObjectUnitId` is a **company structure unit** ID; results include schedules that target **audit objects linked to that unit**. See [Get company structure units](#/get-company-structure-units). The legacy name `auditObjectGroupId` is still accepted with the same meaning.
+Retrieve a paginated list of active audit schedules with optional filtering. Query parameter `auditObjectUnitId` is a **company structure unit** ID; results include schedules that target **audit objects linked to that unit**. See [Get company structure units](#/get-company-structure-units). The legacy name `auditObjectGroupId` is still accepted with the same meaning.
 
 ### Request Headers
 
@@ -46,35 +46,35 @@ Content-Type: application/json
 {
   "data": [
      {
-         "id": string,
-         "name": string,
+         "id": "123e4567-e89b-12d3-a456-426614174000",
+         "name": "Daily Safety Inspections",
          "repeatPattern": 1,
-         "active": boolean,
+         "active": true,
          "stopByDate": "2025-12-31T23:59:59.000Z",
          "startFromDate": "2025-01-01T00:00:00.000Z",
          "template": {
-            "id": string,
-            "name": string
+            "id": "456e7890-e89b-12d3-a456-426614174001",
+            "name": "Kitchen Safety Template"
          },
          "repeat": {
             "repeatEvery": 3
          },
          "auditObjects": [{
-            "id": string,
-            "name": string
+            "id": "789e0123-e89b-12d3-a456-426614174002",
+            "name": "Main Kitchen"
          }],
          "auditObjectUnits": [{
-            "id": string,
-            "name": string
+            "id": "abc12345-e89b-12d3-a456-426614174003",
+            "name": "Operations"
          }]
       }
   ],
   "meta": {
-    "pageNumber": 0,
+    "pageNumber": 1,
     "pageSize": 10,
     "totalCount": 1
   }
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

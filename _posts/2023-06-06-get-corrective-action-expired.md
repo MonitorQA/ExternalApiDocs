@@ -12,19 +12,25 @@ Retrieve a paginated list of expired corrective actions within your organization
 
 **Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
-## Query Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Query Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | uuid | No | Filter by specific audit ID |
-| templateId | uuid | No | Filter by audit template ID |
-| auditObjectId | uuid | No | Filter by audit object ID |
-| assignedToId | uuid | No | Filter by assigned user ID |
-| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
-| fromDate | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| toDate | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| pageNumber | integer | No | Page number for pagination (starts from 1) |
-| pageSize | integer | No | Number of items per page |
+| `auditId` | uuid | No | Filter by specific audit ID |
+| `templateId` | uuid | No | Filter by audit template ID |
+| `auditObjectId` | uuid | No | Filter by audit object ID |
+| `assignedToId` | uuid | No | Filter by assigned user ID |
+| `assignedToUnitId` | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
+| `fromDate` | string | No | Filter by due date from (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `toDate` | string | No | Filter by due date to (UTC format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `pageNumber` | integer | No | Page number for pagination (starts from 1) |
+| `pageSize` | integer | No | Number of items per page |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
 
@@ -59,7 +65,7 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "567890kl-mnop-123c-defg-234567890123",
+      "id": "567890ab-cdef-123c-def0-234567890123",
       "name": "Update Safety Signage",
       "number": "CA-2024-003",
       "assignedUsers": [
@@ -69,7 +75,7 @@ Content-Type: application/json
         }
       ],
       "audit": {
-        "id": "789012mn-opqr-345e-fghi-456789012345",
+        "id": "789012ab-cdef-345e-f012-456789012345",
         "name": "Facility Safety Audit",
         "ianaTimeZone": "America/New_York",
         "number": "AUD-2024-003"
@@ -79,7 +85,7 @@ Content-Type: application/json
         "name": "Alice Inspector"
       },
       "auditObject": {
-        "id": "234567890-abcd-efgh-ijkl-mnopqrstuvwx",
+        "id": "23456789-abcd-4ef0-a012-234567890123",
         "name": "Building B Entrance"
       },
       "status": 4,
@@ -87,7 +93,7 @@ Content-Type: application/json
       "createdAtUtc": "2024-01-05T08:00:00.000Z",
       "dueDateUtc": "2024-01-20T17:00:00.000Z",
       "expiredBy": {
-        "id": "000000000-0000-0000-0000-000000000000",
+        "id": "00000000-0000-0000-0000-000000000000",
         "name": "System Auto-Expire"
       },
       "expiredAtUtc": "2024-01-21T00:00:00.000Z",
@@ -102,4 +108,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

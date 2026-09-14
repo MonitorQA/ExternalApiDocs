@@ -25,7 +25,7 @@ Retrieve the detailed report of a completed audit, including all audit items, th
 ### Example Request
 
 ```http
-GET /audit/complete/{auditId}/report
+GET /audit/complete/1acad6ca-cab8-48a7-07f2-08da929c74ab/report
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
@@ -34,7 +34,7 @@ X-API-KEY: abcdef12345
 
 **Success Response**
 
-Root object: `id` (string, audit id in UUID format), `items` (array of report items).
+Root object: `id` (uuid), `items` (array of report items).
 
 Each **item** includes:
 
@@ -174,5 +174,5 @@ Content-Type: application/json
 | `2` | Rejected |
 | `3` | Submitted |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

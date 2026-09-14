@@ -12,17 +12,23 @@ Retrieve a paginated list of pending corrective actions within the organization.
 
 **Note:** To retrieve a list of available IANA time zones, use the [Get timezones](#/get-timezones) endpoint.
 
-## Query Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Query Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| auditId | uuid | No | Filter by specific audit ID |
-| templateId | uuid | No | Filter by audit template ID |
-| auditObjectId | uuid | No | Filter by audit object ID |
-| assignedToId | uuid | No | Filter by assigned user ID |
-| assignedToUnitId | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
-| pageNumber | integer | No | Page number for pagination (starts from 1) |
-| pageSize | integer | No | Number of items per page |
+| `auditId` | uuid | No | Filter by specific audit ID |
+| `templateId` | uuid | No | Filter by audit template ID |
+| `auditObjectId` | uuid | No | Filter by audit object ID |
+| `assignedToId` | uuid | No | Filter by assigned user ID |
+| `assignedToUnitId` | uuid | No | Company structure unit ID. Filter by assignees who are **users linked to that unit** |
+| `pageNumber` | integer | No | Page number for pagination (starts from 1) |
+| `pageSize` | integer | No | Number of items per page |
 
 **Note:** This method will return an empty data list if the requested page does not exist.
 
@@ -57,7 +63,7 @@ Content-Type: application/json
 {
   "data": [
     {
-      "id": "567890kl-mnop-123c-defg-234567890123",
+      "id": "567890ab-cdef-123c-def0-234567890123",
       "assignedUsers": [
         {
           "id": "987fcdeb-51d2-43e8-b456-426614174001",
@@ -65,7 +71,7 @@ Content-Type: application/json
         }
       ],
       "audit": {
-        "id": "789012mn-opqr-345e-fghi-456789012345",
+        "id": "789012ab-cdef-345e-f012-456789012345",
         "name": "Safety Inspection",
         "ianaTimeZone": "America/New_York",
         "number": "AUD-2024-001"
@@ -75,7 +81,7 @@ Content-Type: application/json
         "name": "Jane Manager"
       },
       "auditObject": {
-        "id": "234567890-abcd-efgh-ijkl-mnopqrstuvwx",
+        "id": "23456789-abcd-4ef0-a012-234567890123",
         "name": "Main Production Floor"
       },
       "status": 0,
@@ -95,4 +101,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

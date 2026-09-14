@@ -23,7 +23,7 @@ Start an asynchronous CSV export of corrective action activities. The response i
 |-----------|------|----------|-------------|
 | `fromDate` | datetime | No | Start of the date range in UTC (`yyyy-MM-ddTHH:mm:ss.fffZ`). If omitted, defaults to two years before the current day |
 | `toDate` | datetime | No | End of the date range in UTC (`yyyy-MM-ddTHH:mm:ss.fffZ`). Must be greater than or equal to `fromDate` when both are set. If omitted, defaults to the current day |
-| `companies` | array[uuid] | No | Company IDs to include. Only companies the API key user can access are used. If omitted or empty, no companies are included. Use [Get accessible companies](#/get-companies) to list available IDs |
+| `companies` | array[uuid] | No | Company IDs to include. Only companies the API key user can access are used. If omitted or empty, the export includes no companies. Pass accessible IDs from [Get accessible companies](#/get-companies) |
 
 ### Example Request
 
@@ -59,4 +59,4 @@ Content-Type: application/json
 |-------|------|-------------|
 | `id` | uuid | Unique identifier of the export. Use it with [Get custom data export](#/get-custom-data-export) |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

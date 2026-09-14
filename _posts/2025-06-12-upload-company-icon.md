@@ -33,14 +33,14 @@ The request must be a multipart form-data upload containing a single image file.
 POST /company/icon
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Type: multipart/form-data; boundary=----FormBoundary7MA4YWxkTrZu0gW
 
-------WebKitFormBoundary7MA4YWxkTrZu0gW
+------FormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="file"; filename="icon.png"
 Content-Type: image/png
 
 [Binary file content]
-------WebKitFormBoundary7MA4YWxkTrZu0gW--
+------FormBoundary7MA4YWxkTrZu0gW--
 ```
 
 ## Response
@@ -60,5 +60,5 @@ The API will return `400 Bad Request` in the following cases:
 - File `Content-Type` is missing or not one of the allowed image types
 - The request couldn't be processed
 
-For other error responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

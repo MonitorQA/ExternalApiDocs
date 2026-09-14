@@ -10,11 +10,18 @@ layout: null
 
 Delete multiple audit object attributes permanently. This endpoint removes attributes and all associated audit object assignments. Use with caution as this action cannot be undone.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| ids | array[string] | Yes | Array of audit object attribute IDs to be deleted |
+| `ids` | array[uuid] | Yes | Array of audit object attribute IDs to be deleted |
 
 ### Example Request
 
@@ -26,9 +33,9 @@ Content-Type: application/json
 
 {
   "ids": [
-    "890123de-fghi-4567-890a-bcdef1234567",
-    "901234ef-ghij-5678-90ab-cdef12345678",
-    "012345fg-hijk-6789-01bc-def123456789"
+    "890123de-f012-4567-890a-bcdef1234567",
+    "901234ef-a012-5678-90ab-cdef12345678",
+    "012345f6-a012-6789-01bc-def123456789"
   ]
 }
 ```
@@ -43,4 +50,4 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful deletion of specified attributes and their assignments.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

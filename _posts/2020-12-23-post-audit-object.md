@@ -63,4 +63,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

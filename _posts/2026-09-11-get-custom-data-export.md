@@ -111,4 +111,4 @@ Content-Type: application/json
 
 Occurs when the export does not exist or is not accessible with this API key.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

@@ -10,21 +10,33 @@ layout: null
 
 Update an existing schedule's configuration, including audit objects, assignments, and recurrence patterns. This endpoint allows modification of all aspects of a schedule except its template.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| scheduleId | string | Yes | The unique identifier of the schedule to update |
-| auditObjectIds | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
-| auditObjectUnitIds | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
-| name | string | Yes | Display name for the schedule |
-| auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
-| assigneesIds | array[uuid] | No | Array of user IDs to assign the generated audits to |
-| repeatPattern | integer | Yes | Schedule repeat pattern (0=One-time, 1=Daily, 2=Multiple Weeks, 3=Monthly, 4=Weekly) |
-| repeat | object | Yes | Repeat configuration options (varies by repeatPattern) |
-| active | boolean | No | Schedule status (defaults to `true`, ignored for one-time schedules) |
-| startFromDate | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
-| stopByDate | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
+| `scheduleId` | uuid | Yes | The unique identifier of the schedule to update |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `auditObjectIds` | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
+| `auditObjectUnitIds` | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
+| `name` | string | Yes | Display name for the schedule |
+| `auditorHint` | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
+| `assigneesIds` | array[uuid] | No | Array of user IDs to assign the generated audits to |
+| `repeatPattern` | integer | Yes | Schedule repeat pattern (0=One-time, 1=Daily, 2=Multiple Weeks, 3=Monthly, 4=Weekly) |
+| `repeat` | object | Yes | Repeat configuration options (varies by repeatPattern) |
+| `active` | boolean | No | Schedule status (defaults to `true`, ignored for one-time schedules) |
+| `startFromDate` | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
+| `stopByDate` | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`, ignored for one-time) |
 
 ## Repeat Pattern Options
 
@@ -237,4 +249,4 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful schedule update.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

@@ -2,6 +2,7 @@
 category: Audits
 categoryOrder: 2
 url_path: '/audit/expire'
+title: 'Expire audits'
 type: 'POST'
 order: 2
 layout: null
@@ -9,11 +10,18 @@ layout: null
 
 Manually expire incomplete audits in the organization. This endpoint enables marking multiple audits as expired, effectively closing them without completion. This is useful for audits that are no longer relevant or cannot be completed.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| ids | array[string] | Yes | Array of audit IDs to be expired |
+| `ids` | array[uuid] | Yes | Array of audit IDs to be expired |
 
 ### Example Request
 
@@ -43,4 +51,4 @@ HTTP/1.1 200 OK
 Empty response body indicates successful expiration of specified audits.
 
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

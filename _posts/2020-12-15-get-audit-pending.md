@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of pending audits with filtering and sorting options. `auditObjectUnitId` is a **company structure unit** identifier: it limits results to audits whose audit object is linked to that unit. `assignedToUnit` limits results to audits assigned to **users linked to that unit**. Use [Get company structure units](#/get-company-structure-units) to list valid unit IDs. The legacy query name `auditObjectGroupId` is still accepted and means the same filter.
+Retrieve a paginated list of pending audits with filtering options. `auditObjectUnitId` is a **company structure unit** identifier: it limits results to audits whose audit object is linked to that unit. `assignedToUnit` limits results to audits assigned to **users linked to that unit**. Use [Get company structure units](#/get-company-structure-units) to list valid unit IDs. The legacy query name `auditObjectGroupId` is still accepted and means the same filter.
 
 ### Request Headers
 
@@ -35,7 +35,7 @@ Retrieve a paginated list of pending audits with filtering and sorting options. 
 ### Example Request
 
 ```http
-GET /audit/pending?inProgress=true&auditScheduleId=d4e5f6a7-b8c9-7012-def4-567890123gbc&pageSize=50
+GET /audit/pending?inProgress=true&auditScheduleId=d4e5f6a7-b8c9-7012-def4-567890123abc&pageSize=50
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
@@ -67,33 +67,33 @@ Content-Type: application/json
       "number": null,
       "startDate": "2023-12-15T09:00:00.000Z",
       "template": {
-        "id": "d4e5f6a7-b8c9-7012-def4-567890123gbc",
+        "id": "d4e5f6a7-b8c9-7012-def4-567890123abc",
         "name": "Kitchen Safety Inspection Template"
       },
       "isStarted": true
     },
     {
-      "id": "e5f6a7b8-c9d0-8123-efg5-678901234hcd",
+      "id": "e5f6a7b8-c9d0-8123-efa5-678901234acd",
       "name": "Monthly Equipment Maintenance Check",
       "assignees": [
         {
-          "id": "f6a7b8c9-d0e1-9234-fgh6-789012345ide",
+          "id": "f6a7b8c9-d0e1-9234-fab6-789012345ade",
           "name": "Robert Wilson"
         },
         {
-          "id": "a7b8c9d0-e1f2-0345-ghi7-890123456jef",
+          "id": "a7b8c9d0-e1f2-0345-abc7-890123456aef",
           "name": "Maria Garcia"
         }
       ],
       "auditObject": {
-        "id": "b8c9d0e1-f2a3-1456-hij8-901234567kfg",
+        "id": "b8c9d0e1-f2a3-1456-abc8-901234567af0",
         "name": "Manufacturing Floor - Zone A"
       },
       "endDate": "2023-12-20T16:30:00.000Z",
       "number": null,
       "startDate": "2023-12-18T08:00:00.000Z",
       "template": {
-        "id": "c9d0e1f2-a3b4-2567-ijk9-012345678lgh",
+        "id": "c9d0e1f2-a3b4-2567-abc9-012345678aa0",
         "name": "Equipment Maintenance Audit"
       },
       "isStarted": true
@@ -109,4 +109,4 @@ Content-Type: application/json
 
 Each element of `data` has: `id` (uuid), `name` (string), `assignees` (array of `id`, `name`), `auditObject` (`id`, `name`), `endDate` (string UTC or null), `number` (string or null), `startDate` (string UTC or null), `template` (`id`, `name`), `isStarted` (boolean).
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

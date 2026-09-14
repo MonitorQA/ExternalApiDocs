@@ -48,4 +48,4 @@ Content-Type: [varies by file type]
 ```
 
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

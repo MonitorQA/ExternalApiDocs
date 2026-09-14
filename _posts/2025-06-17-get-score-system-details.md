@@ -79,7 +79,7 @@ Content-Type: application/json
 | `name` | string | Score system name |
 | `description` | string | Optional description of the score system |
 | `passedThreshold` | number | Optional threshold value for passing |
-| `scoreSystemType` | number | Score system type: `0` (ProportionToMaxScorePoints) or `1` (CountNotApplicableAsPositive) |
+| `scoreSystemType` | number | Score system type: `0` (Proportion of maximum score points) or `1` (Count not applicable as positive) |
 | `isSample` | boolean | Whether this is a sample score system |
 | `labels` | array | Array of score labels |
 | `labels[].id` | uuid | Unique identifier of the label |
@@ -88,5 +88,5 @@ Content-Type: application/json
 | `labels[].max` | number | Maximum score value for this label |
 | `labels[].color` | string | Color code for this label |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

@@ -150,5 +150,5 @@ Content-Type: application/json
 
 Occurs when `copyScoreSystem` is `false` and the target company does not have at least one score system.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

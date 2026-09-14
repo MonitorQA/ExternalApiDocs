@@ -1,12 +1,13 @@
 ---
 category: Roles
 categoryOrder: 9
+url_path: '/role-permissions-reference'
 title: 'Role Permissions Reference'
 order: 1
 layout: null
 ---
 
-This reference document provides detailed descriptions of all available permissions for each role type in the MonitorQA system. Permissions use Google IAM-style string constants (e.g., `audits.do`, `audits.manage`). Use this reference when configuring role permissions through the Create Role and Update Role endpoints.
+This reference document provides detailed descriptions of all available permissions for each role type in the MonitorQA system. Permissions are string constants with dot notation (e.g., `audits.do`, `audits.manage`). Use this reference when configuring role permissions through the Create Role and Update Role endpoints.
 
 ## Admin Role Permissions (roleType: 0)
 
@@ -102,8 +103,8 @@ Observer roles provide read-only access to audit information and reports, suitab
 
 ## Usage Notes
 
-- **Permission Format**: Permissions use Google IAM-style string constants with dot notation (e.g., `audits.do`, `users.manage`)
+- **Permission Format**: Permissions are string constants with dot notation (e.g., `audits.do`, `users.manage`)
 - **Permission Hierarchy**: Admin roles include all permissions available to other role types, plus additional management capabilities
 - **Role-Specific Permissions**: Each role type has its own set of available permissions. Use only permissions valid for the specific role type
-- **Conditional Access**: Some permissions may have additional business logic restrictions based on user assignments and object relationships
+- **Conditional Access**: Access may also depend on user assignments and object relationships
 - **Scalability**: Observer roles are ideal for executives and stakeholders who need visibility without operational permissions

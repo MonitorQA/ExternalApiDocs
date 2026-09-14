@@ -22,7 +22,7 @@ Create a new user within the company. The user will receive an invitation email 
 |-----------|------|----------|-------------|
 | `email` | string | Yes | User's email address (must be unique within the company) |
 | `fullName` | string | Yes | User's full name for display purposes |
-| `roleId` | string | Yes | Unique identifier of the role to assign to the user |
+| `roleId` | uuid | Yes | Unique identifier of the role to assign to the user |
 | `phone` | string | No | User's phone number (maximum 50 characters) |
 
 ### Example Request
@@ -54,4 +54,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

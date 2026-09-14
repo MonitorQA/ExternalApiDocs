@@ -21,7 +21,7 @@ Update an existing audit object with new information including name, notes, and 
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `id` | string | Yes | Unique identifier of the audit object |
+| `id` | uuid | Yes | Unique identifier of the audit object |
 
 ### Request Body Parameters
 
@@ -38,7 +38,7 @@ Update an existing audit object with new information including name, notes, and 
 ### Example Request
 
 ```http
-PUT /audit/objects/{id}
+PUT /audit/objects/123e4567-e89b-12d3-a456-426614174000
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -64,4 +64,4 @@ Content-Type: application/json
 HTTP/1.1 200 OK
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

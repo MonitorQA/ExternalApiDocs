@@ -68,47 +68,47 @@ Content-Type: application/json
    },
    "approvedAtUtc": "2023-11-15T14:30:22.123Z",
    "approvedBy": {
-        "id": "a8f3d2c1-b4e5-4f6g-9h8i-1j2k3l4m5n6o", 
+        "id": "a8f3d2c1-b4e5-4f60-9080-1a2b3c4d5e6f",
         "name": "Sarah Johnson"
       },
    "assignedUsers": [
       {
-         "id": "b9e4c3d2-c5f6-5g7h-0i9j-2k3l4m5n6o7p",
+         "id": "b9e4c3d2-c5f6-5670-8090-2a3b4c5d6e7f",
          "name": "Mike Rodriguez"
       }
    ],
    "audit": {
-      "id": "c0f5d4e3-d6g7-6h8i-1j0k-3l4m5n6o7p8q",
+      "id": "c0f5d4e3-d607-6080-1a0b-3c4d5e6f7081",
       "name": "Monthly Safety Inspection - Building A",
       "ianaTimeZone": "America/New_York",
       "number": "AUD-2023-100"
    },
-   "auditItemId": "d1g6e5f4-e7h8-7i9j-2k1l-4m5n6o7p8q9r",
+   "auditItemId": "d106e5f4-e708-7190-2a1b-4c5d6e7f8091",
    "auditObject": {
-      "id": "e2h7f6g5-f8i9-8j0k-3l2m-5n6o7p8q9r0s",
+      "id": "e207f605-f809-8a0b-3c2d-5e6f70819203",
       "name": "Building A - First Floor"
    },
    "createdAtUtc": "2023-10-31T11:05:37.688Z",
    "createdBy": {
-      "id": "f3i8g7h6-g9j0-9k1l-4m3n-6o7p8q9r0s1t",
+      "id": "f3080706-09a0-9b1c-4d3e-607182930415",
       "name": "John Smith"
    },
    "description": "Replace missing fire extinguisher in hallway near conference room 101",
    "dueDateUtc": "2023-11-01T06:59:59.000Z",
    "expiredAtUtc": "2023-11-03T06:59:59.000Z",
    "expiredBy": {
-      "id": "g4j9h8i7-h0k1-0l2m-5n4o-7p8q9r0s1t2u",
+      "id": "a4b908c7-d0e1-0120-5a4b-7c8d9e0f1a2b",
       "name": "Lisa Chen"
    },
-   "id": "h5k0i9j8-i1l2-1m3n-6o5p-8q9r0s1t2u3v",
+   "id": "a5b0c9d8-e1f2-13a4-6b5c-8d9e0f1a2b3c",
    "information": {
       "text": "Fire extinguisher has been ordered and will be installed by facilities team",
       "photosIds": [
-         "i6l1j0k9-j2m3-2n4o-7p6q-9r0s1t2u3v4w"
+         "a6b1c0d9-e2f3-2a4b-7c6d-9e0f1a2b3c4d"
       ],
       "files": [
          {
-            "id": "j7m2k1l0-k3n4-3o5p-8q7r-0s1t2u3v4w5x",
+            "id": "a7b2c1d0-e3f4-3a5b-8c7d-0e1f2a3b4c5d",
             "name": "fire_extinguisher_order_receipt.pdf",
             "contentType": "application/pdf",
             "updatedAt": "2023-11-02T09:15:33.456Z"
@@ -122,18 +122,23 @@ Content-Type: application/json
    "status": 3,
    "tags": [
       {
-         "id": "k8n3l2m1-l4o5-4p6q-9r8s-1t2u3v4w5x6y",
+         "id": "a8b3c2d1-e4f5-4a6b-9c8d-1e2f3a4b5c6d",
          "name": "Fire Safety"
       }
    ],
    "files": [
       {
-         "id": "l9o4m3n2-m5p6-5q7r-0s9t-2u3v4w5x6y7z",
+         "id": "a9b4c3d2-e5f6-5a7b-0c9d-2e3f4a5b6c7d",
          "name": "corrective_action_photos.jpg",
          "contentType": "image/jpeg",
          "updatedAt": "2023-10-31T11:05:37.688Z"
       }
    ],
+   "issue": {
+      "id": "b0c5d4e3-f6a7-6b8c-1d0e-3f4a5b6c7d8e",
+      "name": "Missing fire extinguisher",
+      "isDeleted": false
+   },
    "metafields": []
 }
 ```
@@ -159,12 +164,12 @@ Content-Type: application/json
 | `information` | object | Optional. `text`, `photosIds` (array of uuid), `files` (same shape as top-level `files`) |
 | `name` | string | Title |
 | `number` | string | Reference number |
-| `priority` | integer | Priority enum |
+| `priority` | integer | Priority: `0` (Low), `1` (Medium), `2` (High) |
 | `question` | string | Related question text |
-| `status` | integer | Status enum |
+| `status` | integer | Status: `0` (Open), `1` (Approved), `2` (Rejected), `3` (Submitted), `4` (Expired) |
 | `tags` | array | Each item `id` (uuid), `name` (string) |
 | `files` | array | File metadata: `id`, `name`, `contentType`, `updatedAt` |
 | `issue` | object | Optional. `id`, `name`, `isDeleted` |
 | `metafields` | array | Metafield objects (`id`, `name`, `answerType`, `data` per item) |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

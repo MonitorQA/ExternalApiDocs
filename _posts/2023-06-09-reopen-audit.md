@@ -10,14 +10,26 @@ layout: null
 
 Reopen a completed audit to allow additional work or corrections. This endpoint enables you to restore a completed audit to an active state with new dates and optionally reassign it to different users.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | uuid | Yes | The unique identifier of the completed audit to reopen |
-| startDate | string | Yes | New start date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| endDate | string | Yes | New due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| assigneesIds | array[uuid] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
+| `id` | uuid | Yes | The unique identifier of the completed audit to reopen |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `startDate` | string | Yes | New start date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `endDate` | string | Yes | New due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `assigneesIds` | array[uuid] | No | Array of user IDs to assign the audit to (null = no change, empty array = remove all assignees) |
 
 ### Example Request
 
@@ -47,4 +59,4 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful reopening of the audit.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

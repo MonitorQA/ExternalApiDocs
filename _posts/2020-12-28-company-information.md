@@ -10,6 +10,12 @@ layout: null
 
 Retrieve basic information about the company account. This endpoint provides essential company details including the unique company identifier, display name, file identifiers for uploaded logo and icon images, usage purpose, custom audit object name, and the company's IANA time zone.
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -27,7 +33,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "456789jk-lmno-012b-cdef-123456789012",
+  "id": "456789ab-cdef-012b-cdef-123456789012",
   "name": "Acme Manufacturing Corp",
   "logoFileId": "123e4567-e89b-12d3-a456-426614174000",
   "iconFileId": "789e4567-e89b-12d3-a456-426614174001",
@@ -44,7 +50,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "456789jk-lmno-012b-cdef-123456789012",
+  "id": "456789ab-cdef-012b-cdef-123456789012",
   "name": "Custom Company Inc",
   "logoFileId": null,
   "iconFileId": null,
@@ -66,4 +72,4 @@ Content-Type: application/json
 | `customAuditObjectName` | string | Optional. Custom name for the audit object type when `usagePurpose` is `6` (Other) |
 | `ianaTimeZone` | string | Optional. IANA time zone identifier for the company (e.g. "America/New_York", "Europe/London") |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

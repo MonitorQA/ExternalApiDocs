@@ -91,7 +91,7 @@ Content-Type: application/json
 | `data[].name` | string | Score system name |
 | `data[].description` | string | Optional description of the score system |
 | `data[].passedThreshold` | number | Optional threshold value for passing |
-| `data[].scoreSystemType` | number | Score system type: `0` (ProportionToMaxScorePoints) or `1` (CountNotApplicableAsPositive) |
+| `data[].scoreSystemType` | number | Score system type: `0` (Proportion of maximum score points) or `1` (Count not applicable as positive) |
 | `data[].isSample` | boolean | Whether this is a sample score system |
 | `data[].labels` | array | Array of score labels |
 | `data[].labels[].id` | uuid | Unique identifier of the label |
@@ -104,5 +104,5 @@ Content-Type: application/json
 | `meta.pageNumber` | number | Current page number |
 | `meta.totalCount` | number | Total number of items available |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

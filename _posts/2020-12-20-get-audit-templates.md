@@ -10,6 +10,12 @@ layout: null
 
 Retrieve a simple list of all audit templates with their ID and name pairs. This endpoint provides a lightweight response ideal for populating dropdown menus and template selection interfaces.
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -42,4 +48,4 @@ Content-Type: application/json
 ]
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

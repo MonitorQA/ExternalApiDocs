@@ -56,4 +56,4 @@ Content-Type: application/pdf
 - **Summary (1):** Summary section, no details
 - **Full (2):** Summary and details
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

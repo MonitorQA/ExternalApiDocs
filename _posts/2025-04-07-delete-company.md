@@ -22,6 +22,12 @@ Deleting the company account will:
 - **Delete all corrective actions and related records**
 - **Stop all future billing charges**
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -40,4 +46,4 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful account deletion. The API key will be immediately invalidated after this operation.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

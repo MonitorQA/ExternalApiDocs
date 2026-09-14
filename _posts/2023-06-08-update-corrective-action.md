@@ -10,22 +10,34 @@ layout: null
 
 Update the details of an existing corrective action. This endpoint enables modifying corrective action properties including assignments, due dates, status, and priority levels.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | uuid | Yes | The unique identifier of the corrective action to update |
-| assignedUsersIds | array[uuid] | No | Array of user IDs to assign the corrective action to |
-| description | string | No | Detailed description of the corrective action |
-| name | string | Yes | Name/title of the corrective action |
-| dueDateUtc | string | Yes | Due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| status | integer | Yes | Status code (0=Open, 1=Approved, 2=Rejected, 3=Submitted, 4=Expired) |
-| priority | integer | Yes | Priority level (0=Low, 1=Medium, 2=High) |
+| `id` | uuid | Yes | The unique identifier of the corrective action to update |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `assignedUsersIds` | array[uuid] | No | Array of user IDs to assign the corrective action to |
+| `description` | string | No | Detailed description of the corrective action |
+| `name` | string | Yes | Name/title of the corrective action |
+| `dueDateUtc` | string | Yes | Due date in UTC format (`yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `status` | integer | Yes | Status code (0=Open, 1=Approved, 2=Rejected, 3=Submitted, 4=Expired) |
+| `priority` | integer | Yes | Priority level (0=Low, 1=Medium, 2=High) |
 
 ### Example Request
 
 ```http
-PUT /corrective-actions/{id}
+PUT /corrective-actions/123e4567-e89b-12d3-a456-426614174000
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -63,4 +75,4 @@ HTTP/1.1 200 OK
 Empty response body indicates successful corrective action update.
 
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

@@ -10,16 +10,28 @@ layout: null
 
 Update an existing role within a company. This endpoint enables updating the name, description, and permissions of any role type (Admin, Auditor, Auditee, or Observer).
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | uuid | Yes | The unique identifier of the role to update (path parameter) |
-| roleType | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
-| name | string | Yes | The name of the role |
-| description | string | No | A description of the role |
-| permissions | array | No | Array of permission strings. All permissions in the array will be enabled. If not provided, all existing permissions will be removed from the role |
-| permissions[] | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for detailed descriptions |
+| `id` | uuid | Yes | The unique identifier of the role to update (path parameter) |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `roleType` | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
+| `name` | string | Yes | The name of the role |
+| `description` | string | No | A description of the role |
+| `permissions` | array | No | Array of permission strings. All permissions in the array will be enabled. If not provided, all existing permissions will be removed from the role |
+| `permissions[]` | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for detailed descriptions |
 
 ### Role Types
 
@@ -47,7 +59,7 @@ Content-Type: application/json
 ### Example Request - Auditor Role
 
 ```http
-PUT /roles/234567hi-jklm-890a-bcde-f12345678902
+PUT /roles/234567ab-cdef-890a-bcde-f12345678902
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -63,7 +75,7 @@ Content-Type: application/json
 ### Example Request - Auditee Role
 
 ```http
-PUT /roles/345678ij-klmn-901a-bcde-f12345678903
+PUT /roles/345678ab-cdef-901a-bcde-f12345678903
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -79,7 +91,7 @@ Content-Type: application/json
 ### Example Request - Observer Role
 
 ```http
-PUT /roles/456789jk-lmno-012b-cdef-123456789012
+PUT /roles/456789ab-cdef-012b-cdef-123456789012
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -117,7 +129,7 @@ Content-Type: application/json
 HTTP/1.1 200 OK
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 
 ## Validation Rules
 

@@ -10,6 +10,12 @@ layout: null
 
 Retrieve a complete list of all audit object attributes available in your organization. This endpoint provides comprehensive attribute data including all available options for each attribute.
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -41,30 +47,30 @@ Content-Type: application/json
       }
     ],
     "name": "Department",
-    "id": "890123de-fghi-4567-890a-bcdef1234567"
+    "id": "890123de-f012-4567-890a-bcdef1234567"
   },
   {
     "options": [
       {
         "isDefault": false,
         "name": "High",
-        "id": "901234ef-ghij-5678-90ab-cdef12345678"
+        "id": "901234ef-a012-5678-90ab-cdef12345678"
       },
       {
         "isDefault": true,
         "name": "Medium",
-        "id": "012345fg-hijk-6789-01bc-def123456789"
+        "id": "012345f6-a012-6789-01bc-def123456789"
       },
       {
         "isDefault": false,
         "name": "Low",
-        "id": "123456gh-ijkl-789a-bcde-f12345678901"
+        "id": "123456a0-bcde-789a-bcde-f12345678901"
       }
     ],
     "name": "Risk Level",
-    "id": "234567hi-jklm-890a-bcde-f12345678902"
+    "id": "234567ab-cdef-890a-bcde-f12345678902"
   }
 ]
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

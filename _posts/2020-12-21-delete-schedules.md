@@ -21,7 +21,7 @@ Delete multiple schedules in a single request. **All unstarted audits for the se
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `ids` | array[string] | Yes | Array of schedule IDs to delete |
+| `ids` | array[uuid] | Yes | Array of schedule IDs to delete |
 
 ### Example Request
 
@@ -47,4 +47,4 @@ Content-Type: application/json
 HTTP/1.1 200 OK
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
