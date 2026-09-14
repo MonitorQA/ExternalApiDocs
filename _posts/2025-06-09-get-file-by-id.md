@@ -8,7 +8,7 @@ order: 1
 layout: null
 ---
 
-Retrieve a file by its unique identifier. Files can include images, documents, and other attachments uploaded during audits or corrective actions.
+Retrieve a file by its unique identifier. Files can include images, documents, and other attachments uploaded during audits or corrective actions, and CSV files from completed [custom data exports](#/custom-data-exports).
 
 ### Request Headers
 
