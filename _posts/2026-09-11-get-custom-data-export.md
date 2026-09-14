@@ -10,7 +10,7 @@ layout: null
 
 Retrieve the status of a custom data export started with any of the export POST endpoints. Poll this endpoint until `status` is `2` (Succeeded) or `3` (Failed). When the export succeeds, download each file with [Get File](#/get-file-by-id). See [Custom data exports](#/custom-data-exports) for the full workflow.
 
-The API key user's role must include the `dataExports.accessCustom` permission. The `dataType` field in the response identifies which data set was exported.
+The `dataType` field in the response identifies which data set was exported.
 
 ### Request Headers
 
@@ -47,14 +47,14 @@ X-API-KEY: abcdef12345
 
 | Value | Data type |
 |-------|-----------|
-| `0` | Pending audits |
-| `1` | Audit items |
-| `2` | Audit sections |
-| `3` | Corrective actions |
-| `4` | Corrective action activities |
-| `5` | Completed audits |
-| `6` | Expired audits |
-| `7` | All audits |
+| `PENDING_AUDITS` | Pending audits |
+| `AUDIT_ITEMS` | Audit items |
+| `SECTIONS` | Audit sections |
+| `CORRECTIVE_ACTIONS` | Corrective actions |
+| `CORRECTIVE_ACTIONS_ACTIVITIES` | Corrective action activities |
+| `COMPLETED_AUDITS` | Completed audits |
+| `EXPIRED_AUDITS` | Expired audits |
+| `ALL_AUDITS` | All audits |
 
 **Success Response**
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 
 {
   "id": "a1b2c3d4-e5f6-789a-bcde-f01234567890",
-  "dataType": 0,
+  "dataType": "PENDING_AUDITS",
   "status": 2,
   "files": [
     {
@@ -86,7 +86,7 @@ Content-Type: application/json
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | uuid | Unique identifier of the export |
-| `dataType` | number | Data set of this export. See [Data types](#data-types) |
+| `dataType` | string | Data set of this export. See [Data types](#data-types) |
 | `status` | number | Current export status. See [Status values](#status-values) |
 | `files` | array | Files produced by a succeeded export. Empty until `status` is `2` |
 | `files[].id` | uuid | File identifier for [Get File](#/get-file-by-id) |
@@ -97,19 +97,6 @@ Content-Type: application/json
 | `completedAtUtc` | datetime | When processing finished (UTC). `null` until the export finishes |
 
 ### Error Responses
-
-**Permissions Error (409)**
-
-```http
-HTTP/1.1 409 Conflict
-Content-Type: application/json
-
-{
-  "message": "permission-required/can-access-custom-data-exports"
-}
-```
-
-Occurs when the API key user's role does not include `dataExports.accessCustom`.
 
 **Export Not Found (409)**
 

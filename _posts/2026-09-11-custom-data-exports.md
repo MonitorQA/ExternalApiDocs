@@ -9,8 +9,6 @@ layout: null
 
 Start an asynchronous CSV export of a data set, poll until the export finishes, then download the file.
 
-The API key user's role must include the `dataExports.accessCustom` permission. See [Role Permissions Reference](#/role-permissions-reference).
-
 ### Workflow
 
 1. **Start the export** with the POST endpoint for the data set you need. The response is the export identifier.
@@ -25,14 +23,14 @@ Use [Get accessible companies](#/get-companies) to obtain company IDs for the `c
 
 | Path | Description | `dataType` |
 |------|-------------|------------|
-| `/custom-data-exports/pending-audits` | Pending audits | `0` |
-| `/custom-data-exports/audit-items` | Audit items | `1` |
-| `/custom-data-exports/sections` | Audit sections | `2` |
-| `/custom-data-exports/corrective-actions` | Corrective actions | `3` |
-| `/custom-data-exports/corrective-actions-activities` | Corrective action activities | `4` |
-| `/custom-data-exports/completed-audits` | Completed audits | `5` |
-| `/custom-data-exports/expired-audits` | Expired audits | `6` |
-| `/custom-data-exports/all-audits` | All audits | `7` |
+| `/custom-data-exports/pending-audits` | Pending audits | `PENDING_AUDITS` |
+| `/custom-data-exports/audit-items` | Audit items | `AUDIT_ITEMS` |
+| `/custom-data-exports/sections` | Audit sections | `SECTIONS` |
+| `/custom-data-exports/corrective-actions` | Corrective actions | `CORRECTIVE_ACTIONS` |
+| `/custom-data-exports/corrective-actions-activities` | Corrective action activities | `CORRECTIVE_ACTIONS_ACTIVITIES` |
+| `/custom-data-exports/completed-audits` | Completed audits | `COMPLETED_AUDITS` |
+| `/custom-data-exports/expired-audits` | Expired audits | `EXPIRED_AUDITS` |
+| `/custom-data-exports/all-audits` | All audits | `ALL_AUDITS` |
 
 Poll any export with [Get custom data export](#/get-custom-data-export) (`GET /custom-data-exports/{taskId}`). The `dataType` field in the status response identifies which data set was exported.
 
@@ -54,8 +52,6 @@ All POST body fields are optional.
 - `templateIds` and `auditObjectIds` apply only to pending audits, audit items, completed audits, expired audits, and all audits.
 
 ### Errors
-
-Missing `dataExports.accessCustom` permission returns `409 Conflict` with message `permission-required/can-access-custom-data-exports`.
 
 A missing export or an export that is not accessible with this API key returns `409 Conflict` with message `custom-data-export/no-access-or-not-found`.
 

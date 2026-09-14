@@ -10,8 +10,6 @@ layout: null
 
 Start an asynchronous CSV export of corrective actions. The response is the export identifier. Poll [Get custom data export](#/get-custom-data-export) until the export finishes, then download files with [Get File](#/get-file-by-id). See [Custom data exports](#/custom-data-exports) for the full workflow.
 
-The API key user's role must include the `dataExports.accessCustom` permission.
-
 ### Request Headers
 
 | Header | Type | Required | Description |
@@ -60,20 +58,5 @@ Content-Type: application/json
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | uuid | Unique identifier of the export. Use it with [Get custom data export](#/get-custom-data-export) |
-
-### Error Responses
-
-**Permissions Error (409)**
-
-```http
-HTTP/1.1 409 Conflict
-Content-Type: application/json
-
-{
-  "message": "permission-required/can-access-custom-data-exports"
-}
-```
-
-Occurs when the API key user's role does not include `dataExports.accessCustom`.
 
 For errors responses, see the [response status codes documentation](#/response-status-codes).
