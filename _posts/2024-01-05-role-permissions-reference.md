@@ -46,7 +46,7 @@ Admin roles have access to all system permissions, providing complete control ov
 | `reports.viewAuditorPerformance` | Performance analytics for individual auditors and their effectiveness |
 | `reports.viewAuditObjectPerformance` | Performance reports for specific audit objects and their compliance history |
 | `reports.viewItemAnalysis` | Detailed analysis reports on specific audit items and question performance |
-| `dataExports.accessCustom` | Permission to export custom data sets and create specialized reports |
+| `dataExports.accessCustom` | Permission to export custom data sets and create specialized reports. Required in each company included in a [custom data export](#/custom-data-exports) |
 | `companyStructureUnits.manage` | Create, modify, and delete company structure units and their assignments |
 | `userNotifications.manage` | Manage user notification settings and event subscriptions |
 

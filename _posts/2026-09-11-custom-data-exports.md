@@ -19,6 +19,10 @@ Completed exports are CSV files (`text/csv`). Column sets vary by data set and c
 
 Use [Get accessible companies](#/get-companies) to obtain company IDs for the `companies` filter.
 
+### Permissions
+
+The API key user must have [`dataExports.accessCustom`](#/role-permissions-reference) in every company included in the export. Company membership from [Get accessible companies](#/get-companies) is not enough.
+
 ### Export types
 
 | Path | Description | `dataType` |
@@ -48,7 +52,7 @@ Poll any export with [Get custom data export](#/get-custom-data-export) (`GET /c
 All POST body fields are optional.
 
 - `fromDate` and `toDate` use UTC format `yyyy-MM-ddTHH:mm:ss.fffZ`. If both are set, `toDate` must be greater than or equal to `fromDate`. If omitted, the range is the last two years through the current day.
-- `companies` is an array of company IDs. Only companies the API key user can access are used. If omitted or empty, the export uses the current company. Pass accessible IDs from [Get accessible companies](#/get-companies).
+- `companies` is an array of company IDs. Only companies the API key user can access and where that user has custom data export permission ([`dataExports.accessCustom`](#/role-permissions-reference)) are used. Companies without access or without that permission are ignored. If omitted or empty, the export uses the current company (the same permission is required there). Pass accessible IDs from [Get accessible companies](#/get-companies).
 - `templateIds` and `auditObjectIds` apply only to pending audits, audit items, completed audits, expired audits, and all audits.
 
 ### Errors
