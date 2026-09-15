@@ -10,11 +10,17 @@ layout: null
 
 Retrieve detailed information about a specific role within a company. This endpoint provides complete role information including ID, name, description, role type, and all enabled permissions.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | uuid | Yes | The unique identifier of the role (path parameter) |
+| `id` | uuid | Yes | The unique identifier of the role (path parameter) |
 
 ### Example Request
 
@@ -60,7 +66,7 @@ Content-Type: application/json
 
 ### Permission Strings
 
-The permissions array contains string constants (Google IAM-style) that correspond to permissions for the role type:
+The permissions array contains string constants with dot notation that correspond to permissions for the role type:
 
 - **Admin roles**: Use admin permission strings (e.g., `audits.do`, `users.manage`)
 - **Auditor roles**: Use auditor permission strings (e.g., `audits.do`, `audits.viewResults`)
@@ -91,7 +97,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "234567hi-jklm-890a-bcde-f12345678902",
+  "id": "234567ab-cdef-890a-bcde-f12345678902",
   "name": "Senior Quality Auditor",
   "description": "Senior auditor with expanded permissions",
   "roleType": 1,
@@ -106,7 +112,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "345678ij-klmn-901a-bcde-f12345678903",
+  "id": "345678ab-cdef-901a-bcde-f12345678903",
   "name": "Department Auditee",
   "description": "Department representative for audit responses",
   "roleType": 2,
@@ -121,7 +127,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "456789jk-lmno-012b-cdef-123456789012",
+  "id": "456789ab-cdef-012b-cdef-123456789012",
   "name": "Quality Observer",
   "description": "Read-only access to audit results and reports",
   "roleType": 3,
@@ -139,5 +145,5 @@ HTTP/1.1 404 Not Found
 
 Returned when the specified role ID does not exist or does not belong to the company.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

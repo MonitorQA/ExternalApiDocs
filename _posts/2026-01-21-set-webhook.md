@@ -60,4 +60,4 @@ Empty response body indicates successful webhook configuration.
 
 The API will return `409 Conflict` with error code `validation/webhook-url-not-valid` if the provided URL does not meet the validation requirements.
 
-For other error responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

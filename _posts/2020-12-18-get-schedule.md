@@ -25,7 +25,7 @@ Retrieve detailed information about a specific schedule, including its configura
 ### Example Request
 
 ```http
-GET /schedules/{scheduleId}
+GET /schedules/123e4567-e89b-12d3-a456-426614174000
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
@@ -201,39 +201,39 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-   "id": string,
-   "name": string,
-   "active": boolean,
+   "id": "123e4567-e89b-12d3-a456-426614174000",
+   "name": "Daily Safety Inspections",
+   "active": true,
    "stopByDate": "2025-12-31T23:59:59.000Z",
    "startFromDate": "2025-01-01T00:00:00.000Z",
-   "auditorHint": string,
+   "auditorHint": "Focus on emergency exits and fire safety equipment",
    "template": {
-      "id": string,
-      "name": string
+      "id": "456e7890-e89b-12d3-a456-426614174001",
+      "name": "Kitchen Safety Template"
    },
    "assignees": [
       {
-         "id": string,
-         "name": string
+         "id": "789e0123-e89b-12d3-a456-426614174002",
+         "name": "Jane Auditor"
       }
    ],
    "auditObjects": [
       {
-         "id": string,
-         "name": string
+         "id": "abc12345-e89b-12d3-a456-426614174003",
+         "name": "Main Kitchen"
       }
    ],
    "auditObjectUnits": [
       {
-         "id": string,
-         "name": string
+         "id": "def67890-e89b-12d3-a456-426614174004",
+         "name": "Operations"
       }
    ],
-   "repeatPattern": 1, //Daily audit
-   "repeat": {      
-      "repeatEvery": number
+   "repeatPattern": 1,
+   "repeat": {
+      "repeatEvery": 1
    }
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

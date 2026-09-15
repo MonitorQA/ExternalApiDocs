@@ -111,7 +111,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "companyId": "456789jk-lmno-012b-cdef-123456789012",
+  "companyId": "456789ab-cdef-012b-cdef-123456789012",
   "apiKey": "12345678-1234-1234-1234-123456789012"
 }
 ```
@@ -125,5 +125,5 @@ Content-Type: application/json
 
 The response contains the unique identifier and API key of the newly created company. The API key is automatically generated and can be used immediately to authenticate requests for the new company.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

@@ -127,5 +127,5 @@ Content-Type: application/json
 | `auditeeSignature` | object | Optional. Not set by this route. When set: `photoId` (uuid), `createdBy` (`id`, `name`) |
 | `auditorSignature` | object | Optional. Not set by this route. When set: `photoId` (uuid), `createdBy` (`id`, `name`) |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

@@ -10,16 +10,22 @@ layout: null
 
 Retrieve detailed information about a specific audit object attribute, including all its available options and settings. This endpoint provides comprehensive attribute configuration data.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | string | Yes | The unique identifier of the audit object attribute |
+| `id` | uuid | Yes | The unique identifier of the audit object attribute |
 
 ### Example Request
 
 ```http
-GET /audit/objects/attributes/890123de-fghi-4567-890a-bcdef1234567
+GET /audit/objects/attributes/890123de-f012-4567-890a-bcdef1234567
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
@@ -47,12 +53,12 @@ Content-Type: application/json
     {
       "isDefault": false,
       "name": "Low Priority",
-      "id": "901234ef-ghij-5678-90ab-cdef12345678"
+      "id": "901234ef-a012-5678-90ab-cdef12345678"
     }
   ],
   "name": "Priority Level",
-  "id": "890123de-fghi-4567-890a-bcdef1234567"
+  "id": "890123de-f012-4567-890a-bcdef1234567"
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

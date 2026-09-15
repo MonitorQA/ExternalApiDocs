@@ -12,6 +12,12 @@ Retrieve a concise list of **company structure units** for the company. Each uni
 
 Prefer this endpoint and unit-based semantics for new integrations.
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -30,15 +36,15 @@ Content-Type: application/json
 
 [
   {
-    "id": "123456gh-ijkl-789a-bcde-f12345678901",
+    "id": "123456ab-cdef-789a-bcde-f12345678901",
     "name": "Safety Inspectors"
   },
   {
-    "id": "234567hi-jklm-890a-bcde-f12345678902",
+    "id": "234567ab-cdef-890a-bcde-f12345678902",
     "name": "Quality Assurance Team"
   },
   {
-    "id": "345678ij-klmn-901a-bcde-f12345678903",
+    "id": "345678ab-cdef-901a-bcde-f12345678903",
     "name": "Maintenance Supervisors"
   }
 ]
@@ -51,4 +57,4 @@ Content-Type: application/json
 | `id` | uuid | Company structure unit identifier |
 | `name` | string | Display name of the unit |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

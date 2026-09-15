@@ -1,12 +1,13 @@
 ---
 category: Roles
 categoryOrder: 9
+url_path: '/role-permissions-reference'
 title: 'Role Permissions Reference'
 order: 1
 layout: null
 ---
 
-This reference document provides detailed descriptions of all available permissions for each role type in the MonitorQA system. Permissions use Google IAM-style string constants (e.g., `audits.do`, `audits.manage`). Use this reference when configuring role permissions through the Create Role and Update Role endpoints.
+This reference document provides detailed descriptions of all available permissions for each role type in the MonitorQA system. Permissions are string constants with dot notation (e.g., `audits.do`, `audits.manage`). Use this reference when configuring role permissions through the Create Role and Update Role endpoints.
 
 ## Admin Role Permissions (roleType: 0)
 
@@ -20,6 +21,7 @@ Admin roles have access to all system permissions, providing complete control ov
 | `audits.schedule` | Permission to create and manage audit schedules and recurring audit plans |
 | `audits.createInstant` | Ability to create immediate, unscheduled audits for urgent situations |
 | `audits.viewResults` | Access to view completed audit results, findings, and outcomes |
+| `audits.viewCompletedFromSubcompanies` | View completed audits from subcompanies in a holding/parent company |
 | `correctiveActions.manage` | Full management of corrective actions including creation, assignment, and tracking |
 | `correctiveActions.approve` | Authority to approve or reject proposed corrective actions |
 | `correctiveActions.assign` | Permission to assign corrective actions to responsible parties |
@@ -45,6 +47,8 @@ Admin roles have access to all system permissions, providing complete control ov
 | `reports.viewAuditObjectPerformance` | Performance reports for specific audit objects and their compliance history |
 | `reports.viewItemAnalysis` | Detailed analysis reports on specific audit items and question performance |
 | `dataExports.accessCustom` | Permission to export custom data sets and create specialized reports |
+| `companyStructureUnits.manage` | Create, modify, and delete company structure units and their assignments |
+| `userNotifications.manage` | Manage user notification settings and event subscriptions |
 
 ## Auditor Role Permissions (roleType: 1)
 
@@ -99,8 +103,8 @@ Observer roles provide read-only access to audit information and reports, suitab
 
 ## Usage Notes
 
-- **Permission Format**: Permissions use Google IAM-style string constants with dot notation (e.g., `audits.do`, `users.manage`)
+- **Permission Format**: Permissions are string constants with dot notation (e.g., `audits.do`, `users.manage`)
 - **Permission Hierarchy**: Admin roles include all permissions available to other role types, plus additional management capabilities
 - **Role-Specific Permissions**: Each role type has its own set of available permissions. Use only permissions valid for the specific role type
-- **Conditional Access**: Some permissions may have additional business logic restrictions based on user assignments and object relationships
+- **Conditional Access**: Access may also depend on user assignments and object relationships
 - **Scalability**: Observer roles are ideal for executives and stakeholders who need visibility without operational permissions

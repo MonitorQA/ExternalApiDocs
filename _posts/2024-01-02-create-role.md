@@ -10,15 +10,22 @@ layout: null
 
 Create a new role within a company. This endpoint enables defining custom roles with specific permissions for any role type (Admin, Auditor, Auditee, or Observer).
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| roleType | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
-| name | string | Yes | The name of the role |
-| description | string | No | A description of the role |
-| permissions | array | No | Array of permission strings. All permissions in the array will be enabled. If not provided, the role will be created without permissions |
-| permissions[] | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for detailed descriptions |
+| `roleType` | int | Yes | The type of role. Values: `0` (Admin), `1` (Auditor), `2` (Auditee), `3` (Observer) |
+| `name` | string | Yes | The name of the role |
+| `description` | string | No | A description of the role |
+| `permissions` | array | No | Array of permission strings. All permissions in the array will be enabled. If not provided, the role will be created without permissions |
+| `permissions[]` | string | Yes | The permission string constant (e.g., `audits.do`, `users.manage`). Must be valid for the specified role type. See [Role Permissions Reference](#/role-permissions-reference) for detailed descriptions |
 
 ### Role Types
 
@@ -119,7 +126,7 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 
 ## Validation Rules
 
@@ -135,7 +142,7 @@ The following validation rules are enforced when creating roles:
 
 Each role type has its own set of available permissions:
 
-- **Admin roles (roleType: 0)**: 31 permissions available, including full system control, user management, billing, and all operational permissions
+- **Admin roles (roleType: 0)**: 34 permissions available, including full system control, user management, billing, and all operational permissions
 - **Auditor roles (roleType: 1)**: 17 permissions available, focused on audit execution, issue management, corrective action oversight, and performance reporting
 - **Auditee roles (roleType: 2)**: 4 permissions available, for viewing audit results, executing corrective actions, and limited object access
 - **Observer roles (roleType: 3)**: 9 permissions available, providing read-only access to audits, issues, corrective actions, and all reports

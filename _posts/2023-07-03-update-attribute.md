@@ -10,21 +10,33 @@ layout: null
 
 Update an existing audit object attribute and its options. This endpoint enables modifying attribute names, adding new options, updating existing options, or removing options. Options with IDs will be updated, options without IDs will be created, and options not included in the request will be deleted.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | string | Yes | The unique identifier of the audit object attribute to update |
-| name | string | Yes | The updated name of the attribute |
-| options | array[object] | Yes | Array of options (minimum 1 required) |
-| options[].name | string | Yes | The name of the option |
-| options[].isDefault | boolean | No | Whether this option is the default selection |
-| options[].id | string | No | The ID of existing option to update (omit for new options) |
+| `id` | uuid | Yes | The unique identifier of the audit object attribute to update |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `name` | string | Yes | The updated name of the attribute |
+| `options` | array[object] | Yes | Array of options (minimum 1 required) |
+| `options[].name` | string | Yes | The name of the option |
+| `options[].isDefault` | boolean | No | Whether this option is the default selection |
+| `options[].id` | uuid | No | The ID of existing option to update (omit for new options) |
 
 ### Example Request
 
 ```http
-PUT /audit/objects/attributes/{id}
+PUT /audit/objects/attributes/890123de-f012-4567-890a-bcdef1234567
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 Content-Type: application/json
@@ -62,4 +74,4 @@ Empty response body indicates successful attribute update.
 
 **Note:** Options not included in the request will be permanently deleted, along with any audit object assignments using those options.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

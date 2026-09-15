@@ -10,14 +10,20 @@ layout: null
 
 Retrieve a detailed, paginated list of audit templates available in your MonitorQA system. This endpoint provides comprehensive template information with filtering and search capabilities.
 
-## Query Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Query Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| templateType | integer | No | Filter templates by type |
-| search | string | No | Filter templates by name (partial match) |
-| pageNumber | integer | No | Page number for pagination (starts from 1) |
-| pageSize | integer | No | Number of items per page |
+| `templateType` | integer | No | Filter templates by type |
+| `search` | string | No | Filter templates by name (partial match) |
+| `pageNumber` | integer | No | Page number for pagination (starts from 1) |
+| `pageSize` | integer | No | Number of items per page |
 
 ### Example Request
 
@@ -56,4 +62,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

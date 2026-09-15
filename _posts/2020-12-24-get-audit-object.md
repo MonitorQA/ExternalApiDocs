@@ -12,11 +12,17 @@ Retrieve detailed information about a specific audit object, including its parti
 
 **Company structure units:** `participantUserUnits` lists units used for participant resolution—**users linked to each unit** participate. `auditObjectUnitIds` lists **company structure unit** identifiers; each ID refers to a unit whose **linked audit objects** share that grouping. See [Get company structure units](#/get-company-structure-units).
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | uuid | Yes | The unique identifier of the audit object |
+| `id` | uuid | Yes | The unique identifier of the audit object |
 
 ### Example Request
 
@@ -40,7 +46,7 @@ Content-Type: application/json
   "notes": "Primary production line for automotive parts",
   "participantUserUnits": [
     {
-      "id": "123456gh-ijkl-789a-bcde-f12345678901",
+      "id": "123456a0-bcde-789a-bcde-f12345678901",
       "name": "Production Supervisors"
     }
   ],
@@ -51,14 +57,14 @@ Content-Type: application/json
     }
   ],
   "auditObjectUnitIds": [
-    "234567hi-jklm-890a-bcde-f12345678902"
+    "234567ab-cdef-890a-bcde-f12345678902"
   ],
   "ianaTimeZone": "America/New_York",
   "isSample": false,
   "synchronizationKey": "ext-sync-key-001",
   "attributes": [
     {
-      "attributeId": "890123de-fghi-4567-890a-bcdef1234567",
+      "attributeId": "890123de-f012-4567-890a-bcdef1234567",
       "attributeName": "Department",
       "optionId": "678901bc-defa-2345-6789-01bcdef12345",
       "optionName": "Production"
@@ -89,4 +95,4 @@ Content-Type: application/json
 | `isSample` | boolean | Sample flag |
 | `synchronizationKey` | string | External synchronization key |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

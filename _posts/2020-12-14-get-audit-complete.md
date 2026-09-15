@@ -8,7 +8,7 @@ order: 2
 layout: null
 ---
 
-Retrieve a paginated list of completed audits with advanced filtering and sorting options. `completedByUnit` and `auditObjectUnitId` are **company structure unit** identifiers. `completedByUnit` filters by users linked to that unit who completed the audit; `auditObjectUnitId` filters by audit objects linked to that unit; `assignedToUnit` filters by assignees who are users linked to that unit. See [Get company structure units](#/get-company-structure-units). Legacy query names `completedByGroup` and `auditObjectGroupId` are still accepted with the same meaning.
+Retrieve a paginated list of completed audits with advanced filtering options. `completedByUnit` and `auditObjectUnitId` are **company structure unit** identifiers. `completedByUnit` filters by users linked to that unit who completed the audit; `auditObjectUnitId` filters by audit objects linked to that unit; `assignedToUnit` filters by assignees who are users linked to that unit. See [Get company structure units](#/get-company-structure-units). Legacy query names `completedByGroup` and `auditObjectGroupId` are still accepted with the same meaning.
 
 ### Request Headers
 
@@ -125,4 +125,4 @@ Content-Type: application/json
 
 Each element of `data` has: `id` (uuid), `name` (string), `assignees`, `auditObject`, `endDate`, `number`, `startDate`, `template` (same shapes as pending list), plus `completeDate` (string UTC or null), `completedBy` (`id`, `name`), `score` (number or null), `scoreLabel` (string or null).
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

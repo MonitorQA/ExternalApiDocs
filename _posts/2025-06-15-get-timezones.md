@@ -69,5 +69,5 @@ Content-Type: application/json
 
 The time zones are ordered by UTC offset (most negative to most positive) at the time of the request.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

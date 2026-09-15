@@ -10,14 +10,26 @@ layout: null
 
 Update an existing user's information within the company account. This endpoint enables modifying a user's name, role, and phone number while preserving other account details.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Path Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| id | string | Yes | The unique identifier of the user to update |
-| fullName | string | Yes | The user's full name |
-| roleId | string | No | The ID of the role to assign to the user (if not specified, role remains unchanged) |
-| phone | string | No | The user's phone number (max 50 characters) |
+| `id` | uuid | Yes | The unique identifier of the user to update |
+
+### Request Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `fullName` | string | Yes | The user's full name |
+| `roleId` | uuid | No | The ID of the role to assign to the user (if not specified, role remains unchanged) |
+| `phone` | string | No | The user's phone number (max 50 characters) |
 
 ### Example Request
 
@@ -44,4 +56,4 @@ HTTP/1.1 200 OK
 
 Empty response body indicates successful user update.
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

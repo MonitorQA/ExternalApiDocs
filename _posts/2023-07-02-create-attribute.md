@@ -10,14 +10,21 @@ layout: null
 
 Create a new audit object attribute with multiple options. This endpoint enables defining custom attributes that can be assigned to audit objects for better categorization and filtering. At least one option must be provided, and the first option marked as default will be the default value.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| name | string | Yes | The name of the attribute |
-| options | array[object] | Yes | Array of available options (minimum 1 required) |
-| options[].name | string | Yes | The name of the option |
-| options[].isDefault | boolean | No | Whether this option is the default selection |
+| `name` | string | Yes | The name of the attribute |
+| `options` | array[object] | Yes | Array of available options (minimum 1 required) |
+| `options[].name` | string | Yes | The name of the option |
+| `options[].isDefault` | boolean | No | Whether this option is the default selection |
 
 ### Example Request
 
@@ -55,8 +62,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "345678ij-klmn-901a-bcde-f12345678903"
+  "id": "345678ab-cdef-901a-bcde-f12345678903"
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

@@ -10,21 +10,28 @@ layout: null
 
 Create a weekly recurring schedule that generates audits on specified days of the week. This endpoint enables setting up automated audit creation for multiple days within each week.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| templateId | string | Yes | The unique identifier of the audit template to use |
-| auditObjectIds | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
-| auditObjectUnitIds | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
-| name | string | Yes | Display name for the schedule |
-| auditorHint | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
-| assigneesIds | array[uuid] | No | Array of user IDs to assign the generated audits to |
-| daysOfWeek | array[integer] | Yes | Array of weekdays (0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday) |
-| repeatEvery | integer | Yes | Interval in weeks between audit creation |
-| active | boolean | No | Schedule status (defaults to `true`) |
-| startFromDate | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
-| stopByDate | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `templateId` | uuid | Yes | The unique identifier of the audit template to use |
+| `auditObjectIds` | array[uuid] | Conditional | Array of audit object IDs (required if `auditObjectUnitIds` is empty) |
+| `auditObjectUnitIds` | array[uuid] | Conditional | Company structure unit IDs. Schedule applies to **audit objects linked to each unit** (required if `auditObjectIds` is empty) |
+| `name` | string | Yes | Display name for the schedule |
+| `auditorHint` | string | No | Hint text visible to auditors during the audit (max 2000 characters) |
+| `assigneesIds` | array[uuid] | No | Array of user IDs to assign the generated audits to |
+| `daysOfWeek` | array[integer] | Yes | Array of weekdays (0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday) |
+| `repeatEvery` | integer | Yes | Interval in weeks between audit creation |
+| `active` | boolean | No | Schedule status (defaults to `true`) |
+| `startFromDate` | string | No | UTC date when schedule should start (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
+| `stopByDate` | string | No | UTC date after which schedule should stop (format: `yyyy-MM-ddTHH:mm:ss.fffZ`) |
 
 ### Example Request
 
@@ -63,8 +70,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-  "id": "345678op-qrst-567g-hijk-678901234569"
+  "id": "345678ab-cdef-4567-890a-678901234569"
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

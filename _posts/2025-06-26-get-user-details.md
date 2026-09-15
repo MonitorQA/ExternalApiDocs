@@ -84,5 +84,5 @@ Content-Type: application/json
 
 For full role types and permissions details, see the [Role Permissions Reference](#/role-permissions-reference).
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

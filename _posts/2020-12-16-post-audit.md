@@ -20,8 +20,8 @@ Create a one-time audit for a specific user and audit object. This endpoint is u
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `startDate` | datetime | No | Local start date for the audit. If not provided, audit can be started immediately |
-| `endDate` | datetime | Yes | Local due date when the audit must be completed |
+| `startDate` | datetime | No | Start date for the audit, interpreted in the company time zone. Use format `yyyy-MM-ddTHH:mm:ss.fffZ`. If not provided, the audit can be started immediately |
+| `endDate` | datetime | Yes | Due date when the audit must be completed, interpreted in the company time zone. Use format `yyyy-MM-ddTHH:mm:ss.fffZ` |
 | `name` | string | Yes | Name of the audit for identification purposes |
 | `auditorHint` | string | No | Helpful hint or instructions visible to the auditor during audit execution (max 2000 characters) |
 | `templateId` | uuid | Yes | Unique identifier of the audit template to use |
@@ -60,4 +60,4 @@ Content-Type: application/json
 }
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

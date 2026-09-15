@@ -24,7 +24,7 @@ Create a new score system with labels and configuration. Score systems define ho
 | `name` | string | Yes | Score system name |
 | `description` | string | No | Description of the score system |
 | `passedThreshold` | number | Yes | Threshold value for passing |
-| `scoreSystemType` | number | Yes | Score system type: `0` (ProportionToMaxScorePoints) or `1` (CountNotApplicableAsPositive). Cannot be changed after creation |
+| `scoreSystemType` | number | Yes | Score system type: `0` (Proportion of maximum score points) or `1` (Count not applicable as positive). Cannot be changed after creation |
 | `labels` | array | Yes | Array of score labels (at least one required) |
 | `labels[].min` | number | Yes | Minimum score value for this label |
 | `labels[].max` | number | Yes | Maximum score value for this label (must be >= min) |
@@ -53,8 +53,8 @@ Labels must meet the following requirements:
 
 | Value | Description |
 |-------|-------------|
-| `0` | ProportionToMaxScorePoints - Calculates score as proportion of maximum possible points |
-| `1` | CountNotApplicableAsPositive - Counts not applicable items as positive in score calculation |
+| `0` | Proportion of maximum score points — calculates score as a proportion of maximum possible points |
+| `1` | Count not applicable as positive — counts not applicable items as positive in score calculation |
 
 ### Example Request
 
@@ -111,5 +111,5 @@ Content-Type: application/json
 |-------|------|-------------|
 | `id` | uuid | Unique identifier of the created score system |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

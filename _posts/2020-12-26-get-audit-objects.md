@@ -10,6 +10,12 @@ layout: null
 
 Retrieve a list of all audit objects belonging to your company. This endpoint provides a simple collection of audit objects with their basic identification information, ideal for populating selection lists.
 
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+
 ### Example Request
 
 ```http
@@ -32,14 +38,14 @@ Content-Type: application/json
     "name": "Manufacturing Line A"
   },
   {
-    "id": "234567890-abcd-efgh-ijkl-mnopqrstuvwx",
+    "id": "23456789-abcd-4ef0-a012-234567890123",
     "name": "Warehouse Section B"
   },
   {
-    "id": "345678901-bcde-fghi-jklm-nopqrstuvwxy",
+    "id": "34567890-bcde-4f01-a012-345678901234",
     "name": "Quality Control Lab"
   }
 ]
 ```
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).

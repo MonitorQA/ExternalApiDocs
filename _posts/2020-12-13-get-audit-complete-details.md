@@ -25,7 +25,7 @@ Retrieve comprehensive details of a **completed** audit. The response uses the s
 ### Example Request
 
 ```http
-GET /audit/complete/{auditId}
+GET /audit/complete/a1b2c3d4-e5f6-789a-bcde-f01234567890
 Host: api-external.monitorqa.com
 X-API-KEY: abcdef12345
 ```
@@ -139,5 +139,5 @@ Same field set as [Get details of audit](#/get-audit-details). On this route, `r
 | `auditeeSignature` | object | Optional. `photoId` (uuid), `createdBy` (`id`, `name`) |
 | `auditorSignature` | object | Optional. `photoId` (uuid), `createdBy` (`id`, `name`) |
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
 

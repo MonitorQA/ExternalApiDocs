@@ -10,11 +10,18 @@ layout: null
 
 Delete multiple audits from the organization. This endpoint enables permanently removing audits in bulk by providing an array of audit IDs. Use with caution as this action cannot be undone.
 
-## Parameters
+### Request Headers
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| `X-API-KEY` | string | Yes | API authentication key |
+| `Content-Type` | string | Yes | Must be `application/json` |
+
+### Request Body Parameters
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| ids | uuid[] | Yes | Array of audit IDs to be deleted |
+| `ids` | uuid[] | Yes | Array of audit IDs to be deleted |
 
 ### Example Request
 
@@ -44,4 +51,4 @@ HTTP/1.1 200 OK
 Empty response body indicates successful deletion of specified audits.
 
 
-For errors responses, see the [response status codes documentation](#/response-status-codes).
+For error responses, see the [response status codes documentation](#/response-status-codes).
