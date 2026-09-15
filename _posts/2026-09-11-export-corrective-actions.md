@@ -23,7 +23,7 @@ Start an asynchronous CSV export of corrective actions. The response is the expo
 |-----------|------|----------|-------------|
 | `fromDate` | datetime | No | Start of the date range in UTC (`yyyy-MM-ddTHH:mm:ss.fffZ`). If omitted, defaults to two years before the current day |
 | `toDate` | datetime | No | End of the date range in UTC (`yyyy-MM-ddTHH:mm:ss.fffZ`). Must be greater than or equal to `fromDate` when both are set. If omitted, defaults to the current day |
-| `companies` | array[uuid] | No | Company IDs to include. Only companies the API key user can access are used. If omitted or empty, the export includes no companies. Pass accessible IDs from [Get accessible companies](#/get-companies) |
+| `companies` | array[uuid] | No | Company IDs to include. Only companies the API key user can access are used. If omitted or empty, the export uses the current company. Pass accessible IDs from [Get accessible companies](#/get-companies) |
 
 ### Example Request
 
